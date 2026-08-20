@@ -8,3 +8,4 @@ vivi_txt/
 _extract_*.py
 userdata/
 node_modules/
+local-config.json

@@ -124,17 +124,12 @@ a {
 }
 
 .version-tag {
-  position: fixed;
-  top: 10px;
-  right: 12px;
-  z-index: 30;
+  margin-left: auto;
   display: inline-flex;
   align-items: center;
   height: 24px;
   padding: 0 8px;
   border-radius: 999px;
-  background: transparent;
-  border: 1px solid var(--border);
   color: var(--muted);
   font-size: 12px;
   font-weight: 700;
@@ -1415,10 +1410,6 @@ textarea#jsonInput:focus {
 }
 
 @media (min-width: 861px) {
-  .topbar-actions {
-    margin-right: 72px;
-  }
-
   #sheetToggleBtn {
     display: none;
   }
@@ -1564,10 +1555,7 @@ textarea#jsonInput:focus {
   .topbar-actions {
     flex-basis: 100%;
     justify-content: flex-start;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin-right: 80px;
+    flex-wrap: wrap;
   }
 
   .topbar-actions .btn {

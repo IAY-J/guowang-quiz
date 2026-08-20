@@ -61,6 +61,11 @@ const MIME = {
 const server = http.createServer(async (req, res) => {
   if (req.method === 'OPTIONS') { sendJson(res, 200, {}); return; }
   const url = (req.url || '/').split('?')[0];
+  if (req.method === 'GET' && url === '/api/gh-config') {
+    const cfgPath = path.join(ROOT, 'local-config.json');
+    if (fs.existsSync(cfgPath)) return sendJson(res, 200, JSON.parse(fs.readFileSync(cfgPath, 'utf8')));
+    return sendJson(res, 404, { error: 'no config' });
+  }
   try {
     if (req.method === 'POST') {
       const body = await readBody(req);
@@ -76,6 +81,11 @@ const server = http.createServer(async (req, res) => {
         const rec = auth(body);
         if (!rec) return sendJson(res, 401, { error: '用户名或密码错误' });
         return sendJson(res, 200, { ok: true, data: rec.data || {} });
+      }
+      if (url === '/api/gh-config') {
+        const cfgPath = path.join(ROOT, 'local-config.json');
+        if (fs.existsSync(cfgPath)) return sendJson(res, 200, JSON.parse(fs.readFileSync(cfgPath, 'utf8')));
+        return sendJson(res, 404, { error: 'no config' });
       }
       if (url === '/api/save') {
         const rec = auth(body);

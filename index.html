@@ -26,7 +26,7 @@
         <button class="btn btn-ghost" id="changeBankBtn" type="button" hidden>导入题库</button>
         <button class="btn btn-ghost" id="restartBtn" type="button" hidden>开始测试</button>
       </div>
-      <span class="version-tag" id="versionTag">V1.0.3</span>
+      <span class="version-tag" id="versionTag">V1.0.4</span>
     </div>
   </header>
 
@@ -44,23 +44,7 @@
       <input type="file" id="importDataFile" accept=".json,application/json" hidden>
       <textarea id="importDataText" rows="4" hidden placeholder="或在这里粘贴导出的 JSON 数据"></textarea>
       <button class="btn btn-primary btn-small" id="importDataConfirmBtn" type="button" hidden>确认导入</button>
-      <div id="qrBox" hidden><img id="qrImg" alt="数据二维码"></div>
-<div class="account-bar" id="githubAutoPanel">
-        <h2>GitHub 定时自动上传</h2>
-        <p class="muted">填写令牌后，数据变化会自动上传；错题、已做/未做、进度都会同步。</p>
-        <div class="sync-fields">
-          <label><span>Owner</span><input id="ghOwner" placeholder="IAY-J"></label>
-          <label><span>仓库名</span><input id="ghRepo" placeholder="guowang-quiz"></label>
-          <label><span>令牌</span><input type="password" id="ghToken" placeholder="github_pat_..."></label>
-          <label><span>间隔（分钟）</span><input type="number" id="ghInterval" min="1" value="5"></label>
-        </div>
-        <label class="sync-auto"><input type="checkbox" id="ghAuto"> 开启定时自动上传</label>
-        <div class="import-actions">
-          <button class="btn btn-secondary" id="ghSaveBtn" type="button">保存设置</button>
-          <button class="btn btn-secondary" id="ghPullBtn" type="button">从 GitHub 拉取</button>
-        </div>
-        <p class="muted small" id="ghStatus"></p>
-      </div>      </div>
+      </div>
     </section>
 
     <section class="view import-view" id="importView">

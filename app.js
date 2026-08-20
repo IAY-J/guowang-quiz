@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.0.3';
+  var APP_VERSION = '1.0.4';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
   var SYNC_KEY = 'smart-quiz-sync-v1';
   var ACCOUNT_KEY = 'smart-quiz-account-v1';
@@ -379,7 +379,7 @@
     $('#resultView').hidden = state.view !== 'result';
     $('#wrongView').hidden = state.view !== 'wrong';
     $('#editorView').hidden = state.view !== 'editor';
-    if (state.view === 'mode') { renderModeGrid(); ghFill(); }
+    if (state.view === 'mode') renderModeGrid();
     if (state.view === 'quiz') renderQuiz();
     if (state.view === 'result') renderResult();
     if (state.view === 'wrong') renderStoredWrong();
@@ -965,7 +965,13 @@
   }
 
   function ghLoad() {
-    try { return JSON.parse(localStorage.getItem(GH_SYNC_KEY) || 'null') || {}; } catch (e) { return {}; }
+    var s = {};
+    try { s = JSON.parse(localStorage.getItem(GH_SYNC_KEY) || 'null') || {}; } catch (e) { s = {}; }
+    s.owner = s.owner || 'IAY-J';
+    s.repo = s.repo || 'guowang-quiz';
+    s.interval = Math.max(1, Number(s.interval) || 5);
+    s.auto = s.auto !== false;
+    return s;
   }
 
   function ghSave() {
@@ -1044,6 +1050,23 @@
       renderAll();
       ghStatus('已从 GitHub 拉取并应用');
     } catch (e) { ghStatus('拉取失败：' + e.message); }
+  }
+
+  async function loadGhConfigFromServer() {
+    try {
+      var res = await fetch('/api/gh-config', { cache: 'no-store' });
+      if (!res.ok) return;
+      var cfg = await res.json();
+      if (!cfg || !cfg.token) return;
+      var s = ghLoad();
+      s.owner = cfg.owner || s.owner;
+      s.repo = cfg.repo || s.repo;
+      s.token = cfg.token;
+      s.auto = true;
+      localStorage.setItem(GH_SYNC_KEY, JSON.stringify(s));
+      startGhTimer();
+      setTimeout(function () { uploadGh(true); }, 3000);
+    } catch (e) { /* ignore */ }
   }
 
   var ghTimer = null;
@@ -1999,8 +2022,6 @@
 
   $('#pasteImportBtn').addEventListener('click', function () { importFromText($('#jsonInput').value); });
   $('#jsonInput').addEventListener('input', function () { $('#importError').hidden = true; });
-  $('#ghSaveBtn').addEventListener('click', ghSave);
-  $('#ghPullBtn').addEventListener('click', pullGh);
   $('#exportDataBtn').addEventListener('click', exportData);
   $('#importDataBtn').addEventListener('click', toggleImport);
   $('#importDataConfirmBtn').addEventListener('click', function () { importDataFromText($('#importDataText').value); });
@@ -2190,4 +2211,5 @@
   }
   renderAll();
   startGhTimer();
+  loadGhConfigFromServer();
 })();
