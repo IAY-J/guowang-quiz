@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>国网通信类刷题</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">题</span>
+        <span class="brand-name">国网通信刷题</span>
+      </div>
+      <div class="bank-title" id="bankTitle">正在载入题库…</div>
+      <div class="topbar-actions">
+        <button class="btn btn-ghost" id="wrongBankBtn" type="button" hidden>错题库</button>
+        <button class="btn btn-ghost" id="editBankBtn" type="button" hidden>编辑题库</button>
+        <button class="btn btn-ghost" id="changeBankBtn" type="button" hidden>导入题库</button>
+        <button class="btn btn-ghost" id="restartBtn" type="button" hidden>开始测试</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="app">
+    <section class="view mode-view" id="modeView" hidden>
+      <div class="mode-panel">
+        <h1>选择练习模式</h1>
+        <p class="muted" id="modeSummary"></p>
+        <div class="mode-grid" id="modeGrid"></div>
+      </div>
+    </section>
+
+    <section class="view import-view" id="importView">
+      <div class="import-panel">
+        <h1>导入题库</h1>
+        <p class="muted">接受 JSON 题库，支持选择文件、拖拽文件或粘贴内容。</p>
+
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="选择题库文件">
+          <input type="file" id="fileInput" accept=".json,application/json" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+            <path d="M12 16V4m0 0 4 4m-4-4L8 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <div class="dropzone-text">
+            <strong>选择或拖拽 JSON 文件</strong>
+            <span>点击这里浏览文件</span>
+          </div>
+        </div>
+
+        <textarea id="jsonInput" rows="8" spellcheck="false" placeholder='{"title":"套题名称","questions":[...]}'></textarea>
+
+        <div class="import-actions">
+          <button class="btn btn-primary" id="pasteImportBtn" type="button">从粘贴内容导入</button>
+          <button class="btn btn-secondary" id="backFromImportBtn" type="button" hidden>返回当前题库</button>
+        </div>
+        <p class="error-text" id="importError" role="alert" hidden></p>
+        <p class="muted small">题库格式说明见 <a href="BANK_FORMAT.md" target="_blank" rel="noopener">BANK_FORMAT.md</a></p>
+      </div>
+    </section>
+
+    <section class="view quiz-view" id="quizView" hidden>
+      <div class="quiz-layout">
+        <div class="quiz-main">
+          <div class="status-strip">
+            <div class="progress-wrap">
+              <div class="progress-label">
+                <span id="progressText">1 / 165</span>
+                <span id="scoreText">得分 0 / 0</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+            </div>
+            <div class="answer-count">已答 <strong id="answeredCount">0</strong> / <span id="totalCount">0</span></div>
+            <button class="btn btn-secondary btn-small" id="sheetToggleBtn" type="button">答题卡</button>
+          </div>
+
+          <article class="question-panel" id="questionPanel"></article>
+
+          <div class="nav-row">
+            <button class="btn btn-secondary" id="prevBtn" type="button" data-action="prev">上一题</button>
+            <button class="btn btn-primary" id="nextBtn" type="button" data-action="next">下一题</button>
+          </div>
+        </div>
+
+        <aside class="answer-sheet" aria-label="答题卡">
+          <div class="sheet-head">
+            <h2>答题卡</h2>
+            <div class="legend">
+              <span class="legend-dot ok"></span><span>对</span>
+              <span class="legend-dot bad"></span><span>错</span>
+              <span class="legend-dot current"></span><span>当前</span>
+            </div>
+          </div>
+          <div class="sheet-grid" id="sheetGrid"></div>
+          <button class="btn btn-secondary btn-small reselect-row" id="reselectInQuizBtn" type="button">重新选择模式</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="view result-view" id="resultView" hidden>
+      <div class="result-panel">
+        <div class="score-hero">
+          <div class="score-ring" id="scoreRing">
+            <span id="finalScore">0</span>
+            <small>分</small>
+          </div>
+          <div class="score-copy">
+            <h1 id="resultTitle">答题完成</h1>
+            <p id="resultSubtitle"></p>
+            <div class="result-actions">
+              <button class="btn btn-primary" id="continueBtn" type="button">继续作答</button>
+              <button class="btn btn-secondary" id="reselectModeBtn" type="button">重新选择模式</button>
+              <button class="btn btn-primary" id="retryWrongBtn" type="button">重练错题</button>
+              <button class="btn btn-secondary" id="exportWrongBtn" type="button">导出错题库</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid"></div>
+
+        <section class="wrong-list">
+          <div class="section-head">
+            <h2>本次错题</h2>
+            <span id="wrongCount"></span>
+          </div>
+          <div id="wrongList"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="view wrong-view" id="wrongView" hidden>
+      <div class="result-panel">
+        <div class="panel-head">
+          <div>
+            <h1>错题库</h1>
+            <p class="muted" id="wrongViewSummary"></p>
+          </div>
+        </div>
+        <div class="filter-tabs" id="wrongFilterTabs"></div>
+        <div id="storedWrongList"></div>
+        <div class="wrong-actions">
+          <div class="result-actions">
+            <button class="btn btn-secondary btn-small" id="retryStoredWrongBtn" type="button">重练错题</button>
+            <button class="btn btn-secondary btn-small" id="exportStoredWrongBtn" type="button">导出错题库</button>
+            <button class="btn btn-secondary btn-small" id="clearStoredWrongBtn" type="button">清空错题库</button>
+            <button class="btn btn-secondary btn-small" id="backFromWrongBtn" type="button">返回答题</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view editor-view" id="editorView" hidden>
+      <div class="result-panel editor-panel">
+        <div class="panel-head">
+          <div>
+            <h1>编辑题库</h1>
+            <p class="muted" id="editorSummary"></p>
+          </div>
+          <div class="result-actions">
+            <button class="btn btn-secondary btn-small" id="addQuestionBtn" type="button">添加题目</button>
+            <button class="btn btn-secondary btn-small" id="saveBankBtn" type="button">保存题库</button>
+            <button class="btn btn-secondary btn-small" id="exportBankBtn" type="button">导出题库</button>
+            <button class="btn btn-secondary btn-small" id="backFromEditorBtn" type="button">返回</button>
+          </div>
+        </div>
+
+        <div class="editor-toolbar">
+          <span class="muted" id="editorSelectedInfo">已选 0 题</span>
+          <input type="search" id="editorSearch" placeholder="输入文字搜索题目">
+          <button class="btn btn-secondary btn-small" id="selectAllBtn" type="button">全选</button>
+          <button class="btn btn-secondary btn-small" id="clearSelectBtn" type="button">取消选择</button>
+          <button class="btn btn-secondary btn-small btn-danger" id="deleteSelectedBtn" type="button">删除选中</button>
+          <button class="btn btn-secondary btn-small" id="exportSelectedBtn" type="button">导出选中</button>
+        </div>
+        <div class="filter-tabs" id="editorCatTabs"></div>
+
+        <div class="question-editor" id="questionEditor" hidden>
+          <h3 id="questionEditorTitle">编辑题目</h3>
+          <input type="hidden" id="editIndex">
+          <div class="editor-grid">
+            <label class="editor-field">
+              <span>题型</span>
+              <select id="editType">
+                <option value="single">单选</option>
+                <option value="multiple">多选</option>
+                <option value="judge">判断</option>
+              </select>
+            </label>
+            <label class="editor-field">
+              <span>板块</span>
+              <select id="editSection"></select>
+            </label>
+            <label class="editor-field">
+              <span>分类题库</span>
+              <select id="editCategory"></select>
+            </label>
+            <label class="editor-field">
+              <span>分值</span>
+              <input type="number" id="editScore" min="0" step="0.5" placeholder="默认0.5">
+            </label>
+          </div>
+          <label class="editor-field">
+            <span>题干</span>
+            <textarea id="editStem" rows="3"></textarea>
+          </label>
+          <label class="editor-field">
+            <span>图片（每行一个，支持图片地址或 base64）</span>
+            <textarea id="editImages" rows="2" placeholder="https://.../1.png 或 data:image/png;base64,..."></textarea>
+            <div class="editor-images-preview" id="editImagesPreview"></div>
+          </label>
+          <div class="editor-field">
+            <span>选项（判断题为 正确/错误）</span>
+            <div class="edit-options" id="editOptionsWrap"></div>
+          </div>
+          <div class="editor-field">
+            <span>正确答案</span>
+            <div class="edit-answer" id="editAnswerWrap"></div>
+          </div>
+          <label class="editor-field">
+            <span>解析</span>
+            <textarea id="editReason" rows="3"></textarea>
+          </label>
+          <div class="editor-form-actions">
+            <button class="btn btn-primary" id="saveQuestionBtn" type="button">保存题目</button>
+            <button class="btn btn-secondary" id="cancelQuestionBtn" type="button">取消</button>
+          </div>
+        </div>
+
+        <div id="editorList"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="bank-data.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
