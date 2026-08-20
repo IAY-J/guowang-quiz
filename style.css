@@ -130,15 +130,15 @@ a {
   z-index: 30;
   display: inline-flex;
   align-items: center;
-  height: 26px;
-  padding: 0 10px;
+  height: 24px;
+  padding: 0 8px;
   border-radius: 999px;
-  background: var(--primary-soft);
-  color: var(--primary);
-  font-size: 13px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
-  box-shadow: 0 1px 3px rgba(20, 35, 50, 0.15);
 }
 
 .app {
@@ -1415,6 +1415,10 @@ textarea#jsonInput:focus {
 }
 
 @media (min-width: 861px) {
+  .topbar-actions {
+    margin-right: 72px;
+  }
+
   #sheetToggleBtn {
     display: none;
   }
