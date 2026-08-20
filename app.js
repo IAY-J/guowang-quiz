@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.0.1';
+  var APP_VERSION = '1.0.2';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
   var SYNC_KEY = 'smart-quiz-sync-v1';
   var ACCOUNT_KEY = 'smart-quiz-account-v1';
@@ -364,11 +364,6 @@
   }
 
   function renderAll() {
-    var isLogin = state.view === 'login';
-    var topbar = document.querySelector('header.topbar');
-    if (topbar) topbar.style.display = isLogin ? 'none' : '';
-    var lv = $('#loginView');
-    if (lv) lv.hidden = !isLogin;
     $('#bankTitle').textContent = state.bank ? state.bank.title : (state.master ? state.master.title : '尚未加载题库');
     $('#wrongBankBtn').hidden = false;
     var vt = $('#versionTag');
@@ -379,7 +374,6 @@
     $('#modeView').hidden = state.view !== 'mode';
     $('#importView').hidden = state.view !== 'import';
     $('#backFromImportBtn').hidden = state.view !== 'import' || !state.master;
-    if (state.view === 'mode') renderAccountPanel();
     $('#quizView').hidden = state.view !== 'quiz';
     $('#resultView').hidden = state.view !== 'result';
     $('#wrongView').hidden = state.view !== 'wrong';
@@ -928,6 +922,45 @@
     if ($('#accountUser')) $('#accountUser').value = stored.user;
     if ($('#accountPass')) $('#accountPass').value = stored.pass;
     await accountLogin(true);
+  }
+
+  function dataSyncStatus(msg) {
+    var el = $('#dataSyncStatus');
+    if (el) el.textContent = msg;
+  }
+
+  function exportData() {
+    if (!state.master) { dataSyncStatus('请先加载题库'); return; }
+    var data = buildCloudData();
+    var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'quiz-data-' + Date.now() + '.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    dataSyncStatus('已导出数据文件');
+  }
+
+  function importDataFromText(text) {
+    try {
+      var data = JSON.parse(text);
+      applyCloudData(data);
+      renderAll();
+      dataSyncStatus('导入成功，数据已载入');
+    } catch (e) { dataSyncStatus('导入失败：' + e.message); }
+  }
+
+  function toggleImport() {
+    var ta = $('#importDataText');
+    var btn = $('#importDataConfirmBtn');
+    if (!ta || !btn) return;
+    var hidden = ta.hidden;
+    ta.hidden = !hidden;
+    btn.hidden = !hidden;
+    if (hidden) { ta.value = ''; ta.focus(); }
   }
 
   function questionFingerprint(q) {
@@ -1868,24 +1901,20 @@
 
   $('#pasteImportBtn').addEventListener('click', function () { importFromText($('#jsonInput').value); });
   $('#jsonInput').addEventListener('input', function () { $('#importError').hidden = true; });
-  $('#accountLoginBtn').addEventListener('click', function () { accountLogin(false); });
-  $('#accountRegisterBtn').addEventListener('click', accountRegister);
-  $('#accountLogoutBtn').addEventListener('click', accountLogout);
-  $('#accountSaveBtn').addEventListener('click', saveAccountNow);
-  $('#guestModeBtn').addEventListener('click', function () {
-    state.accountUser = null;
-    state.accountPass = null;
-    if (accountInterval) clearInterval(accountInterval);
-    accountInterval = null;
-    state.view = 'mode';
-    saveState();
-    renderAll();
-    setAccountStatus('游客模式：数据仅保存在本机，不跨设备同步。');
+  $('#exportDataBtn').addEventListener('click', exportData);
+  $('#importDataBtn').addEventListener('click', toggleImport);
+  $('#importDataConfirmBtn').addEventListener('click', function () { importDataFromText($('#importDataText').value); });
+  $('#importDataFile').addEventListener('change', function (e) {
+    var file = e.target.files && e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () { importDataFromText(String(reader.result || '')); };
+    reader.onerror = function () { dataSyncStatus('读取文件失败'); };
+    reader.readAsText(file, 'utf-8');
+    e.target.value = '';
   });
-  $('#accountLoginBarBtn').addEventListener('click', function () {
-    state.view = 'login';
-    renderAll();
-  });
+
+
   $('#backFromImportBtn').addEventListener('click', function () {
     state.view = state.bank ? 'quiz' : 'mode';
     saveState();
@@ -2059,7 +2088,5 @@
     syncEmbeddedImages();
     syncEmbeddedQuestions();
   }
-  state.view = 'login';
   renderAll();
-  autoLogin();
 })();

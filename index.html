@@ -20,43 +20,25 @@
         <button class="btn btn-ghost" id="changeBankBtn" type="button" hidden>导入题库</button>
         <button class="btn btn-ghost" id="restartBtn" type="button" hidden>开始测试</button>
       </div>
-      <span class="version-tag" id="versionTag">V1.0.1</span>
+      <span class="version-tag" id="versionTag">V1.0.2</span>
     </div>
   </header>
 
   <main id="app" class="app">
-    <section class="view login-view" id="loginView" hidden>
-      <div class="login-card">
-        <div class="brand login-brand">
-          <span class="brand-mark" aria-hidden="true">题</span>
-          <span class="brand-name">国网通信刷题</span>
-        </div>
-        <h1>登录账号</h1>
-        <p class="muted">登录并同步云端数据后开始做题。</p>
-        <div class="sync-fields">
-          <label><span>用户名</span><input id="accountUser" placeholder="输入用户名"></label>
-          <label><span>6位密码</span><input type="password" id="accountPass" maxlength="6" inputmode="numeric" placeholder="6位数字"></label>
-        </div>
-        <div class="import-actions">
-          <button class="btn btn-primary" id="accountLoginBtn" type="button">登录</button>
-          <button class="btn btn-secondary" id="accountRegisterBtn" type="button">注册</button>
-          <button class="btn btn-secondary" id="guestModeBtn" type="button">游客模式（本地做题）</button>
-        </div>
-        <p class="muted small" id="accountStatus"></p>
-      </div>
-    </section>
-
     <section class="view mode-view" id="modeView" hidden>
       <div class="mode-panel">
         <h1>选择练习模式</h1>
         <p class="muted" id="modeSummary"></p>
         <div class="mode-grid" id="modeGrid"></div>
-              <div class="account-bar" id="accountBar">
-        <span class="muted" id="accountStatusBar">未登录</span>
-        <button class="btn btn-secondary btn-small" id="accountLoginBarBtn" type="button" hidden>登录账号</button>
-        <button class="btn btn-secondary btn-small" id="accountSaveBtn" type="button" hidden>立即保存</button>
-        <button class="btn btn-secondary btn-small" id="accountLogoutBtn" type="button" hidden>退出</button>
-      </div>      </div>
+                    <div class="account-bar" id="dataSyncPanel">
+        <span class="muted" id="dataSyncStatus">导出/导入数据用于换设备同步。</span>
+        <button class="btn btn-secondary btn-small" id="exportDataBtn" type="button">导出数据</button>
+        <button class="btn btn-secondary btn-small" id="importDataBtn" type="button">导入数据</button>
+      </div>
+      <input type="file" id="importDataFile" accept=".json,application/json" hidden>
+      <textarea id="importDataText" rows="4" hidden placeholder="或在这里粘贴导出的 JSON 数据"></textarea>
+      <button class="btn btn-primary btn-small" id="importDataConfirmBtn" type="button" hidden>确认导入</button>
+      <div id="qrBox" hidden><img id="qrImg" alt="数据二维码"></div>      </div>
     </section>
 
     <section class="view import-view" id="importView">
