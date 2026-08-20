@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-git add -- .gitignore index.html app.js style.css bank-data.js sample-bank.json README.md BANK_FORMAT.md gen_bank.py validate_bank.py make_import_test.py import-test-bank.json tongxin-moni-kaoshi.json deploy.ps1
+git add -- .gitignore index.html app.js style.css bank-data.js sample-bank.json README.md BANK_FORMAT.md gen_bank.py validate_bank.py make_import_test.py import-test-bank.json tongxin-moni-kaoshi.json peixun-tiji.md quanshu-tiji.md xinzeng-ziliao-tiku.json deploy.ps1
 git commit -m "Update quiz app"
 git push origin main
 

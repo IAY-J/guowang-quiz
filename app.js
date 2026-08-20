@@ -4,7 +4,7 @@
   var $ = function (sel) { return document.querySelector(sel); };
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
-  var EMBEDDED_BANK_VERSION = 3;
+  var EMBEDDED_BANK_VERSION = 6;
   var WRONG_KEY = 'smart-quiz-wrong-v2';
   var SYNC_KEY = 'smart-quiz-sync-v1';
   var LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];

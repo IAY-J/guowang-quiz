@@ -1162,6 +1162,26 @@ textarea#jsonInput:focus {
   border-color: var(--primary);
 }
 
+.editor-row .question-head {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.editor-row .question-head > * {
+  flex: 0 0 auto;
+}
+
+.wrong-item-head {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.wrong-item-head > * {
+  flex: 0 0 auto;
+}
+
 .editor-row {
   display: flex;
   justify-content: space-between;
