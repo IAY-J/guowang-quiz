@@ -65,3 +65,15 @@ python gen_bank.py
 ```
 
 同时生成 `sample-bank.json` 和 `bank-data.js`，其中 `bank-data.js` 是页面直接使用的可编辑题库。
+
+## 部署到 GitHub Pages
+
+本项目已部署到 https://iay-j.github.io/guowang-quiz/ ，仓库为 IAY-J/guowang-quiz。
+
+以后修改完程序或题库，在项目目录运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File deploy.ps1
+```
+
+推送完成后等 1-2 分钟，GitHub Pages 自动更新。
