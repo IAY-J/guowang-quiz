@@ -698,7 +698,7 @@
   }
 
   function syncSaveSettings() {
-    var s = { owner: $('#syncOwner').value.trim(), repo: $('#syncRepo').value.trim(), token: $('#syncToken').value.trim() };
+    var s = { owner: $('#syncOwner').value.trim(), repo: $('#syncRepo').value.trim(), token: $('#syncToken').value.trim(), auto: !!$('#syncAuto').checked };
     localStorage.setItem(SYNC_KEY, JSON.stringify(s));
     setSyncStatus('同步设置已保存');
   }
@@ -708,6 +708,7 @@
     if ($('#syncOwner')) $('#syncOwner').value = s.owner || 'IAY-J';
     if ($('#syncRepo')) $('#syncRepo').value = s.repo || 'guowang-quiz';
     if ($('#syncToken')) $('#syncToken').value = s.token || '';
+    if ($('#syncAuto')) $('#syncAuto').checked = !!s.auto;
   }
 
   function setSyncStatus(msg) {
@@ -723,6 +724,40 @@
     return btoa(unescape(encodeURIComponent(str)));
   }
 
+  function buildCloudData() {
+    return {
+      version: APP_VERSION,
+      master: state.master,
+      bank: state.bank,
+      answers: state.answers,
+      current: state.current,
+      mode: state.mode,
+      modeName: state.modeName,
+      wrong: loadStoredWrong(),
+      submitted: state.submitted
+    };
+  }
+
+  function applyCloudData(data) {
+    if (!data || !data.master) throw new Error('云端数据缺少题库');
+    state.master = normalizeBank(data.master);
+    state.bank = data.bank && Array.isArray(data.bank.questions) && data.bank.questions.length ? data.bank : null;
+    state.answers = Array.isArray(data.answers) ? data.answers : [];
+    if (!state.bank || state.answers.length !== state.bank.questions.length) {
+      state.bank = buildBankForMode(data.mode || 'composite');
+      state.answers = state.bank ? new Array(state.bank.questions.length).fill(null) : [];
+    }
+    state.current = Math.max(0, Math.min(Number(data.current) || 0, Math.max(0, state.bank.questions.length - 1)));
+    state.mode = data.mode || 'composite';
+    state.modeName = data.modeName || '';
+    state.submitted = !!data.submitted;
+    state.wrongOnly = false;
+    state.draft = new Set();
+    if (Array.isArray(data.wrong)) saveStoredWrong(data.wrong);
+    state.view = state.bank ? 'quiz' : 'mode';
+    saveState();
+  }
+
   async function pushBankToGithub() {
     if (!state.master) { setSyncStatus('请先加载题库'); return; }
     syncSaveSettings();
@@ -732,60 +767,52 @@
     if (!token) { setSyncStatus('请填写 GitHub 令牌'); return; }
     setSyncStatus('正在推送…');
     try {
-      var path = 'cloud-bank.json';
+      var path = 'cloud-data.json';
       var sha = null;
       var get = await fetch('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contents/' + path, { headers: syncHeaders(token) });
       if (get.ok) { var meta = await get.json(); sha = meta.sha; }
-      var body = { message: 'Sync question bank from app', content: b64EncodeUtf8(JSON.stringify(state.master, null, 2)), branch: 'main' };
+      var body = { message: 'Sync user data from app', content: b64EncodeUtf8(JSON.stringify(buildCloudData(), null, 2)), branch: 'main' };
       if (sha) body.sha = sha;
-      var put = await fetch('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contents/' + path, {
-        method: 'PUT',
-        headers: Object.assign(syncHeaders(token), { 'Content-Type': 'application/json' }),
-        body: JSON.stringify(body)
-      });
-      if (put.ok) setSyncStatus('推送成功，云端题库已更新');
+      var put = await fetch('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contents/' + path, { method: 'PUT', headers: Object.assign(syncHeaders(token), { 'Content-Type': 'application/json' }), body: JSON.stringify(body) });
+      if (put.ok) setSyncStatus('推送成功，云端数据已更新');
       else { var err = await put.json().catch(function () { return {}; }); setSyncStatus('推送失败：' + (err.message || put.status) + '（请检查令牌是否有效且勾选 repo 权限）'); }
     } catch (e) { setSyncStatus('推送失败：' + e.message); }
   }
 
-  async function pullBankFromGithub() {
+  async function pullBankFromGithub(silent) {
     syncSaveSettings();
     var token = $('#syncToken').value.trim();
     var owner = $('#syncOwner').value.trim();
     var repo = $('#syncRepo').value.trim();
-    if (!token) { setSyncStatus('请先填写 GitHub 令牌并保存'); return; }
-    setSyncStatus('正在拉取…');
+    if (!token) { if (!silent) setSyncStatus('请先填写 GitHub 令牌并保存'); return; }
+    if (!silent) setSyncStatus('正在拉取…');
     try {
-      var apiUrl = 'https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contents/cloud-bank.json';
+      var apiUrl = 'https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contents/cloud-data.json';
       var res = await fetch(apiUrl, { headers: Object.assign(syncHeaders(token), { 'Accept': 'application/vnd.github.raw+json' }) });
       var raw = null;
-      if (res.ok) {
-        raw = await res.text();
-      } else if (res.status === 404) {
-        var fallback = await fetch('https://raw.githubusercontent.com/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/main/cloud-bank.json', { cache: 'no-store' });
+      if (res.ok) raw = await res.text();
+      else if (res.status === 404) {
+        var fallback = await fetch('https://raw.githubusercontent.com/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/main/cloud-data.json', { cache: 'no-store' });
         if (fallback.ok) raw = await fallback.text();
       } else {
         var err = await res.json().catch(function () { return {}; });
-        setSyncStatus('拉取失败：' + (err.message || res.status) + '（请检查令牌是否有效且勾选 repo 权限）');
+        if (!silent) setSyncStatus('拉取失败：' + (err.message || res.status) + '（请检查令牌是否有效且勾选 repo 权限）');
         return;
       }
-      if (!raw) {
-        setSyncStatus('云端还没有 cloud-bank.json，请先在任意设备点“推送题库到云端”上传一次');
-        return;
-      }
-      var bank;
-      try { bank = normalizeBank(JSON.parse(raw)); } catch (e) { setSyncStatus('云端题库格式不正确：' + e.message); return; }
-      if (!confirm('拉取云端题库将替换当前题库，确定继续吗？')) { setSyncStatus('已取消'); return; }
-      state.master = bank;
-      state.bank = null;
-      state.mode = null;
-      state.answers = [];
-      state.current = 0;
-      state.view = 'mode';
-      saveState();
+      if (!raw) { if (!silent) setSyncStatus('云端还没有 cloud-data.json，请先在任意设备点“推送”上传一次'); return; }
+      var data;
+      try { data = JSON.parse(raw); } catch (e) { if (!silent) setSyncStatus('云端数据格式不正确：' + e.message); return; }
+      if (!silent && !confirm('拉取云端数据将替换当前题库和进度，确定继续吗？')) { setSyncStatus('已取消'); return; }
+      applyCloudData(data);
       renderAll();
-      setSyncStatus('拉取成功，云端题库已载入');
-    } catch (e) { setSyncStatus('拉取失败：' + e.message); }
+      if (!silent) setSyncStatus('拉取成功，云端数据已载入');
+    } catch (e) { if (!silent) setSyncStatus('拉取失败：' + e.message); }
+  }
+
+  async function maybeAutoSync() {
+    var s = syncLoadSettings();
+    if (!s.auto || !s.token) return;
+    await pullBankFromGithub(true);
   }
 
     function questionFingerprint(q) {
@@ -1903,4 +1930,5 @@
     syncEmbeddedQuestions();
   }
   renderAll();
+  maybeAutoSync();
 })();

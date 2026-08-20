@@ -19,8 +19,8 @@
         <button class="btn btn-ghost" id="editBankBtn" type="button" hidden>编辑题库</button>
         <button class="btn btn-ghost" id="changeBankBtn" type="button" hidden>导入题库</button>
         <button class="btn btn-ghost" id="restartBtn" type="button" hidden>开始测试</button>
-        <span class="version-tag" id="versionTag">V1.0.1</span>
       </div>
+      <span class="version-tag" id="versionTag">V1.0.1</span>
     </div>
   </header>
 
@@ -64,6 +64,7 @@
             <label><span>仓库名</span><input id="syncRepo" placeholder="guowang-quiz"></label>
             <label><span>令牌</span><input type="password" id="syncToken" placeholder="github_pat_..."></label>
           </div>
+          <label class="sync-auto"><input type="checkbox" id="syncAuto"> 打开时自动拉取云端数据</label>
           <div class="import-actions">
             <button class="btn btn-secondary" id="syncPullBtn" type="button">从云端拉取题库</button>
             <button class="btn btn-secondary" id="syncPushBtn" type="button">推送题库到云端</button>
