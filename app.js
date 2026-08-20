@@ -244,7 +244,7 @@
   }
 
   function bySection(master, section) {
-    return master.questions.filter(function (q) { return q.section === section; }).map(cloneBank).sort(function (a, b) { return a.id - b.id; });
+    return master.questions.filter(function (q) { return q.section === section && !q.done; }).map(cloneBank).sort(function (a, b) { return a.id - b.id; });
   }
 
   function buildCompositeBank(master) {
@@ -272,7 +272,7 @@
     if (mode === 'composite') {
       questions = buildCompositeBank(master);
     } else {
-      questions = shuffle(master.questions.filter(function (q) { return q.category === mode; }).map(cloneBank));
+      questions = shuffle(master.questions.filter(function (q) { return q.category === mode && !q.done; }).map(cloneBank));
     }
     questions = orderByType(questions);
     if (questions.length > 165) questions = questions.slice(0, 165);
@@ -619,6 +619,9 @@
     var q = state.bank.questions[state.current];
     var correct = isCorrect(q, selected);
     state.answers[state.current] = { selected: selected, correct: correct, points: correct ? q.score : 0 };
+    q.done = true;
+    var mi = state.master.questions.findIndex(function (x) { return String(x.id) === String(q.id); });
+    if (mi >= 0) state.master.questions[mi].done = true;
     state.draft = new Set();
     if (correct) removeStoredWrong(q.id);
     else addStoredWrong(q, selected);
@@ -1105,7 +1108,10 @@
       var catBadge = document.createElement('span');
       catBadge.className = 'cat-badge';
       catBadge.textContent = categoryName(q.category) || q.category;
-      head.append(num, typeBadge, sectionBadge, catBadge);
+      var doneBadge = document.createElement('span');
+      doneBadge.className = q.done ? 'done-badge done' : 'done-badge';
+      doneBadge.textContent = q.done ? '已做' : '未做';
+      head.append(num, typeBadge, sectionBadge, catBadge, doneBadge);
       if (q.images && q.images.length) {
         var imgBadge = document.createElement('span');
         imgBadge.className = 'cat-badge';
@@ -1146,7 +1152,13 @@
       delBtn.dataset.action = 'delete-question';
       delBtn.dataset.id = q.id;
       delBtn.textContent = '删除';
-      actions.append(editBtn, upBtn, downBtn, delBtn);
+      var doneBtn = document.createElement('button');
+      doneBtn.type = 'button';
+      doneBtn.className = 'btn btn-secondary btn-small';
+      doneBtn.dataset.action = 'toggle-done';
+      doneBtn.dataset.id = q.id;
+      doneBtn.textContent = q.done ? '标记未做' : '标记已做';
+      actions.append(doneBtn, editBtn, upBtn, downBtn, delBtn);
       row.append(selectBox, main, actions);
       wrap.append(row);
     });
@@ -1379,6 +1391,19 @@
       questions: list.map(cloneBank)
     };
     downloadJson(bank, '选中题目-' + Date.now() + '.json');
+  }
+
+  function toggleQuestionDone(id) {
+    var q = state.master.questions.find(function (x) { return String(x.id) === String(id); });
+    if (!q) return;
+    q.done = !q.done;
+    if (state.bank) {
+      var bq = state.bank.questions.find(function (x) { return String(x.id) === String(id); });
+      if (bq) bq.done = q.done;
+    }
+    state.editorDirty = true;
+    saveState();
+    renderEditorList();
   }
 
   function saveBankFromEditor() {
@@ -1674,6 +1699,7 @@
     if (action === 'move-question') moveQuestion(target.dataset.id, Number(target.dataset.delta));
     if (action === 'delete-question') deleteQuestion(target.dataset.id);
     if (action === 'select-question') toggleEditorSelect(target.dataset.id);
+    if (action === 'toggle-done') toggleQuestionDone(target.dataset.id);
   });
 
   $('#wrongBankBtn').addEventListener('click', function () {
