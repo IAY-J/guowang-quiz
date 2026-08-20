@@ -5,6 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
+  var APP_VERSION = '1.0.1';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
   var SYNC_KEY = 'smart-quiz-sync-v1';
   var LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -361,6 +362,8 @@
   function renderAll() {
     $('#bankTitle').textContent = state.bank ? state.bank.title : (state.master ? state.master.title : '尚未加载题库');
     $('#wrongBankBtn').hidden = false;
+    var vt = $('#versionTag');
+    if (vt) vt.textContent = 'V' + APP_VERSION;
     $('#editBankBtn').hidden = !state.master;
     $('#changeBankBtn').hidden = !state.master;
     $('#restartBtn').hidden = !state.master || state.view === 'mode';
