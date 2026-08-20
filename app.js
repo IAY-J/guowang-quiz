@@ -8,6 +8,7 @@
   var WRONG_KEY = 'smart-quiz-wrong-v2';
   var SYNC_KEY = 'smart-quiz-sync-v1';
   var LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
+  var EDITOR_PAGE_SIZE = 80;
 
   var DEFAULT_CATEGORIES = [
     { id: 'xingce', name: '行测' },
@@ -64,6 +65,8 @@
     editorSelected: new Set(),
     editorCatFilter: 'all',
     editorSearch: '',
+    editorDoneFilter: 'all',
+    editorPage: 0,
     submitted: false,
     bankVersion: 0
   };
@@ -121,6 +124,8 @@
       state.editorSelected = new Set();
       state.editorCatFilter = 'all';
       state.editorSearch = '';
+      state.editorDoneFilter = 'all';
+      state.editorPage = 0;
     } catch (e) { /* ignore */ }
   }
 
@@ -1050,6 +1055,8 @@
 
   function matchEditorFilter(q) {
     if (state.editorCatFilter !== 'all' && q.category !== state.editorCatFilter) return false;
+    if (state.editorDoneFilter === 'done' && !q.done) return false;
+    if (state.editorDoneFilter === 'undone' && q.done) return false;
     var kw = state.editorSearch.trim().toLowerCase();
     if (!kw) return true;
     var hay = [
@@ -1083,6 +1090,49 @@
     });
   }
 
+  function renderEditorDoneTabs() {
+    var tabs = $('#editorDoneTabs');
+    tabs.replaceChildren();
+    var doneCount = 0;
+    var allCount = state.master ? state.master.questions.length : 0;
+    if (state.master) doneCount = state.master.questions.filter(function (q) { return q.done; }).length;
+    var items = [
+      { id: 'all', name: '全部状态' },
+      { id: 'done', name: '已做（' + doneCount + '）' },
+      { id: 'undone', name: '未做（' + (allCount - doneCount) + '）' }
+    ];
+    items.forEach(function (it) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'filter-tab' + (state.editorDoneFilter === it.id ? ' active' : '');
+      b.dataset.done = it.id;
+      b.textContent = it.name;
+      tabs.append(b);
+    });
+  }
+
+  function renderEditorPager(total) {
+    var wrap = $('#editorPager');
+    wrap.replaceChildren();
+    var pageCount = Math.max(1, Math.ceil(total / EDITOR_PAGE_SIZE));
+    var prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'btn btn-secondary btn-small';
+    prev.dataset.pager = 'prev';
+    prev.textContent = '上一页';
+    prev.disabled = state.editorPage <= 0;
+    var info = document.createElement('span');
+    info.className = 'muted';
+    info.textContent = '第 ' + (state.editorPage + 1) + ' / ' + pageCount + ' 页';
+    var next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'btn btn-secondary btn-small';
+    next.dataset.pager = 'next';
+    next.textContent = '下一页';
+    next.disabled = state.editorPage >= pageCount - 1;
+    wrap.append(prev, info, next);
+  }
+
   function renderEditorList() {
     var wrap = $('#editorList');
     wrap.replaceChildren();
@@ -1090,11 +1140,18 @@
     var full = master.questions.reduce(function (s, q) { return s + q.score; }, 0);
     var typeRank = { single: 0, multiple: 1, judge: 2 };
     var filtered = master.questions.filter(matchEditorFilter).slice().sort(function (a, b) { return typeRank[a.type] - typeRank[b.type]; });
-    $('#editorSummary').textContent = '共 ' + master.questions.length + ' 题 · 显示 ' + filtered.length + ' 题 · 保存后立即生效。';
+    var pageCount = Math.max(1, Math.ceil(filtered.length / EDITOR_PAGE_SIZE));
+    if (state.editorPage >= pageCount) state.editorPage = pageCount - 1;
+    var start = state.editorPage * EDITOR_PAGE_SIZE;
+    var pageItems = filtered.slice(start, start + EDITOR_PAGE_SIZE);
+    var endNum = Math.min(start + pageItems.length, filtered.length);
+    $('#editorSummary').textContent = '共 ' + master.questions.length + ' 题 · 筛选 ' + filtered.length + ' 题 · 显示第 ' + (start + 1) + '-' + endNum + ' 题 · 第 ' + (state.editorPage + 1) + '/' + pageCount + ' 页';
     var selectedCount = state.editorSelected.size;
     $('#editorSelectedInfo').textContent = '已选 ' + selectedCount + ' 题';
     renderEditorCatTabs();
-    filtered.forEach(function (q, i) {
+    renderEditorDoneTabs();
+    renderEditorPager(filtered.length);
+    pageItems.forEach(function (q, i) {
       var row = document.createElement('div');
       row.className = 'editor-row' + (state.editorSelected.has(String(q.id)) ? ' selected' : '');
       var selectBox = document.createElement('label');
@@ -1111,7 +1168,7 @@
       head.className = 'question-head';
       var num = document.createElement('span');
       num.className = 'q-number';
-      num.textContent = '第 ' + (i + 1) + ' 题';
+      num.textContent = '第 ' + (start + i + 1) + ' 题';
       var typeBadge = document.createElement('span');
       typeBadge.className = 'type-badge type-' + q.type;
       typeBadge.textContent = typeLabel(q.type);
@@ -1710,6 +1767,8 @@
     state.editorSelected = new Set();
     state.editorCatFilter = 'all';
     state.editorSearch = '';
+    state.editorDoneFilter = 'all';
+    state.editorPage = 0;
     $('#editorSearch').value = '';
     saveState();
     renderAll();
@@ -1775,13 +1834,30 @@
   $('#exportSelectedBtn').addEventListener('click', exportSelectedQuestions);
   $('#editorSearch').addEventListener('input', function () {
     state.editorSearch = this.value;
+    state.editorPage = 0;
     state.editorSelected = new Set();
+    renderEditorList();
+  });
+  $('#editorDoneTabs').addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-done]');
+    if (!btn) return;
+    state.editorDoneFilter = btn.dataset.done;
+    state.editorPage = 0;
+    state.editorSelected = new Set();
+    renderEditorList();
+  });
+  $('#editorPager').addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-pager]');
+    if (!btn) return;
+    if (btn.dataset.pager === 'prev' && state.editorPage > 0) state.editorPage -= 1;
+    if (btn.dataset.pager === 'next') state.editorPage += 1;
     renderEditorList();
   });
   $('#editorCatTabs').addEventListener('click', function (e) {
     var btn = e.target.closest('[data-cat]');
     if (!btn) return;
     state.editorCatFilter = btn.dataset.cat;
+    state.editorPage = 0;
     state.editorSelected = new Set();
     renderEditorList();
   });

@@ -1246,6 +1246,13 @@ textarea#jsonInput:focus {
   object-fit: contain;
 }
 
+.editor-pager {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
 .editor-row-actions {
   display: flex;
   flex-wrap: wrap;
