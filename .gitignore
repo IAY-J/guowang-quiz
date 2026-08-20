@@ -6,3 +6,5 @@ new_docs/
 new_docs_json/
 vivi_txt/
 _extract_*.py
+userdata/
+node_modules/

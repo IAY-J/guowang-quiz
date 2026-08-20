@@ -8,6 +8,7 @@
   var APP_VERSION = '1.0.1';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
   var SYNC_KEY = 'smart-quiz-sync-v1';
+  var ACCOUNT_KEY = 'smart-quiz-account-v1';
   var LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
   var EDITOR_PAGE_SIZE = 80;
 
@@ -69,7 +70,9 @@
     editorDoneFilter: 'all',
     editorPage: 0,
     submitted: false,
-    bankVersion: 0
+    bankVersion: 0,
+    accountUser: null,
+    accountPass: null
   };
 
   var autoTimer = null;
@@ -98,6 +101,7 @@
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) { /* ignore */ }
   }
+  scheduleAccountSave();
 
   function restoreState() {
     try {
@@ -360,6 +364,11 @@
   }
 
   function renderAll() {
+    var isLogin = state.view === 'login';
+    var topbar = document.querySelector('header.topbar');
+    if (topbar) topbar.style.display = isLogin ? 'none' : '';
+    var lv = $('#loginView');
+    if (lv) lv.hidden = !isLogin;
     $('#bankTitle').textContent = state.bank ? state.bank.title : (state.master ? state.master.title : '尚未加载题库');
     $('#wrongBankBtn').hidden = false;
     var vt = $('#versionTag');
@@ -370,7 +379,7 @@
     $('#modeView').hidden = state.view !== 'mode';
     $('#importView').hidden = state.view !== 'import';
     $('#backFromImportBtn').hidden = state.view !== 'import' || !state.master;
-    if (state.view === 'import') fillSyncSettings();
+    if (state.view === 'mode') renderAccountPanel();
     $('#quizView').hidden = state.view !== 'quiz';
     $('#resultView').hidden = state.view !== 'result';
     $('#wrongView').hidden = state.view !== 'wrong';
@@ -815,7 +824,113 @@
     await pullBankFromGithub(true);
   }
 
-    function questionFingerprint(q) {
+    var accountSaveTimer = null;
+  var accountInterval = null;
+
+  function accountStored() {
+    try { return JSON.parse(localStorage.getItem(ACCOUNT_KEY) || 'null'); } catch (e) { return null; }
+  }
+
+  function accountStore(u, p) {
+    try { localStorage.setItem(ACCOUNT_KEY, JSON.stringify({ user: u, pass: p })); } catch (e) { /* ignore */ }
+  }
+
+  function accountClear() {
+    try { localStorage.removeItem(ACCOUNT_KEY); } catch (e) { /* ignore */ }
+  }
+
+  function setAccountStatus(msg) {
+    var el = $('#accountStatus');
+    if (el) el.textContent = msg;
+    var el2 = $('#accountStatusBar');
+    if (el2) el2.textContent = msg;
+  }
+
+  function renderAccountPanel() {
+    var stored = accountStored();
+    var logged = !!state.accountUser;
+    if ($('#accountLogoutBtn')) $('#accountLogoutBtn').hidden = !logged;
+    if ($('#accountSaveBtn')) $('#accountSaveBtn').hidden = !logged;
+    if ($('#accountLoginBarBtn')) $('#accountLoginBarBtn').hidden = logged;
+    if ($('#accountUser')) $('#accountUser').value = state.accountUser || (stored ? stored.user : '');
+    if ($('#accountPass')) $('#accountPass').value = stored ? stored.pass : '';
+    setAccountStatus(logged ? '已登录：' + state.accountUser + '，数据会自动保存。' : '登录或注册后自动保存题库、错题和进度。');
+  }
+
+  async function accountApi(path, body) {
+    var res = await fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    var data = await res.json().catch(function () { return {}; });
+    return { ok: res.ok, status: res.status, data: data };
+  }
+
+  async function accountLogin(silent) {
+    var u = $('#accountUser').value.trim();
+    var p = $('#accountPass').value;
+    if (!u || !/^\d{6}$/.test(p)) { if (!silent) setAccountStatus('请输入用户名和6位数字密码'); return false; }
+    var r = await accountApi('/api/login', { user: u, pass: p });
+    if (!r.ok) { if (!silent) setAccountStatus(r.data.error || '登录失败'); return false; }
+    state.accountUser = u;
+    state.accountPass = p;
+    accountStore(u, p);
+    try { applyCloudData(r.data.data || {}); } catch (e) { /* keep local */ }
+    state.view = 'mode';
+    saveState();
+    startAccountTimer();
+    renderAll();
+    if (!silent) setAccountStatus('登录成功，已载入云端数据');
+    return true;
+  }
+
+  async function accountRegister() {
+    var u = $('#accountUser').value.trim();
+    var p = $('#accountPass').value;
+    if (!u || !/^\d{6}$/.test(p)) { setAccountStatus('用户名不能为空，密码必须是6位数字'); return; }
+    var r = await accountApi('/api/register', { user: u, pass: p });
+    if (!r.ok) { setAccountStatus(r.data.error || '注册失败'); return; }
+    await accountLogin(false);
+  }
+
+  function accountLogout() {
+    state.accountUser = null;
+    state.accountPass = null;
+    accountClear();
+    if (accountInterval) clearInterval(accountInterval);
+    accountInterval = null;
+    state.view = 'login';
+    saveState();
+    renderAll();
+    setAccountStatus('已退出登录');
+  }
+
+  function scheduleAccountSave() {
+    if (!state.accountUser) return;
+    if (accountSaveTimer) clearTimeout(accountSaveTimer);
+    accountSaveTimer = setTimeout(function () { saveAccountNow(); }, 2000);
+  }
+
+  async function saveAccountNow() {
+    if (!state.accountUser || !state.accountPass) return;
+    var r = await accountApi('/api/save', { user: state.accountUser, pass: state.accountPass, data: buildCloudData() });
+    if (r.ok) {
+      var el = $('#accountStatus');
+      if (el && state.accountUser) el.textContent = '已登录：' + state.accountUser + '，数据已保存。';
+    }
+  }
+
+  function startAccountTimer() {
+    if (accountInterval) clearInterval(accountInterval);
+    accountInterval = setInterval(function () { saveAccountNow(); }, 30000);
+  }
+
+  async function autoLogin() {
+    var stored = accountStored();
+    if (!stored || !stored.user || !stored.pass) return;
+    if ($('#accountUser')) $('#accountUser').value = stored.user;
+    if ($('#accountPass')) $('#accountPass').value = stored.pass;
+    await accountLogin(true);
+  }
+
+  function questionFingerprint(q) {
     return JSON.stringify([
       q.type,
       q.stem,
@@ -1752,10 +1867,25 @@
   });
 
   $('#pasteImportBtn').addEventListener('click', function () { importFromText($('#jsonInput').value); });
-  $('#syncPushBtn').addEventListener('click', pushBankToGithub);
-  $('#syncPullBtn').addEventListener('click', pullBankFromGithub);
-  $('#syncSaveTokenBtn').addEventListener('click', syncSaveSettings);
   $('#jsonInput').addEventListener('input', function () { $('#importError').hidden = true; });
+  $('#accountLoginBtn').addEventListener('click', function () { accountLogin(false); });
+  $('#accountRegisterBtn').addEventListener('click', accountRegister);
+  $('#accountLogoutBtn').addEventListener('click', accountLogout);
+  $('#accountSaveBtn').addEventListener('click', saveAccountNow);
+  $('#guestModeBtn').addEventListener('click', function () {
+    state.accountUser = null;
+    state.accountPass = null;
+    if (accountInterval) clearInterval(accountInterval);
+    accountInterval = null;
+    state.view = 'mode';
+    saveState();
+    renderAll();
+    setAccountStatus('游客模式：数据仅保存在本机，不跨设备同步。');
+  });
+  $('#accountLoginBarBtn').addEventListener('click', function () {
+    state.view = 'login';
+    renderAll();
+  });
   $('#backFromImportBtn').addEventListener('click', function () {
     state.view = state.bank ? 'quiz' : 'mode';
     saveState();
@@ -1929,6 +2059,7 @@
     syncEmbeddedImages();
     syncEmbeddedQuestions();
   }
+  state.view = 'login';
   renderAll();
-  maybeAutoSync();
+  autoLogin();
 })();

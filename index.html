@@ -25,12 +25,38 @@
   </header>
 
   <main id="app" class="app">
+    <section class="view login-view" id="loginView" hidden>
+      <div class="login-card">
+        <div class="brand login-brand">
+          <span class="brand-mark" aria-hidden="true">题</span>
+          <span class="brand-name">国网通信刷题</span>
+        </div>
+        <h1>登录账号</h1>
+        <p class="muted">登录并同步云端数据后开始做题。</p>
+        <div class="sync-fields">
+          <label><span>用户名</span><input id="accountUser" placeholder="输入用户名"></label>
+          <label><span>6位密码</span><input type="password" id="accountPass" maxlength="6" inputmode="numeric" placeholder="6位数字"></label>
+        </div>
+        <div class="import-actions">
+          <button class="btn btn-primary" id="accountLoginBtn" type="button">登录</button>
+          <button class="btn btn-secondary" id="accountRegisterBtn" type="button">注册</button>
+          <button class="btn btn-secondary" id="guestModeBtn" type="button">游客模式（本地做题）</button>
+        </div>
+        <p class="muted small" id="accountStatus"></p>
+      </div>
+    </section>
+
     <section class="view mode-view" id="modeView" hidden>
       <div class="mode-panel">
         <h1>选择练习模式</h1>
         <p class="muted" id="modeSummary"></p>
         <div class="mode-grid" id="modeGrid"></div>
-      </div>
+              <div class="account-bar" id="accountBar">
+        <span class="muted" id="accountStatusBar">未登录</span>
+        <button class="btn btn-secondary btn-small" id="accountLoginBarBtn" type="button" hidden>登录账号</button>
+        <button class="btn btn-secondary btn-small" id="accountSaveBtn" type="button" hidden>立即保存</button>
+        <button class="btn btn-secondary btn-small" id="accountLogoutBtn" type="button" hidden>退出</button>
+      </div>      </div>
     </section>
 
     <section class="view import-view" id="importView">
@@ -55,22 +81,6 @@
         <div class="import-actions">
           <button class="btn btn-primary" id="pasteImportBtn" type="button">从粘贴内容导入</button>
           <button class="btn btn-secondary" id="backFromImportBtn" type="button" hidden>返回当前题库</button>
-        </div>
-        <div class="sync-panel">
-          <h2>GitHub 同步题库</h2>
-          <p class="muted">填写 GitHub 令牌后，可把当前题库推送到仓库，或从云端拉取题库。</p>
-          <div class="sync-fields">
-            <label><span>仓库 Owner</span><input id="syncOwner" placeholder="IAY-J"></label>
-            <label><span>仓库名</span><input id="syncRepo" placeholder="guowang-quiz"></label>
-            <label><span>令牌</span><input type="password" id="syncToken" placeholder="github_pat_..."></label>
-          </div>
-          <label class="sync-auto"><input type="checkbox" id="syncAuto"> 打开时自动拉取云端数据</label>
-          <div class="import-actions">
-            <button class="btn btn-secondary" id="syncPullBtn" type="button">从云端拉取题库</button>
-            <button class="btn btn-secondary" id="syncPushBtn" type="button">推送题库到云端</button>
-            <button class="btn btn-secondary" id="syncSaveTokenBtn" type="button">保存同步设置</button>
-          </div>
-          <p class="muted small" id="syncStatus" hidden></p>
         </div>
         <p class="error-text" id="importError" role="alert" hidden></p>
         <p class="muted small">题库格式说明见 <a href="BANK_FORMAT.md" target="_blank" rel="noopener">BANK_FORMAT.md</a></p>

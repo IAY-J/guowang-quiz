@@ -1033,6 +1033,47 @@ textarea#jsonInput:focus {
   margin-top: 12px;
 }
 
+.login-view {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 40px);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.login-card h1 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.login-card .sync-fields {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.account-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.account-bar .muted {
+  margin-right: auto;
+}
+
 .mode-panel {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1045,6 +1086,19 @@ textarea#jsonInput:focus {
   margin: 0 0 6px;
   font-size: 26px;
   line-height: 1.3;
+}
+
+.account-panel {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.account-panel h2 {
+  margin: 0 0 6px;
+  font-size: 17px;
 }
 
 .mode-grid {
