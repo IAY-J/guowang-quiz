@@ -1074,7 +1074,7 @@
     $('#editorSelectedInfo').textContent = '已选 ' + selectedCount + ' 题';
     renderEditorCatTabs();
     var hasFilter = state.editorCatFilter !== 'all' || !!state.editorSearch.trim();
-    filtered.forEach(function (q) {
+    filtered.forEach(function (q, i) {
       var row = document.createElement('div');
       row.className = 'editor-row' + (state.editorSelected.has(String(q.id)) ? ' selected' : '');
       var selectBox = document.createElement('label');
@@ -1091,7 +1091,7 @@
       head.className = 'question-head';
       var num = document.createElement('span');
       num.className = 'q-number';
-      num.textContent = '第 ' + q.id + ' 题';
+      num.textContent = '第 ' + (i + 1) + ' 题';
       var typeBadge = document.createElement('span');
       typeBadge.className = 'type-badge type-' + q.type;
       typeBadge.textContent = typeLabel(q.type);
