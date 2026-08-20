@@ -9,3 +9,5 @@ _extract_*.py
 userdata/
 node_modules/
 local-config.json
+
+_make_icons.py

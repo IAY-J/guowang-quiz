@@ -123,18 +123,7 @@ a {
   font-size: 18px;
 }
 
-.version-tag {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  height: 24px;
-  padding: 0 8px;
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
-  white-space: nowrap;
-}
+
 
 .app {
   max-width: 1160px;

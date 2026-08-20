@@ -1,0 +1,20 @@
+{
+  "name": "国网通信刷题",
+  "short_name": "通信刷题",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f2f6f8",
+  "theme_color": "#0d6b5c",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

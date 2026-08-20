@@ -5,7 +5,9 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.0.4';
+  var APP_VERSION = '1.0.8';
+  var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
+  var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
   var SYNC_KEY = 'smart-quiz-sync-v1';
   var ACCOUNT_KEY = 'smart-quiz-account-v1';
@@ -101,7 +103,7 @@
       bankVersion: EMBEDDED_BANK_VERSION
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) { /* ignore */ }
-    scheduleGhUpload();
+    scheduleAccountSave();
   }
 
   function restoreState() {
@@ -365,10 +367,13 @@
   }
 
   function renderAll() {
+    var isLogin = state.view === 'login';
+    var topbar = document.querySelector('header.topbar');
+    if (topbar) topbar.style.display = isLogin ? 'none' : '';
+    var lv = $('#loginView');
+    if (lv) lv.hidden = !isLogin;
     $('#bankTitle').textContent = state.bank ? state.bank.title : (state.master ? state.master.title : '尚未加载题库');
     $('#wrongBankBtn').hidden = false;
-    var vt = $('#versionTag');
-    if (vt) vt.textContent = 'V' + APP_VERSION;
     $('#editBankBtn').hidden = !state.master;
     $('#changeBankBtn').hidden = !state.master;
     $('#restartBtn').hidden = !state.master || state.view === 'mode';
@@ -379,7 +384,7 @@
     $('#resultView').hidden = state.view !== 'result';
     $('#wrongView').hidden = state.view !== 'wrong';
     $('#editorView').hidden = state.view !== 'editor';
-    if (state.view === 'mode') renderModeGrid();
+    if (state.view === 'mode') { renderModeGrid(); renderAccountPanel(); }
     if (state.view === 'quiz') renderQuiz();
     if (state.view === 'result') renderResult();
     if (state.view === 'wrong') renderStoredWrong();
@@ -852,10 +857,42 @@
     setAccountStatus(logged ? '已登录：' + state.accountUser + '，数据会自动保存。' : '登录或注册后自动保存题库、错题和进度。');
   }
 
-  async function accountApi(path, body) {
-    var res = await fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-    var data = await res.json().catch(function () { return {}; });
+  function sbHash(pass) {
+    var h = 0;
+    var s = String(pass);
+    for (var i = 0; i < s.length; i++) { h = ((h << 5) - h) + s.charCodeAt(i); h |= 0; }
+    return 'h' + Math.abs(h);
+  }
+
+  async function sbRequest(method, query, payload) {
+    var url = SB_URL + '/rest/v1/quiz_data' + (query || '');
+    var opts = { method: method, headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' } };
+    if (method === 'POST') opts.headers['Prefer'] = 'resolution=merge-duplicates';
+    if (payload !== undefined) opts.body = JSON.stringify(payload);
+    var res = await fetch(url, opts);
+    var text = await res.text();
+    var data = null;
+    try { data = text ? JSON.parse(text) : null; } catch (e) { data = null; }
     return { ok: res.ok, status: res.status, data: data };
+  }
+
+  async function accountApi(path, body) {
+    if (path === '/api/register') {
+      var r = await sbRequest('POST', '', { username: body.user, pass_hash: sbHash(body.pass), data: {} });
+      return { ok: r.ok, status: r.status, data: r.data || {} };
+    }
+    if (path === '/api/login' || path === '/api/load') {
+      var r = await sbRequest('GET', '?username=eq.' + encodeURIComponent(body.user) + '&select=pass_hash,data');
+      if (!r.ok) return { ok: false, status: r.status, data: {} };
+      var row = (r.data || [])[0];
+      if (!row || row.pass_hash !== sbHash(body.pass)) return { ok: false, status: 401, data: { error: '用户名或密码错误' } };
+      return { ok: true, status: 200, data: { data: row.data || {} } };
+    }
+    if (path === '/api/save') {
+      var r = await sbRequest('POST', '?on_conflict=username', { username: body.user, pass_hash: sbHash(body.pass), data: body.data });
+      return { ok: r.ok, status: r.status, data: r.data || {} };
+    }
+    return { ok: false, status: 404, data: {} };
   }
 
   async function accountLogin(silent) {
@@ -1052,19 +1089,34 @@
     } catch (e) { ghStatus('拉取失败：' + e.message); }
   }
 
+  async function autoPullOnOpen() {
+    var s = ghLoad();
+    if (!s.token) return;
+    try {
+      var res = await fetch('https://api.github.com/repos/' + encodeURIComponent(s.owner) + '/' + encodeURIComponent(s.repo) + '/contents/user-data.json', { headers: Object.assign(syncHeaders(s.token), { 'Accept': 'application/vnd.github.raw+json' }) });
+      if (!res.ok) return;
+      var data = JSON.parse(await res.text());
+      applyCompactData(data);
+      renderAll();
+    } catch (e) { /* ignore */ }
+  }
+
   async function loadGhConfigFromServer() {
     try {
       var res = await fetch('/api/gh-config', { cache: 'no-store' });
-      if (!res.ok) return;
-      var cfg = await res.json();
-      if (!cfg || !cfg.token) return;
-      var s = ghLoad();
-      s.owner = cfg.owner || s.owner;
-      s.repo = cfg.repo || s.repo;
-      s.token = cfg.token;
-      s.auto = true;
-      localStorage.setItem(GH_SYNC_KEY, JSON.stringify(s));
+      if (res.ok) {
+        var cfg = await res.json();
+        if (cfg && cfg.token) {
+          var s = ghLoad();
+          s.owner = cfg.owner || s.owner;
+          s.repo = cfg.repo || s.repo;
+          s.token = cfg.token;
+          s.auto = true;
+          localStorage.setItem(GH_SYNC_KEY, JSON.stringify(s));
+        }
+      }
       startGhTimer();
+      await autoPullOnOpen();
       setTimeout(function () { uploadGh(true); }, 3000);
     } catch (e) { /* ignore */ }
   }
@@ -2022,6 +2074,20 @@
 
   $('#pasteImportBtn').addEventListener('click', function () { importFromText($('#jsonInput').value); });
   $('#jsonInput').addEventListener('input', function () { $('#importError').hidden = true; });
+  $('#accountLoginBtn').addEventListener('click', function () { accountLogin(false); });
+  $('#accountRegisterBtn').addEventListener('click', accountRegister);
+  $('#accountLogoutBtn').addEventListener('click', accountLogout);
+  $('#accountSaveBtn').addEventListener('click', saveAccountNow);
+  $('#guestModeBtn').addEventListener('click', function () {
+    state.accountUser = null;
+    state.accountPass = null;
+    if (accountInterval) clearInterval(accountInterval);
+    accountInterval = null;
+    state.view = 'mode';
+    saveState();
+    renderAll();
+    setAccountStatus('游客模式：数据仅保存在本机。');
+  });
   $('#exportDataBtn').addEventListener('click', exportData);
   $('#importDataBtn').addEventListener('click', toggleImport);
   $('#importDataConfirmBtn').addEventListener('click', function () { importDataFromText($('#importDataText').value); });
@@ -2209,7 +2275,7 @@
     syncEmbeddedImages();
     syncEmbeddedQuestions();
   }
+  state.view = 'login';
   renderAll();
-  startGhTimer();
-  loadGhConfigFromServer();
+  autoLogin();
 })();
