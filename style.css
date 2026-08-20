@@ -124,7 +124,10 @@ a {
 }
 
 .version-tag {
-  margin-left: auto;
+  position: fixed;
+  top: 10px;
+  right: 12px;
+  z-index: 30;
   display: inline-flex;
   align-items: center;
   height: 26px;
@@ -135,6 +138,7 @@ a {
   font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(20, 35, 50, 0.15);
 }
 
 .app {
@@ -1505,6 +1509,7 @@ textarea#jsonInput:focus {
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    margin-right: 80px;
   }
 
   .topbar-actions .btn {
