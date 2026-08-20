@@ -5,6 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
+  var SYNC_KEY = 'smart-quiz-sync-v1';
   var LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
 
   var DEFAULT_CATEGORIES = [
@@ -357,6 +358,7 @@
     $('#modeView').hidden = state.view !== 'mode';
     $('#importView').hidden = state.view !== 'import';
     $('#backFromImportBtn').hidden = state.view !== 'import' || !state.master;
+    if (state.view === 'import') fillSyncSettings();
     $('#quizView').hidden = state.view !== 'quiz';
     $('#resultView').hidden = state.view !== 'result';
     $('#wrongView').hidden = state.view !== 'wrong';
@@ -673,6 +675,89 @@
     var el = $('#importError');
     el.textContent = msg || '题库导入失败';
     el.hidden = false;
+  }
+
+
+  function syncLoadSettings() {
+    try { var raw = localStorage.getItem(SYNC_KEY); return raw ? JSON.parse(raw) : {}; } catch (e) { return {}; }
+  }
+
+  function syncSaveSettings() {
+    var s = { owner: $('#syncOwner').value.trim(), repo: $('#syncRepo').value.trim(), token: $('#syncToken').value.trim() };
+    localStorage.setItem(SYNC_KEY, JSON.stringify(s));
+    setSyncStatus('同步设置已保存');
+  }
+
+  function fillSyncSettings() {
+    var s = syncLoadSettings();
+    if ($('#syncOwner')) $('#syncOwner').value = s.owner || 'IAY-J';
+    if ($('#syncRepo')) $('#syncRepo').value = s.repo || 'guowang-quiz';
+    if ($('#syncToken')) $('#syncToken').value = s.token || '';
+  }
+
+  function setSyncStatus(msg) {
+    var el = $('#syncStatus');
+    if (el) { el.textContent = msg; el.hidden = !msg; }
+  }
+
+  function syncHeaders(token) {
+    return { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+  }
+
+  function b64EncodeUtf8(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  async function pushBankToGithub() {
+    if (!state.master) { setSyncStatus('请先加载题库'); return; }
+    syncSaveSettings();
+    var token = $('#syncToken').value.trim();
+    var owner = $('#syncOwner').value.trim();
+    var repo = $('#syncRepo').value.trim();
+    if (!token) { setSyncStatus('请填写 GitHub 令牌'); return; }
+    setSyncStatus('正在推送…');
+    try {
+      var path = 'cloud-bank.json';
+      var sha = null;
+      var get = await fetch('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contents/' + path, { headers: syncHeaders(token) });
+      if (get.ok) { var meta = await get.json(); sha = meta.sha; }
+      var body = { message: 'Sync question bank from app', content: b64EncodeUtf8(JSON.stringify(state.master, null, 2)), branch: 'main' };
+      if (sha) body.sha = sha;
+      var put = await fetch('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contents/' + path, {
+        method: 'PUT',
+        headers: Object.assign(syncHeaders(token), { 'Content-Type': 'application/json' }),
+        body: JSON.stringify(body)
+      });
+      if (put.ok) setSyncStatus('推送成功，云端题库已更新');
+      else { var err = await put.json().catch(function () { return {}; }); setSyncStatus('推送失败：' + (err.message || put.status)); }
+    } catch (e) { setSyncStatus('推送失败：' + e.message); }
+  }
+
+  async function pullBankFromGithub() {
+    syncSaveSettings();
+    var token = $('#syncToken').value.trim();
+    var owner = $('#syncOwner').value.trim();
+    var repo = $('#syncRepo').value.trim();
+    if (!token) { setSyncStatus('请填写 GitHub 令牌'); return; }
+    setSyncStatus('正在拉取…');
+    try {
+      var res = await fetch('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contents/cloud-bank.json', {
+        headers: Object.assign(syncHeaders(token), { 'Accept': 'application/vnd.github.raw+json' })
+      });
+      if (res.status === 404) { setSyncStatus('云端还没有题库，请先推送一次'); return; }
+      if (!res.ok) { setSyncStatus('拉取失败：' + res.status); return; }
+      var bank = normalizeBank(await res.json());
+      if (!confirm('拉取云端题库将替换当前题库，确定继续吗？')) { setSyncStatus('已取消'); return; }
+      state.master = bank;
+      state.bank = null;
+      state.mode = null;
+      state.answers = [];
+      state.current = 0;
+      state.view = 'mode';
+      saveState();
+      renderAll();
+      setSyncStatus('拉取成功，云端题库已载入');
+    } catch (e) { setSyncStatus('拉取失败：' + e.message); }
   }
 
   function questionFingerprint(q) {
@@ -1480,6 +1565,9 @@
   });
 
   $('#pasteImportBtn').addEventListener('click', function () { importFromText($('#jsonInput').value); });
+  $('#syncPushBtn').addEventListener('click', pushBankToGithub);
+  $('#syncPullBtn').addEventListener('click', pullBankFromGithub);
+  $('#syncSaveTokenBtn').addEventListener('click', syncSaveSettings);
   $('#jsonInput').addEventListener('input', function () { $('#importError').hidden = true; });
   $('#backFromImportBtn').addEventListener('click', function () {
     state.view = state.bank ? 'quiz' : 'mode';

@@ -55,6 +55,21 @@
           <button class="btn btn-primary" id="pasteImportBtn" type="button">从粘贴内容导入</button>
           <button class="btn btn-secondary" id="backFromImportBtn" type="button" hidden>返回当前题库</button>
         </div>
+        <div class="sync-panel">
+          <h2>GitHub 同步题库</h2>
+          <p class="muted">填写 GitHub 令牌后，可把当前题库推送到仓库，或从云端拉取题库。</p>
+          <div class="sync-fields">
+            <label><span>仓库 Owner</span><input id="syncOwner" placeholder="IAY-J"></label>
+            <label><span>仓库名</span><input id="syncRepo" placeholder="guowang-quiz"></label>
+            <label><span>令牌</span><input type="password" id="syncToken" placeholder="github_pat_..."></label>
+          </div>
+          <div class="import-actions">
+            <button class="btn btn-secondary" id="syncPullBtn" type="button">从云端拉取题库</button>
+            <button class="btn btn-secondary" id="syncPushBtn" type="button">推送题库到云端</button>
+            <button class="btn btn-secondary" id="syncSaveTokenBtn" type="button">保存同步设置</button>
+          </div>
+          <p class="muted small" id="syncStatus" hidden></p>
+        </div>
         <p class="error-text" id="importError" role="alert" hidden></p>
         <p class="muted small">题库格式说明见 <a href="BANK_FORMAT.md" target="_blank" rel="noopener">BANK_FORMAT.md</a></p>
       </div>

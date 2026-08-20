@@ -287,6 +287,48 @@ textarea#jsonInput:focus {
   gap: 10px;
 }
 
+.sync-panel {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.sync-panel h2 {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+
+.sync-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.sync-fields label {
+  display: grid;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.sync-fields input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.sync-fields input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+
 .error-text {
   margin: 14px 0 0;
   padding: 10px 12px;
@@ -1347,6 +1389,10 @@ textarea#jsonInput:focus {
   .import-panel,
   .result-panel {
     padding: 20px 16px;
+  }
+
+  .sync-fields {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .question-panel {
