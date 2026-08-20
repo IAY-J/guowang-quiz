@@ -1059,6 +1059,12 @@ textarea#jsonInput:focus {
   flex: 0 0 auto;
 }
 
+.account-bar .btn.saved {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
 .account-bar .muted {
   min-width: 0;
   white-space: nowrap;
@@ -1495,6 +1501,17 @@ textarea#jsonInput:focus {
 }
 
 @media (max-width: 560px) {
+  .account-bar .muted,
+  .account-bar .btn,
+  #dataSyncStatus {
+    font-size: 12px;
+  }
+
+  .account-bar .btn {
+    padding: 4px 6px;
+    min-height: 30px;
+  }
+
   .app {
     padding: 16px 12px 44px;
   }

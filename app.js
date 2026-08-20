@@ -952,8 +952,13 @@
     if (!state.accountUser || !state.accountPass) return;
     var r = await accountApi('/api/save', { user: state.accountUser, pass: state.accountPass, data: buildCompactData() });
     if (r.ok) {
-      var el = $('#accountStatus');
-      if (el && state.accountUser) el.textContent = '已登录：' + state.accountUser + '，数据已保存。';
+      var btn = $('#accountSaveBtn');
+      if (btn) { btn.classList.add('saved'); btn.textContent = '已保存'; }
+      setAccountStatus('已保存到云端');
+      setTimeout(function () {
+        if (btn) { btn.classList.remove('saved'); btn.textContent = '立即保存'; }
+        renderAccountPanel();
+      }, 1500);
     }
   }
 
