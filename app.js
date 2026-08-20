@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.2.1';
+  var APP_VERSION = '1.2.3';
   var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
   var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
@@ -157,6 +157,7 @@
     qs.forEach(function (q) {
       var t = q.type, c = q.category || '', sec = q.section || '';
       (idx.byType[t] = idx.byType[t] || []).push(q);
+      (idx.bySection[sec] = idx.bySection[sec] || []).push(q);
       (idx.byCat[c] = idx.byCat[c] || []).push(q);
       var ct = c + '|' + t;
       (idx.byCatType[ct] = idx.byCatType[ct] || []).push(q);
@@ -378,7 +379,8 @@
         answer: answer,
         score: score,
         reason: q.reason ? String(q.reason).trim() : '',
-        images: Array.isArray(q.images) ? q.images.map(String) : (q.image ? [String(q.image)] : [])
+        images: Array.isArray(q.images) ? q.images.map(String) : (q.image ? [String(q.image)] : []),
+        group: q.group == null ? 0 : Number(q.group)
       };
     });
     return {
@@ -460,7 +462,8 @@
   }
 
   var PAPER_BANDS = [
-    { start: 1, end: 80, type: 'single', score: 0.5, section: '综合单选' },
+    { start: 1, end: 20, type: 'single', score: 0.5, section: '综合单选' },
+    { start: 21, end: 80, type: 'single', score: 0.5, section: '专业单选' },
     { start: 81, end: 85, type: 'single', score: 1, section: '专业单选' },
     { start: 86, end: 95, type: 'multiple', score: 0.5, section: '综合多选' },
     { start: 96, end: 125, type: 'multiple', score: 1, section: '专业多选' },
@@ -468,13 +471,51 @@
     { start: 156, end: 165, type: 'single', score: 0.5, section: '资料分析' }
   ];
 
-  function fillPaperType(pool, type, count, weights, usedIds) {
+  function fillPaperType(pool, type, count, weights, usedIds, section) {
     var avail = pool.filter(function (q) { return q.type === type && !usedIds[String(q.id)]; });
-    var candidates = avail.filter(function (q) { return !isDone(q); });
-    if (candidates.length < count) candidates = avail;
-    if (!candidates.length) candidates = ensurePoolIndex().byType[type].filter(function (q) { return !usedIds[String(q.id)]; });
-    var chosen = weights ? weightedSample(candidates, Math.min(count, candidates.length), weights) : shuffle(candidates).slice(0, Math.min(count, candidates.length));
+    var sectionCands = avail.filter(function (q) { return !section || q.section === section; });
+    var candidates = sectionCands.filter(function (q) { return !isDone(q); });
+    if (!candidates.length) candidates = sectionCands;
+    var chosen;
+    if (!candidates.length && section) {
+      var allByType = ensurePoolIndex().byType[type] || [];
+      var masterSection = allByType.filter(function (q) { return !usedIds[String(q.id)] && q.section === section; });
+      candidates = masterSection.filter(function (q) { return !isDone(q); });
+      if (!candidates.length) candidates = masterSection;
+    }
+    if (!candidates.length) candidates = avail;
+    if (!candidates.length) candidates = (ensurePoolIndex().byType[type] || []).filter(function (q) { return !usedIds[String(q.id)]; });
+    chosen = weights ? weightedSample(candidates, Math.min(count, candidates.length), weights) : shuffle(candidates).slice(0, Math.min(count, candidates.length));
     if (!chosen.length) chosen = candidates;
+    var out = chosen.map(cloneBank);
+    var i = 0;
+    while (out.length < count) { out.push(cloneBank(chosen[i % chosen.length])); i++; }
+    chosen.forEach(function (q) { usedIds[String(q.id)] = true; });
+    return out;
+  }
+
+  function buildDataAnalysis(count, usedIds, pool, mode) {
+    var candidates = pool.filter(function (q) { return q.section === '资料分析' && !usedIds[String(q.id)]; });
+    if (!candidates.length && mode === 'composite') {
+      candidates = (ensurePoolIndex().bySection['资料分析'] || []).filter(function (q) { return !usedIds[String(q.id)]; });
+    }
+    if (!candidates.length) {
+      candidates = pool.filter(function (q) { return q.type === 'single' && !usedIds[String(q.id)]; });
+    }
+    if (!candidates.length) return [];
+    var groups = {};
+    candidates.forEach(function (q) {
+      var g = q.group || 0;
+      (groups[g] = groups[g] || []).push(q);
+    });
+    var keys = Object.keys(groups).map(Number).sort(function (a, b) { return a - b; });
+    if (!keys.length) return [];
+    var ordered = [];
+    keys.forEach(function (k) {
+      groups[k].sort(function (a, b) { return (Number(a.id) || 0) - (Number(b.id) || 0); });
+      ordered.push.apply(ordered, groups[k]);
+    });
+    var chosen = ordered.slice(0, count);
     var out = chosen.map(cloneBank);
     var i = 0;
     while (out.length < count) { out.push(cloneBank(chosen[i % chosen.length])); i++; }
@@ -492,7 +533,12 @@
     var usedIds = {};
     PAPER_BANDS.forEach(function (band) {
       var count = band.end - band.start + 1;
-      var items = fillPaperType(pool, band.type, count, mode === 'composite' ? weights : null, usedIds);
+      var items;
+      if (band.section === '资料分析') {
+        items = buildDataAnalysis(count, usedIds, pool, mode);
+      } else {
+        items = fillPaperType(pool, band.type, count, mode === 'composite' ? weights : null, usedIds, mode === 'composite' ? band.section : null);
+      }
       items.forEach(function (q) {
         var c = cloneBank(q);
         c.score = band.score;

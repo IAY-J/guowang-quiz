@@ -611,7 +611,7 @@ def main():
         if qtype == "judge":
             options = ["正确", "错误"]
             answer = True if answer else False
-        questions.append({
+        item = {
             "id": index,
             "category": category,
             "section": section,
@@ -621,7 +621,10 @@ def main():
             "answer": answer,
             "score": score,
             "reason": reason,
-        })
+        }
+        if section == "资料分析":
+            item["group"] = 1 if index <= 160 else 2
+        questions.append(item)
     if PDF_SOURCE.exists():
         with pdfplumber.open(str(PDF_SOURCE)) as pdf:
             for q in questions:

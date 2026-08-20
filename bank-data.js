@@ -2641,6 +2641,7 @@ window.BUNDLED_BANK = {
       "category": "xingce",
       "section": "资料分析",
       "type": "single",
+      "group": 1,
       "stem": "2016 年 3 月我国出口煤及褐煤 127 万吨，环比增长 36 万吨。3 月出口煤及褐煤环比约增长（ ）个百分点。",
       "options": [
         "25",
@@ -2657,6 +2658,7 @@ window.BUNDLED_BANK = {
       "category": "xingce",
       "section": "资料分析",
       "type": "single",
+      "group": 1,
       "stem": "2016 年 1—3 月我国煤及褐煤进口量为 4846 万吨，比上年同期下降 1.2%。则 1—3 月煤及褐煤进口量约比去年同期：",
       "options": [
         "下降 1%",
@@ -2673,6 +2675,7 @@ window.BUNDLED_BANK = {
       "category": "xingce",
       "section": "资料分析",
       "type": "single",
+      "group": 1,
       "stem": "2016 年第一季度进口均价同比下降幅度超过 30% 的有：",
       "options": [
         "煤、铜",
@@ -2689,6 +2692,7 @@ window.BUNDLED_BANK = {
       "category": "xingce",
       "section": "资料分析",
       "type": "single",
+      "group": 1,
       "stem": "2016 年 3 月份进口钢材 127 万吨，同比增长 45.08%，则 2015 年 3 月份进口钢材约为（ ）万吨。",
       "options": [
         "61.3",
@@ -2705,6 +2709,7 @@ window.BUNDLED_BANK = {
       "category": "xingce",
       "section": "资料分析",
       "type": "single",
+      "group": 1,
       "stem": "能够从上述材料中推出的是：",
       "options": [
         "2016 年一季度原油进口量是铜的 6 倍",
@@ -2721,6 +2726,7 @@ window.BUNDLED_BANK = {
       "category": "xingce",
       "section": "资料分析",
       "type": "single",
+      "group": 2,
       "stem": "2011 年发现违法用地行为 7.0 万件，涉及土地 5.0 万公顷；立案查处违法用地案件 4.2 万件。与 2006 年相比，2011 年全国收缴土地面积约减少了：",
       "options": [
         "52%",
@@ -2742,6 +2748,7 @@ window.BUNDLED_BANK = {
       "category": "xingce",
       "section": "资料分析",
       "type": "single",
+      "group": 2,
       "stem": "2011 年依法拆除违法构建物 1289.8 万平方米，收回土地 3791.2 公顷，罚没款 26.5 亿元。2011 年结案的案件中，平均每个案件的罚没款约为（ ）万元。",
       "options": [
         "0.56",
@@ -2763,6 +2770,7 @@ window.BUNDLED_BANK = {
       "category": "xingce",
       "section": "资料分析",
       "type": "single",
+      "group": 2,
       "stem": "2011 年发现违法但未立案的违法用地行为占发现违法用地行为总数的比重约为：",
       "options": [
         "59.5%",
@@ -2784,6 +2792,7 @@ window.BUNDLED_BANK = {
       "category": "xingce",
       "section": "资料分析",
       "type": "single",
+      "group": 2,
       "stem": "下列年份中，本期结案中涉及的耕地面积占结案涉及土地面积比重最高的是：",
       "options": [
         "2006 年",
@@ -2805,6 +2814,7 @@ window.BUNDLED_BANK = {
       "category": "xingce",
       "section": "资料分析",
       "type": "single",
+      "group": 2,
       "stem": "能够从上述资料中推出的是：",
       "options": [
         "2006-2011 年违法用地案件收缴土地面积逐年减少",
