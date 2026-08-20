@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.0.9';
+  var APP_VERSION = '1.2.0';
   var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
   var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
@@ -14,6 +14,9 @@
   var GH_SYNC_KEY = 'smart-quiz-gh-sync-v1';
   var LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
   var EDITOR_PAGE_SIZE = 80;
+  var IDB_DB = 'smart-quiz-bank-v1';
+  var IDB_STORE = 'master';
+  var IDB_KEY = 'master';
 
   var DEFAULT_CATEGORIES = [
     { id: 'xingce', name: '行测' },
@@ -74,23 +77,97 @@
     editorPage: 0,
     submitted: false,
     bankVersion: 0,
+    doneMap: {},
+    masterDirty: false,
     accountUser: null,
     accountPass: null
   };
 
   var autoTimer = null;
+  var idbWriteQueue = Promise.resolve();
 
   function cloneBank(bank) {
     try { return JSON.parse(JSON.stringify(bank)); } catch (e) { return bank; }
   }
 
-  function saveState() {
+  function idbOpen() {
+    return new Promise(function (resolve, reject) {
+      if (!window.indexedDB) { reject(new Error('IndexedDB 不可用')); return; }
+      var req = window.indexedDB.open(IDB_DB, 1);
+      req.onupgradeneeded = function () {
+        var db = req.result;
+        if (!db.objectStoreNames.contains(IDB_STORE)) db.createObjectStore(IDB_STORE);
+      };
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error || new Error('IndexedDB 打开失败')); };
+    });
+  }
+
+  function idbGet(key) {
+    return idbOpen().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        var tx = db.transaction(IDB_STORE, 'readonly');
+        var req = tx.objectStore(IDB_STORE).get(key);
+        req.onsuccess = function () { db.close(); resolve(req.result); };
+        req.onerror = function () { db.close(); reject(req.error); };
+      });
+    });
+  }
+
+  function idbSet(key, value) {
+    var task = idbWriteQueue.then(function () {
+      return idbOpen().then(function (db) {
+        return new Promise(function (resolve, reject) {
+          var tx = db.transaction(IDB_STORE, 'readwrite');
+          tx.objectStore(IDB_STORE).put(value, key);
+          tx.oncomplete = function () { db.close(); resolve(); };
+          tx.onerror = function () { db.close(); reject(tx.error); };
+        });
+      });
+    });
+    idbWriteQueue = task.catch(function () { /* keep queue alive */ });
+    return task;
+  }
+
+  function stripDoneFlags(bank) {
+    if (bank && Array.isArray(bank.questions)) {
+      bank.questions.forEach(function (q) {
+        if ('done' in q) { try { delete q.done; } catch (e) { q.done = undefined; } }
+      });
+    }
+    return bank;
+  }
+
+  function isDone(q) { return !!state.doneMap[String(q.id)]; }
+
+  function setDone(q, val) {
+    if (val) state.doneMap[String(q.id)] = true;
+    else { try { delete state.doneMap[String(q.id)]; } catch (e) { state.doneMap[String(q.id)] = false; } }
+  }
+
+  function migrateLegacyMaster() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var p = JSON.parse(raw);
+      if (p && p.master && Array.isArray(p.master.questions) && p.master.questions.length) {
+        state.master = normalizeBank(p.master);
+        p.master.questions.forEach(function (q) {
+          if (q && q.done) state.doneMap[String(q.id)] = true;
+        });
+        stripDoneFlags(state.master);
+        state.bankVersion = EMBEDDED_BANK_VERSION;
+        state.masterDirty = true;
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  async function saveState() {
     if (!state.master) {
       try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
       return;
     }
     var payload = {
-      master: state.master,
       bank: state.bank,
       mode: state.mode,
       modeName: state.modeName,
@@ -100,9 +177,14 @@
       wrongFilter: state.wrongFilter,
       wrongOnly: state.wrongOnly,
       submitted: state.submitted,
-      bankVersion: EMBEDDED_BANK_VERSION
+      bankVersion: state.bankVersion || EMBEDDED_BANK_VERSION,
+      doneMap: state.doneMap || {}
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) { /* ignore */ }
+    if (state.masterDirty) {
+      state.masterDirty = false;
+      try { await idbSet(IDB_KEY, { version: EMBEDDED_BANK_VERSION, bank: state.master }); } catch (e) { /* IndexedDB 不可用时降级 */ }
+    }
     scheduleAccountSave();
   }
 
@@ -111,17 +193,22 @@
       var raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return;
       var p = JSON.parse(raw);
-      if (!p || !p.master || !Array.isArray(p.master.questions) || !p.master.questions.length) return;
-      state.master = p.master;
+      if (!p) return;
+      state.doneMap = p.doneMap && typeof p.doneMap === 'object' ? p.doneMap : {};
+      if (p.master && Array.isArray(p.master.questions)) {
+        migrateLegacyMaster();
+        p = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || {};
+        saveState();
+      }
       state.mode = p.mode || 'composite';
       state.modeName = p.modeName || '';
       state.bank = p.bank && Array.isArray(p.bank.questions) && p.bank.questions.length ? p.bank : null;
       state.answers = Array.isArray(p.answers) ? p.answers : [];
-      if (!state.bank || state.answers.length !== state.bank.questions.length) {
+      if (state.master && (!state.bank || state.answers.length !== state.bank.questions.length)) {
         state.bank = buildBankForMode(state.mode);
         state.answers = state.bank ? new Array(state.bank.questions.length).fill(null) : [];
       }
-      state.current = Math.max(0, Math.min(Number(p.current) || 0, Math.max(0, state.bank.questions.length - 1)));
+      state.current = Math.max(0, Math.min(Number(p.current) || 0, Math.max(0, state.bank ? state.bank.questions.length - 1 : 0)));
       state.view = ['mode', 'import', 'quiz', 'result', 'wrong', 'editor'].indexOf(p.view) >= 0 ? p.view : 'quiz';
       state.wrongFilter = p.wrongFilter || 'all';
       state.wrongOnly = !!p.wrongOnly;
@@ -257,7 +344,7 @@
   }
 
   function bySection(master, section) {
-    return master.questions.filter(function (q) { return q.section === section && !q.done; }).map(cloneBank).sort(function (a, b) { return a.id - b.id; });
+    return master.questions.filter(function (q) { return q.section === section && !isDone(q); }).map(cloneBank).sort(function (a, b) { return a.id - b.id; });
   }
 
   function buildCompositeBank(master) {
@@ -286,15 +373,17 @@
     { start: 156, end: 165, type: 'single', score: 0.5, section: '资料分析' }
   ];
 
-  function fillPaperType(pool, type, count, weights) {
-    var candidates = pool.filter(function (q) { return q.type === type && !q.done; });
-    if (candidates.length < count) candidates = pool.filter(function (q) { return q.type === type; });
-    if (!candidates.length) candidates = state.master.questions.filter(function (q) { return q.type === type; });
+  function fillPaperType(pool, type, count, weights, usedIds) {
+    var avail = pool.filter(function (q) { return q.type === type && !usedIds[String(q.id)]; });
+    var candidates = avail.filter(function (q) { return !isDone(q); });
+    if (candidates.length < count) candidates = avail;
+    if (!candidates.length) candidates = state.master.questions.filter(function (q) { return q.type === type && !usedIds[String(q.id)]; });
     var chosen = weights ? weightedSample(candidates, Math.min(count, candidates.length), weights) : shuffle(candidates).slice(0, Math.min(count, candidates.length));
     if (!chosen.length) chosen = candidates;
     var out = chosen.map(cloneBank);
     var i = 0;
     while (out.length < count) { out.push(cloneBank(chosen[i % chosen.length])); i++; }
+    chosen.forEach(function (q) { usedIds[String(q.id)] = true; });
     return out;
   }
 
@@ -305,9 +394,10 @@
     var pool = mode === 'composite' ? master.questions.slice() : master.questions.filter(function (q) { return q.category === mode; });
     var weights = master.composite && master.composite.weights;
     var questions = [];
+    var usedIds = {};
     PAPER_BANDS.forEach(function (band) {
       var count = band.end - band.start + 1;
-      var items = fillPaperType(pool, band.type, count, mode === 'composite' ? weights : null);
+      var items = fillPaperType(pool, band.type, count, mode === 'composite' ? weights : null, usedIds);
       items.forEach(function (q) {
         var c = cloneBank(q);
         c.score = band.score;
@@ -663,9 +753,9 @@
     var q = state.bank.questions[state.current];
     var correct = isCorrect(q, selected);
     state.answers[state.current] = { selected: selected, correct: correct, points: correct ? q.score : 0 };
-    q.done = correct;
+    setDone(q, correct);
     var mi = state.master.questions.findIndex(function (x) { return String(x.id) === String(q.id); });
-    if (mi >= 0) state.master.questions[mi].done = correct;
+    if (mi >= 0) setDone(state.master.questions[mi], correct);
     state.draft = new Set();
     if (correct) removeStoredWrong(q.id);
     else addStoredWrong(q, selected);
@@ -761,9 +851,15 @@
   }
 
   function buildCloudData() {
+    var master = state.master ? stripDoneFlags(cloneBank(state.master)) : null;
+    var doneIds = [];
+    if (state.master) {
+      state.master.questions.forEach(function (q) { if (isDone(q)) doneIds.push(q.id); });
+    }
     return {
       version: APP_VERSION,
-      master: state.master,
+      master: master,
+      doneIds: doneIds,
       bank: state.bank,
       answers: state.answers,
       current: state.current,
@@ -776,7 +872,13 @@
 
   function applyCloudData(data) {
     if (!data || !data.master) throw new Error('云端数据缺少题库');
-    state.master = normalizeBank(data.master);
+    state.master = stripDoneFlags(normalizeBank(data.master));
+    state.doneMap = {};
+    (data.doneIds || []).forEach(function (id) { state.doneMap[String(id)] = true; });
+    if (data.master && Array.isArray(data.master.questions)) {
+      data.master.questions.forEach(function (q) { if (q && q.done) state.doneMap[String(q.id)] = true; });
+    }
+    state.masterDirty = true;
     state.bank = data.bank && Array.isArray(data.bank.questions) && data.bank.questions.length ? data.bank : null;
     state.answers = Array.isArray(data.answers) ? data.answers : [];
     if (!state.bank || state.answers.length !== state.bank.questions.length) {
@@ -1071,7 +1173,8 @@
   }
 
   function buildCompactData() {
-    var doneIds = state.master ? state.master.questions.filter(function (q) { return q.done; }).map(function (q) { return q.id; }) : [];
+    var doneIds = [];
+    if (state.master) state.master.questions.forEach(function (q) { if (isDone(q)) doneIds.push(q.id); });
     return {
       version: APP_VERSION,
       doneIds: doneIds,
@@ -1084,7 +1187,7 @@
     if (!data || !state.master) return;
     var doneSet = {};
     (data.doneIds || []).forEach(function (id) { doneSet[String(id)] = true; });
-    state.master.questions.forEach(function (q) { q.done = !!doneSet[String(q.id)]; });
+    state.doneMap = doneSet;
     if (Array.isArray(data.wrong)) saveStoredWrong(data.wrong);
     if (data.progress && data.progress.bank && Array.isArray(data.progress.bank.questions)) {
       state.bank = data.progress.bank;
@@ -1233,6 +1336,7 @@
       state.answers = [];
       state.current = 0;
       state.view = 'mode';
+      state.masterDirty = true;
       saveState();
       renderAll();
       return true;
@@ -1444,8 +1548,8 @@
 
   function matchEditorFilter(q) {
     if (state.editorCatFilter !== 'all' && q.category !== state.editorCatFilter) return false;
-    if (state.editorDoneFilter === 'done' && !q.done) return false;
-    if (state.editorDoneFilter === 'undone' && q.done) return false;
+    if (state.editorDoneFilter === 'done' && !isDone(q)) return false;
+    if (state.editorDoneFilter === 'undone' && isDone(q)) return false;
     var kw = state.editorSearch.trim().toLowerCase();
     if (!kw) return true;
     var hay = [
@@ -1484,7 +1588,7 @@
     tabs.replaceChildren();
     var doneCount = 0;
     var allCount = state.master ? state.master.questions.length : 0;
-    if (state.master) doneCount = state.master.questions.filter(function (q) { return q.done; }).length;
+    if (state.master) doneCount = state.master.questions.filter(function (q) { return isDone(q); }).length;
     var items = [
       { id: 'all', name: '全部状态' },
       { id: 'done', name: '已做（' + doneCount + '）' },
@@ -1568,8 +1672,9 @@
       catBadge.className = 'cat-badge';
       catBadge.textContent = categoryName(q.category) || q.category;
       var doneBadge = document.createElement('span');
-      doneBadge.className = q.done ? 'done-badge done' : 'done-badge';
-      doneBadge.textContent = q.done ? '已做' : '未做';
+      var qDone = isDone(q);
+      doneBadge.className = qDone ? 'done-badge done' : 'done-badge';
+      doneBadge.textContent = qDone ? '已做' : '未做';
       head.append(num, typeBadge, sectionBadge, catBadge, doneBadge);
       if (q.images && q.images.length) {
         var imgBadge = document.createElement('span');
@@ -1594,7 +1699,7 @@
       doneBtn.className = 'btn btn-secondary btn-small';
       doneBtn.dataset.action = 'toggle-done';
       doneBtn.dataset.id = q.id;
-      doneBtn.textContent = q.done ? '标记未做' : '标记已做';
+      doneBtn.textContent = isDone(q) ? '标记未做' : '标记已做';
       var delBtn = document.createElement('button');
       delBtn.type = 'button';
       delBtn.className = 'btn btn-secondary btn-small btn-danger';
@@ -1757,6 +1862,7 @@
       question.id = maxId + 1;
       state.master.questions.push(question);
     }
+    state.masterDirty = true;
     state.editorDirty = true;
     $('#questionEditor').hidden = true;
     renderEditorList();
@@ -1769,6 +1875,7 @@
     if (!confirm('确定删除第 ' + id + ' 题吗？')) return;
     state.master.questions.splice(index, 1);
     state.editorSelected.delete(String(id));
+    state.masterDirty = true;
     state.editorDirty = true;
     renderEditorList();
   }
@@ -1840,11 +1947,7 @@
   function toggleQuestionDone(id) {
     var q = state.master.questions.find(function (x) { return String(x.id) === String(id); });
     if (!q) return;
-    q.done = !q.done;
-    if (state.bank) {
-      var bq = state.bank.questions.find(function (x) { return String(x.id) === String(id); });
-      if (bq) bq.done = q.done;
-    }
+    setDone(q, !isDone(q));
     state.editorDirty = true;
     saveState();
     renderEditorList();
@@ -1856,7 +1959,8 @@
     }
     if (state.editorDirty && !confirm('保存题库会重置当前作答进度，确定保存吗？')) return;
     try {
-      state.master = normalizeBank(state.master);
+      state.master = stripDoneFlags(normalizeBank(state.master));
+      state.masterDirty = true;
       state.editorDirty = false;
       state.editorSelected = new Set();
       if (state.wrongOnly || !state.mode) {
@@ -1957,7 +2061,9 @@
 
   async function loadBundledBank() {
     var raw = window.BUNDLED_BANK || FALLBACK_MASTER;
-    state.master = cloneBank(normalizeBank(raw));
+    state.master = stripDoneFlags(cloneBank(normalizeBank(raw)));
+    state.doneMap = {};
+    state.masterDirty = true;
     state.bank = null;
     state.mode = null;
     state.answers = [];
@@ -1969,7 +2075,8 @@
 
   function resetToEmbeddedBank() {
     var raw = window.BUNDLED_BANK || FALLBACK_MASTER;
-    state.master = normalizeBank(cloneBank(raw));
+    state.master = stripDoneFlags(normalizeBank(cloneBank(raw)));
+    state.masterDirty = true;
     state.bank = null;
     state.mode = null;
     state.modeName = '';
@@ -2002,6 +2109,7 @@
     var before = state.master.questions.length;
     state.master.questions = dedupeQuestionList(state.master.questions);
     if (state.master.questions.length !== before) {
+      state.masterDirty = true;
       if (state.bank) {
         var kept = [];
         var keptAnswers = [];
@@ -2037,7 +2145,7 @@
       state.master.questions.push(norm);
       changed = true;
     });
-    if (changed) saveState();
+    if (changed) { state.masterDirty = true; saveState(); }
   }
 
   function syncEmbeddedImages() {
@@ -2079,7 +2187,7 @@
     if (state.bank && window.BUNDLED_BANK.title) {
       state.bank.title = window.BUNDLED_BANK.title + (state.modeName ? ' · ' + state.modeName : '');
     }
-    if (changed) saveState();
+    if (changed) { state.masterDirty = true; saveState(); }
   }
 
   $('#fileInput').addEventListener('change', function (e) {
@@ -2298,14 +2406,24 @@
     if (e.key === 'ArrowRight') { e.preventDefault(); goNext(); }
   });
 
-  restoreState();
-  if (!state.master || state.bankVersion !== EMBEDDED_BANK_VERSION) {
-    resetToEmbeddedBank();
-  } else {
-    dedupeMasterQuestions();
-    syncEmbeddedImages();
-    syncEmbeddedQuestions();
-  }
-  state.view = 'login';
-  renderAll();
+  (async function () {
+    migrateLegacyMaster();
+    try {
+      var saved = await idbGet(IDB_KEY);
+      if (saved && saved.bank && Array.isArray(saved.bank.questions) && saved.bank.questions.length) {
+        state.master = normalizeBank(saved.bank);
+        stripDoneFlags(state.master);
+        state.bankVersion = Number(saved.version) || EMBEDDED_BANK_VERSION;
+      }
+    } catch (e) { /* IndexedDB 不可用时使用内置题库 */ }
+    if (!state.master) resetToEmbeddedBank();
+    restoreState();
+    if (state.master) {
+      dedupeMasterQuestions();
+      syncEmbeddedImages();
+      syncEmbeddedQuestions();
+    }
+    state.view = 'login';
+    renderAll();
+  })();
 })();
