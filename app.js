@@ -231,6 +231,13 @@
     return a;
   }
 
+  function orderByType(questions) {
+    var singles = questions.filter(function (q) { return q.type === 'single'; });
+    var multis = questions.filter(function (q) { return q.type === 'multiple'; });
+    var judges = questions.filter(function (q) { return q.type === 'judge'; });
+    return singles.concat(multis, judges);
+  }
+
   function bySection(master, section) {
     return master.questions.filter(function (q) { return q.section === section; }).map(cloneBank).sort(function (a, b) { return a.id - b.id; });
   }
@@ -262,6 +269,7 @@
     } else {
       questions = shuffle(master.questions.filter(function (q) { return q.category === mode; }).map(cloneBank));
     }
+    questions = orderByType(questions);
     if (questions.length > 165) questions = questions.slice(0, 165);
     if (!questions.length) return null;
     return {
@@ -787,7 +795,7 @@
   }
 
   function startWrongBank(bank) {
-    var qs = shuffle(bank.questions);
+    var qs = orderByType(shuffle(bank.questions));
     if (qs.length > 165) qs = qs.slice(0, 165);
     bank.questions = qs;
     state.bank = bank;
