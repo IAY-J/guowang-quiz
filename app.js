@@ -1143,6 +1143,19 @@
       editBtn.dataset.action = 'edit-question';
       editBtn.dataset.id = q.id;
       editBtn.textContent = '编辑';
+      var doneBtn = document.createElement('button');
+      doneBtn.type = 'button';
+      doneBtn.className = 'btn btn-secondary btn-small';
+      doneBtn.dataset.action = 'toggle-done';
+      doneBtn.dataset.id = q.id;
+      doneBtn.textContent = q.done ? '标记未做' : '标记已做';
+      var delBtn = document.createElement('button');
+      delBtn.type = 'button';
+      delBtn.className = 'btn btn-secondary btn-small btn-danger';
+      delBtn.dataset.action = 'delete-question';
+      delBtn.dataset.id = q.id;
+      delBtn.textContent = '删除';
+      actions.append(doneBtn, editBtn, delBtn);
 
       row.append(selectBox, main, actions);
       wrap.append(row);
