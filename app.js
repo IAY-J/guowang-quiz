@@ -4,6 +4,7 @@
   var $ = function (sel) { return document.querySelector(sel); };
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
+  var EMBEDDED_BANK_VERSION = 3;
   var WRONG_KEY = 'smart-quiz-wrong-v2';
   var SYNC_KEY = 'smart-quiz-sync-v1';
   var LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -63,7 +64,8 @@
     editorSelected: new Set(),
     editorCatFilter: 'all',
     editorSearch: '',
-    submitted: false
+    submitted: false,
+    bankVersion: 0
   };
 
   var autoTimer = null;
@@ -87,7 +89,8 @@
       view: state.view,
       wrongFilter: state.wrongFilter,
       wrongOnly: state.wrongOnly,
-      submitted: state.submitted
+      submitted: state.submitted,
+      bankVersion: EMBEDDED_BANK_VERSION
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) { /* ignore */ }
   }
@@ -112,6 +115,7 @@
       state.wrongFilter = p.wrongFilter || 'all';
       state.wrongOnly = !!p.wrongOnly;
       state.submitted = !!p.submitted;
+      state.bankVersion = p.bankVersion || 0;
       state.draft = new Set();
       state.editorDirty = false;
       state.editorSelected = new Set();
@@ -251,7 +255,7 @@
     var proJudge = bySection(master, '专业判断');
     var out = [];
     out.push.apply(out, shuffle(bySection(master, '综合单选')));
-    out.push.apply(out, shuffle(onePoint));
+    out.push.apply(out, shuffle(weightedSample(onePoint, 5, weights)));
     out.push.apply(out, shuffle(weightedSample(restSingle, 60, weights)));
     out.push.apply(out, shuffle(bySection(master, '综合多选')));
     out.push.apply(out, shuffle(weightedSample(proMulti, 30, weights)));
@@ -1494,6 +1498,79 @@
     renderAll();
   }
 
+  function resetToEmbeddedBank() {
+    var raw = window.BUNDLED_BANK || FALLBACK_MASTER;
+    state.master = normalizeBank(cloneBank(raw));
+    state.bank = null;
+    state.mode = null;
+    state.modeName = '';
+    state.answers = [];
+    state.current = 0;
+    state.draft = new Set();
+    state.wrongOnly = false;
+    state.editorDirty = false;
+    state.editorSelected = new Set();
+    state.editorCatFilter = 'all';
+    state.editorSearch = '';
+    state.submitted = false;
+    state.bankVersion = EMBEDDED_BANK_VERSION;
+    state.view = 'mode';
+    saveState();
+  }
+
+  function dedupeQuestionList(list) {
+    var seen = {};
+    var out = [];
+    list.forEach(function (q) {
+      var fp = questionFingerprint(q);
+      if (!seen[fp]) { seen[fp] = true; out.push(q); }
+    });
+    return out;
+  }
+
+  function dedupeMasterQuestions() {
+    if (!state.master) return;
+    var before = state.master.questions.length;
+    state.master.questions = dedupeQuestionList(state.master.questions);
+    if (state.master.questions.length !== before) {
+      if (state.bank) {
+        var kept = [];
+        var keptAnswers = [];
+        var seen = {};
+        state.bank.questions.forEach(function (q, i) {
+          var fp = questionFingerprint(q);
+          if (!seen[fp]) { seen[fp] = true; kept.push(q); keptAnswers.push(state.answers[i]); }
+        });
+        state.bank.questions = kept;
+        state.answers = keptAnswers;
+        if (state.current >= kept.length) state.current = Math.max(0, kept.length - 1);
+      }
+      saveState();
+    }
+  }
+
+  function syncEmbeddedQuestions() {
+    if (!state.master || !window.BUNDLED_BANK || !Array.isArray(window.BUNDLED_BANK.questions)) return;
+    var existing = {};
+    state.master.questions.forEach(function (q) { existing[questionFingerprint(q)] = true; });
+    var maxId = state.master.questions.reduce(function (m, q) { return Math.max(m, Number(q.id) || 0); }, 0);
+    var changed = false;
+    window.BUNDLED_BANK.questions.forEach(function (q) {
+      var norm;
+      try {
+        norm = normalizeBank({ title: 'sync', categories: [], composite: {}, questions: [q] }).questions[0];
+      } catch (e) { return; }
+      var fp = questionFingerprint(norm);
+      if (existing[fp]) return;
+      existing[fp] = true;
+      maxId += 1;
+      norm.id = maxId;
+      state.master.questions.push(norm);
+      changed = true;
+    });
+    if (changed) saveState();
+  }
+
   function syncEmbeddedImages() {
     if (!state.master || !window.BUNDLED_BANK || !Array.isArray(window.BUNDLED_BANK.questions)) return;
     var map = {};
@@ -1716,9 +1793,12 @@
   });
 
   restoreState();
-  if (state.master) syncEmbeddedImages();
-  renderAll();
-  if (!state.master) {
-    loadBundledBank();
+  if (!state.master || state.bankVersion !== EMBEDDED_BANK_VERSION) {
+    resetToEmbeddedBank();
+  } else {
+    dedupeMasterQuestions();
+    syncEmbeddedImages();
+    syncEmbeddedQuestions();
   }
+  renderAll();
 })();

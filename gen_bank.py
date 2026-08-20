@@ -628,6 +628,22 @@ def main():
                 crops = IMAGE_CROPS.get(q["id"])
                 if crops:
                     q["images"] = [crop_data_uri(pdf, pi, bbox) for pi, bbox in crops]
+    base_total = sum(q["score"] for q in questions)
+    assert abs(base_total - 100) < 1e-9, base_total
+    extra = Path(__file__).with_name("tongxin-moni-kaoshi.json")
+    if extra.exists():
+        extra_data = json.loads(extra.read_text(encoding="utf-8"))
+        existing = {json.dumps([q["type"], q["stem"], q["options"], q["answer"], q["reason"], q.get("images", [])], ensure_ascii=False) for q in questions}
+        max_id = max(q["id"] for q in questions)
+        for q in extra_data["questions"]:
+            fp = json.dumps([q["type"], q["stem"], q["options"], q["answer"], q["reason"], q.get("images", [])], ensure_ascii=False)
+            if fp in existing:
+                continue
+            existing.add(fp)
+            max_id += 1
+            q = dict(q)
+            q["id"] = max_id
+            questions.append(q)
     bank = {
         "title": "国网通信刷题",
         "categories": CATEGORIES,
@@ -635,7 +651,6 @@ def main():
         "questions": questions,
     }
     total = sum(q["score"] for q in questions)
-    assert abs(total - 100) < 1e-9, total
     out = Path(__file__).with_name("sample-bank.json")
     out.write_text(json.dumps(bank, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     js_out = Path(__file__).with_name("bank-data.js")
