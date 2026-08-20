@@ -901,12 +901,13 @@
     var u = $('#accountUser').value.trim();
     var p = $('#accountPass').value;
     if (!u || !/^\d{6}$/.test(p)) { if (!silent) setAccountStatus('请输入用户名和6位数字密码'); return false; }
+    if (!silent) setAccountStatus('正在登录，请稍候…');
     var r = await accountApi('/api/login', { user: u, pass: p });
     if (!r.ok) { if (!silent) setAccountStatus(r.data.error || '登录失败'); return false; }
     state.accountUser = u;
     state.accountPass = p;
     accountStore(u, p);
-    try { applyCloudData(r.data.data || {}); } catch (e) { /* keep local */ }
+    try { applyCompactData(r.data.data || {}); } catch (e) { /* keep local */ }
     state.view = 'mode';
     saveState();
     startAccountTimer();
@@ -949,7 +950,7 @@
 
   async function saveAccountNow() {
     if (!state.accountUser || !state.accountPass) return;
-    var r = await accountApi('/api/save', { user: state.accountUser, pass: state.accountPass, data: buildCloudData() });
+    var r = await accountApi('/api/save', { user: state.accountUser, pass: state.accountPass, data: buildCompactData() });
     if (r.ok) {
       var el = $('#accountStatus');
       if (el && state.accountUser) el.textContent = '已登录：' + state.accountUser + '，数据已保存。';
