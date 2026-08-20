@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.2.3';
+  var APP_VERSION = '1.2.6';
   var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
   var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
@@ -501,6 +501,9 @@
     }
     if (!candidates.length) {
       candidates = pool.filter(function (q) { return q.type === 'single' && !usedIds[String(q.id)]; });
+    }
+    if (!candidates.length) {
+      candidates = (ensurePoolIndex().byType['single'] || []).filter(function (q) { return !usedIds[String(q.id)]; });
     }
     if (!candidates.length) return [];
     var groups = {};
