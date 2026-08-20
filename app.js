@@ -624,9 +624,9 @@
     var q = state.bank.questions[state.current];
     var correct = isCorrect(q, selected);
     state.answers[state.current] = { selected: selected, correct: correct, points: correct ? q.score : 0 };
-    q.done = true;
+    q.done = correct;
     var mi = state.master.questions.findIndex(function (x) { return String(x.id) === String(q.id); });
-    if (mi >= 0) state.master.questions[mi].done = true;
+    if (mi >= 0) state.master.questions[mi].done = correct;
     state.draft = new Set();
     if (correct) removeStoredWrong(q.id);
     else addStoredWrong(q, selected);
