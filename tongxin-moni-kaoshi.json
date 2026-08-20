@@ -1,0 +1,2238 @@
+{
+  "title": "通信原理-模拟考试",
+  "categories": [
+    {
+      "id": "xingce",
+      "name": "行测"
+    },
+    {
+      "id": "qiye",
+      "name": "企业文化"
+    },
+    {
+      "id": "tongxin",
+      "name": "通信原理"
+    },
+    {
+      "id": "guangxian",
+      "name": "光纤通信"
+    },
+    {
+      "id": "shujuwang",
+      "name": "数据通信网"
+    },
+    {
+      "id": "yidong",
+      "name": "移动通信及其他业务"
+    },
+    {
+      "id": "huiyi",
+      "name": "会议电视"
+    },
+    {
+      "id": "jiaohuan",
+      "name": "交换及接入"
+    }
+  ],
+  "composite": {
+    "name": "综合卷",
+    "weights": {
+      "tongxin": 5,
+      "shujuwang": 4,
+      "guangxian": 3,
+      "yidong": 3,
+      "jiaohuan": 2,
+      "huiyi": 1
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "在抗加性高斯白噪声性能方面，2ASK、2FSK、2PSK 从优到差的次序（）。",
+      "options": [
+        "2FSK、2ASK、2PSK",
+        "2ASK、2PSK、2FSK",
+        "2ASK、2FSK、2PSK",
+        "2PSK、2FSK、2ASK。"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "2PSK 信号点间距离最大，判决裕量最大，抗噪性能最好；2FSK 次之，2ASK 最差。",
+      "images": []
+    },
+    {
+      "id": 2,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "我国的电话系统，采用的是什么样的复用方式（）。",
+      "options": [
+        "频分复用",
+        "时分复用",
+        "码分复用",
+        "波分复用"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "我国 PCM 电话系统采用时分复用（TDM），PCM30/32 基群即 TDM 体制。",
+      "images": []
+    },
+    {
+      "id": 3,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "给定低通信道的带宽为2400Hz，在此信道进行二进制基带传输，若基带信号滤波器特性为50%滚降，则无码间干扰传输的最大速率为",
+      "options": [
+        "4800b/s",
+        "2400b/s",
+        "3200b/s",
+        "6400b/s"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "升余弦滚降带宽 B=(1+α)Rs/2，Rs=2B/(1+α)=4800/1.5=3200b/s。",
+      "images": []
+    },
+    {
+      "id": 4,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "设 m(t) 为调制信号，调频波的表达式为 s(t)=Acos[ωc·t+Kf∫m(τ)dτ]，则 FM 调制方式的瞬时频偏为：",
+      "options": [
+        "ωc+Kf∫m(τ)dτ",
+        "Kf∫m(τ)dτ",
+        "ωc+Kf·m(t)",
+        "Kf·m(t)"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "瞬时角频率为 ωc+Kf·m(t)，瞬时频偏为 Kf·m(t)。",
+      "images": []
+    },
+    {
+      "id": 5,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "均衡是解决多径效应引起的（），数字通信系统主要使用（）。",
+      "options": [
+        "纠错检错；频域均衡",
+        "码间串扰；频域均衡",
+        "纠错检错；时域均衡",
+        "码间串扰；时域均衡"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "均衡用于消除码间串扰，数字通信系统主要采用时域均衡。",
+      "images": []
+    },
+    {
+      "id": 6,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "PCM30/32基群的信息速率为（）。",
+      "options": [
+        "64kb/s",
+        "256kb/s",
+        "1024kb/s",
+        "2048kb/s"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "PCM30/32 基群线路总信息速率为 2048kb/s。",
+      "images": []
+    },
+    {
+      "id": 7,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "某2PSK系统发送信号的幅度A=2V，由于信道中存在高斯白噪声，接收端采用相干解调，误码率为Pe，若采用2ASK系统，且信道噪声不变，接收端采用相干解调并保持相同的误码率Pe，发送信号的幅度应为（）。",
+      "options": [
+        "2V",
+        "2√2V",
+        "4V",
+        "√2V"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "2ASK 相邻信号幅度差为 2PSK 的一半，要保持相同误码率，发送幅度需提高到 2 倍，即 4V。",
+      "images": []
+    },
+    {
+      "id": 8,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "截止频率为fc的理想低通信道，其无码间干扰传输的最大速率是多少？",
+      "options": [
+        "2fc",
+        "fc",
+        "fc/2",
+        "fc/4"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "理想低通信道无码间干扰的最高码元速率为 2fc（奈奎斯特速率）。",
+      "images": []
+    },
+    {
+      "id": 9,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "（ ）技术用于补偿时分信道中由于多径效应而产生的码间干扰。",
+      "options": [
+        "扩频",
+        "信道编码",
+        "均衡",
+        "分集"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "均衡技术用于补偿时分信道中因多径效应产生的码间干扰。",
+      "images": []
+    },
+    {
+      "id": 10,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "设计匹配滤波器采用的最佳接收准则是",
+      "options": [
+        "最大输出信噪比准测",
+        "最大后验概率准则",
+        "最小均方误差准则",
+        "最大似然比准则"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "匹配滤波器以输出信噪比最大为最佳接收准则。",
+      "images": []
+    },
+    {
+      "id": 11,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "实际应用的时候，为什么较少使用2PSK调制方式（）。",
+      "options": [
+        "误码率高",
+        "频带利用率低",
+        "存在倒π现象",
+        "实现困难"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "2PSK 相干解调存在倒 π（相位模糊）现象，实际多改用 DPSK 或 QPSK。",
+      "images": []
+    },
+    {
+      "id": 12,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "QPSK调制相对于2PSK调制的优点（）。",
+      "options": [
+        "误码率减小",
+        "可靠性好",
+        "频带利用率提高",
+        "实现更简单"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "QPSK 每码元携带 2 个比特，相同带宽下频带利用率比 2PSK 提高一倍。",
+      "images": []
+    },
+    {
+      "id": 13,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "收端将接收的消息原封不动地送回发端，由发端将原发送信息与反馈信息进行比较，发现错误进行重发，这种差错控制方式为（）。",
+      "options": [
+        "FEC",
+        "ARQ",
+        "IF",
+        "HEC"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "这是信息反馈（IF）方式：发端将反馈回来的信息与原发信息比较，发现不一致即重发。",
+      "images": []
+    },
+    {
+      "id": 14,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "设时域信号 f(t) 的频谱为 F(ω)，则信号 f(t-1) 的频谱函数为：",
+      "options": [
+        "F(ω)e^{jω}",
+        "F(ω)",
+        "jωF(ω)",
+        "F(ω)e^{-jω}"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "时移性质：f(t-t0) 的频谱为 F(ω)e^{-jωt0}，t0=1 时得 F(ω)e^{-jω}。",
+      "images": []
+    },
+    {
+      "id": 15,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "第四类部分相应的频带利用率为（ ）。",
+      "options": [
+        "1B/Hz",
+        "2B/Hz",
+        "0.5B/Hz",
+        "4B/Hz"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "部分响应系统可达到奈奎斯特速率，第四类部分响应的频带利用率为 2B/Hz。",
+      "images": []
+    },
+    {
+      "id": 16,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "一个均值为零的平稳高斯窄带噪声，它的包络一维分布服从 （ ）。",
+      "options": [
+        "高斯分布",
+        "均匀分布",
+        "瑞利分布",
+        "莱斯分布"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "均值为零的平稳高斯窄带噪声的包络服从瑞利分布。",
+      "images": []
+    },
+    {
+      "id": 17,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "非均匀量化相对于均匀量化的优点是",
+      "options": [
+        "改善小信号的量化信噪比",
+        "改善大信号的量化信噪比",
+        "减小小信号的量化信噪比",
+        "同时改善小信号与大信号的量化信噪比"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "非均匀量化对小信号采用较小的量化间隔，可改善小信号的量化信噪比。",
+      "images": []
+    },
+    {
+      "id": 18,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "设总电平数是2048i，则+1270i电平的段落码为",
+      "options": [
+        "110",
+        "010",
+        "101",
+        "111"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "1270Δ 处于第 8 段，按 A 律段落编码其段落码为 111。",
+      "images": []
+    },
+    {
+      "id": 19,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "2PSK在α滚降信道中的最大频带利用率是多少？",
+      "options": [
+        "2/1+α B/Hz",
+        "1/1+α B/Hz",
+        "0.5/1+αB/Hz",
+        "1B/Hz"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "2PSK 在 α 滚降信道中频带利用率 η=1/(1+α) B/Hz。",
+      "images": []
+    },
+    {
+      "id": 20,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "长度为15的汉明码，监督位数和编码效率分别为",
+      "options": [
+        "11和4/15",
+        "4和11/15",
+        "4和4/15",
+        "11和11/15"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "长度为 15 的汉明码监督位为 4，信息位为 11，编码效率 11/15。",
+      "images": []
+    },
+    {
+      "id": 21,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "信号与系统中关于稳定的描述正确的是（）。",
+      "options": [
+        "稳定系统是指输入信号有界时，输出信号必然无限增长的系统",
+        "稳定系统是指输入信号有界时，输出信号也保持有界的系统",
+        "稳定系统是指输入信号无限增长时，输出信号保持有界的系统",
+        "稳定系统是指输入信号有界时，输出信号可能无界也可能有界的系统"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "稳定系统指输入有界时输出也有界（BIBO 稳定）。",
+      "images": []
+    },
+    {
+      "id": 22,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "部分相应系统为消除误码传播，应采用",
+      "options": [
+        "相关编码器",
+        "低通滤波器",
+        "横向滤波器",
+        "预编码器"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "部分响应系统用预编码器消除误码传播。",
+      "images": []
+    },
+    {
+      "id": 23,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "设信号的平均功率为E，噪声的功率谱密度为n0,则匹配滤波器的最大输出信噪比为（）。",
+      "options": [
+        "E/n0",
+        "4E/n0",
+        "2E/n0",
+        "E/2n0"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "匹配滤波器最大输出信噪比为 2E/n0，其中 E 为信号能量。",
+      "images": []
+    },
+    {
+      "id": 24,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "如果随机过程 x(t)是广义平稳的，那么它一定有下面的某个特性( )。",
+      "options": [
+        "高斯分布",
+        "满足各态历经的性质",
+        "严格平稳",
+        "自相关函数只与时间间隔有关"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "广义平稳随机过程的自相关函数只与时间间隔有关。",
+      "images": []
+    },
+    {
+      "id": 25,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "改善恒参信道对信号传输影响的措施是（）。",
+      "options": [
+        "采用分集技术",
+        "提高信噪比",
+        "采用均衡技术",
+        "降低信息速率"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "恒参信道引入的线性失真可用均衡技术改善。",
+      "images": []
+    },
+    {
+      "id": 26,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "设调制信号的最高截止频率为fx，进行AM调制，要使已调信号无失真传输，AM调制系统的传输带宽至少为（）。",
+      "options": [
+        "fx",
+        "2fx",
+        "3fx",
+        "4fx"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "AM 信号带宽为调制信号最高频率的 2 倍，即至少 2fx。",
+      "images": []
+    },
+    {
+      "id": 27,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "多进制调制相对于二进制调制的优点（）。",
+      "options": [
+        "误码率减小",
+        "可靠性好",
+        "频带利用率提高",
+        "实现更简单"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "多进制调制每个码元携带更多比特，频带利用率提高。",
+      "images": []
+    },
+    {
+      "id": 28,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "我国的PCM电话系统，采用的是什么样的复用方式（）。",
+      "options": [
+        "频分复用",
+        "时分复用",
+        "码分复用",
+        "波分复用"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "PCM 电话系统采用时分复用。",
+      "images": []
+    },
+    {
+      "id": 29,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "设 r 为接收机输入端的信噪比，则 2DPSK 调制系统差分相干解调的误码率为：",
+      "options": [
+        "(1/2)e^{-r/2}",
+        "(1/2)erfc(√r)",
+        "erfc(√(r/2))",
+        "(1/2)e^{-r}"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "2DPSK 差分相干解调的误码率近似为 (1/2)e^{-r}。",
+      "images": []
+    },
+    {
+      "id": 30,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "下列调制方式中，频带利用率最低的是()。",
+      "options": [
+        "2ASK",
+        "2FSK",
+        "2PSK",
+        "2DPSK"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "2FSK 占用带宽最大，频带利用率最低。",
+      "images": []
+    },
+    {
+      "id": 31,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "通信系统中的信源编码解决的问题是？( )。",
+      "options": [
+        "可靠性",
+        "安全性",
+        "有效性",
+        "以上都是"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "信源编码通过压缩冗余提高传输的有效性。",
+      "images": []
+    },
+    {
+      "id": 32,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "发送端发送出能够发现错误的码，接收端如果发现错误，则通过反向信道把这一判决结果反馈给发送端，然后，发送端把接收端认为有错误的信息再次重发（）。",
+      "options": [
+        "FEC",
+        "ARQ",
+        "IF",
+        "HEC"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "接收端反馈判决结果、发端重发有错信息的差错控制方式是 ARQ。",
+      "images": []
+    },
+    {
+      "id": 33,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "传码率为2000Baud的BPSK系统，其最高信息传输速率是( )。",
+      "options": [
+        "2000b/s",
+        "1000b/s",
+        "500b/s",
+        "4000b/s"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "BPSK 每码元 1 比特，传码率 2000Baud 时信息速率为 2000b/s。",
+      "images": []
+    },
+    {
+      "id": 34,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "载波同步系统有两个重要参数也就是同步建立时间ts和同步保持时间tc，通常我们希望（）。",
+      "options": [
+        "ts大，tc大",
+        "ts大，tc小",
+        "ts小，tc大",
+        "ts小，tc小"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "载波同步希望同步建立时间短、保持时间长。",
+      "images": []
+    },
+    {
+      "id": 35,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "根据抽样定理，如果要对频带限制在 fm 以下的连续信号进行抽样，则抽样频率 fs 必须满足( )。",
+      "options": [
+        "fs≥2fm",
+        "fs≥3fm",
+        "fs≤2fm",
+        "fs≤3fm"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "抽样定理要求抽样频率 fs≥2fm。",
+      "images": []
+    },
+    {
+      "id": 36,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "PCM 均匀量化信噪比随着（）增大而增大。",
+      "options": [
+        "量化级数",
+        "量化台阶",
+        "噪声功率",
+        "采样频率"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "PCM 均匀量化信噪比随量化级数增加而增大。",
+      "images": []
+    },
+    {
+      "id": 37,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "均衡可以解决通信系统不理想引起的（），数字通信系统主要使用（）。",
+      "options": [
+        "纠错检错；频域均衡",
+        "码间串扰；频域均衡",
+        "纠错检错；时域均衡",
+        "码间串扰；时域均衡"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "均衡解决通信系统不理想引起的码间串扰，数字系统主要使用时域均衡。",
+      "images": []
+    },
+    {
+      "id": 38,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "某信号采用A律13折线非均匀量化，其量化电平为280Δ，对其进行PCM编码，其编码结果为（）。",
+      "options": [
+        "11010010",
+        "01010001",
+        "11010001",
+        "11010011"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "按 A 律 13 折线编码规则，280Δ 的 PCM 编码结果为 11010001。",
+      "images": []
+    },
+    {
+      "id": 39,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "设某传输码序列为0-20+2+2000-2-2-2，在接收端正确恢复出的数字序列为（）。",
+      "options": [
+        "01011000111",
+        "10100111000",
+        "01011000011",
+        "10100111100"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "按该线路码型（差分/变换码）的译码规则恢复，原数字序列为 10100111000。",
+      "images": []
+    },
+    {
+      "id": 40,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "关于冲激函数，下列描述不正确的是（）。",
+      "options": [
+        "除 t=0 外 δ(t)=0",
+        "∫δ(t)dt=1",
+        "δ(t) 是偶函数",
+        "δ(t) 在 t=0 处的取值为 1"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "冲激函数的取值不是 1，其本质是强度/面积为 1，D 项描述不正确。",
+      "images": []
+    },
+    {
+      "id": 41,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "平稳随机过程的协方差函数C（τ）与自相关函数R（τ）和均值m的关系为（）。",
+      "options": [
+        "C（τ）=R（τ）-m2",
+        "C（τ）=R（τ）+m2",
+        "C（τ）= m2-R（τ）",
+        "C（τ）=m2"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "平稳过程协方差函数 C(τ)=R(τ)-m²。",
+      "images": []
+    },
+    {
+      "id": 42,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "根据香农公式可知为了使信道容量趋于无穷大，不可以采取下列措施( )。",
+      "options": [
+        "噪声功率为零",
+        "噪声功率谱密度始终为零",
+        "信号发射功率为无穷",
+        "系统带宽为无穷大"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "带宽趋于无穷时噪声功率也随之增大，信道容量不能趋于无穷。",
+      "images": []
+    },
+    {
+      "id": 43,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "设输入FM解调器的噪声是窄带高斯白噪声，则鉴频器输出的噪声功率谱密度与频率f的关系为（）。",
+      "options": [
+        "无关，仍为白噪声",
+        "正比",
+        "反比",
+        "与f 2正比"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "FM 鉴频器输出噪声功率谱密度与频率的平方成正比。",
+      "images": []
+    },
+    {
+      "id": 44,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "在 PCM30/32 路系统中，净话路数据为（）。",
+      "options": [
+        "8位",
+        "32位",
+        "256位",
+        "240位"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "PCM30/32 净话路为 30 路，每路 8 位，共 240 位。",
+      "images": []
+    },
+    {
+      "id": 45,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "复帧中话路19在哪个时隙中传输( )。",
+      "options": [
+        "Ts19",
+        "Ts18",
+        "Ts20",
+        "Ts21"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "PCM30/32 中话路 n 在 TS(n+1) 传输，话路 19 在 TS20。",
+      "images": []
+    },
+    {
+      "id": 46,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "对2PSK和2ASK进行相干解调，若要求误码率相同，则两者的输入信噪比应该满足（）。",
+      "options": [
+        "2PSK信噪比是2ASK的2倍",
+        "2ASK信噪比是2PSK的4倍",
+        "2ASK信噪比是2PSK的2倍",
+        "2PSK信噪比是2ASK的4倍"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "相同误码率下 2ASK 所需信噪比约为 2PSK 的 4 倍。",
+      "images": []
+    },
+    {
+      "id": 47,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "对AM信号进行包络检波后需要经过什么类型的滤波器对波形进行整理（）。",
+      "options": [
+        "低通滤波器",
+        "高通滤波器",
+        "带通滤波器",
+        "带阻滤波器"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "AM 包络检波后需经低通滤波器滤除高频分量恢复基带信号。",
+      "images": []
+    },
+    {
+      "id": 48,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "码长为n=15的汉明码其编码效率应是（）。",
+      "options": [
+        "2/3",
+        "11/15",
+        "4/5",
+        "13/15"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "码长 n=15 的汉明码信息位 11 位，编码效率 11/15。",
+      "images": []
+    },
+    {
+      "id": 49,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "在一个码组内纠正 2 个错码，要求码组的最小距离满足：",
+      "options": [
+        "d0≥5",
+        "d0≥4",
+        "d0≥3",
+        "d0≥6"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "纠 t 个错码要求 d0≥2t+1=5。",
+      "images": []
+    },
+    {
+      "id": 50,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "PCM30/32 系统中帧同步码的长度是（）。",
+      "options": [
+        "4 bit",
+        "6 bit",
+        "7 bit",
+        "8 bit"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "PCM30/32 帧同步码组长度为 7 位。",
+      "images": []
+    },
+    {
+      "id": 51,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "PCM一次群话路个数是（），每个话路的信息速率（）。",
+      "options": [
+        "32， 64kb/s",
+        "32，2048kb/s",
+        "30，64kb/s",
+        "30，8kb/s"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "PCM 一次群 30 个话路，每路信息速率 64kb/s。",
+      "images": []
+    },
+    {
+      "id": 52,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "在实际应用中常采用的抽样方法是（）。 理想抽样",
+      "options": [
+        "理想抽样",
+        "自然抽样",
+        "曲顶抽样",
+        "平顶抽样"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "实际抽样常采用平顶抽样，便于后续编码处理。",
+      "images": []
+    },
+    {
+      "id": 53,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "2DPSK是用（）唯一表示数字信号的 前后码元的相位差； 0表示0相位，1表示π相位",
+      "options": [
+        "前后码元的相位差",
+        "0 表示 0 相位，1 表示 π 相位",
+        "1 表示 0 相位，0 表示 π 相位",
+        "载波相位的绝对数值表示数字信息"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "2DPSK 用相邻码元载波相位差表示数字信息。",
+      "images": []
+    },
+    {
+      "id": 54,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "下列适合在计算机网络中传输的码型是",
+      "options": [
+        "HDB3码",
+        "曼彻斯特码",
+        "AMI码",
+        "CMI码"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "曼彻斯特码自带时钟信息，适合计算机网络传输。",
+      "images": []
+    },
+    {
+      "id": 55,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "二进制传输信息速率为2400bit/s, 若改用8进制传输，码元速率为 ( )。",
+      "options": [
+        "1200Baud",
+        "800Baud",
+        "7200 bit/s",
+        "800 bit/s"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "8 进制每码元 3bit，码元速率=2400/3=800Baud。",
+      "images": []
+    },
+    {
+      "id": 56,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "S(t)匹配的滤波器的冲击响应h(t)为",
+      "options": [
+        "S(t+T)",
+        "S(T-t)",
+        "S(t-T/2)",
+        "S(t+T/2)"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "与 S(t) 匹配的滤波器冲激响应为 h(t)=S(T-t)。",
+      "images": []
+    },
+    {
+      "id": 57,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "时域均衡的目的是（）。",
+      "options": [
+        "消除幅频失真",
+        "消除或减小码间干扰",
+        "消除相频失真",
+        "抗多径衰落"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "时域均衡的目的是消除或减小码间干扰。",
+      "images": []
+    },
+    {
+      "id": 58,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "在下列各种调制电路中，带宽最大的是",
+      "options": [
+        "AM电路",
+        "VSB电路",
+        "SSB电路",
+        "FM电路"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "FM 信号带宽最宽，其次 AM/VSB/SSB。",
+      "images": []
+    },
+    {
+      "id": 59,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "信号经过ASK调制后的带宽与基带信号码元速率的关系（）。",
+      "options": [
+        "相同",
+        "调制后带宽是基带信号速率的两倍",
+        "调制后带宽是基带信号速率的一半",
+        "调制后带宽是基带信号速率的四倍"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "ASK 调制后带宽为基带码元速率的 2 倍。",
+      "images": []
+    },
+    {
+      "id": 60,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "在高速数据传输系统中，普遍采用（）来减小或消除码间串扰。",
+      "options": [
+        "自适应均衡",
+        "预制式均衡",
+        "频域均衡",
+        "匹配滤波器"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "高速传输系统普遍采用自适应均衡以减小码间串扰。",
+      "images": []
+    },
+    {
+      "id": 61,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "以下属于中波通信是（）。",
+      "options": [
+        "300kHz~3000kHz",
+        "30kHz~300kHz",
+        "3MHz~30MHz",
+        "30MHz~300MHz"
+      ],
+      "answer": "A",
+      "score": 1,
+      "reason": "中波频段为 300kHz~3000kHz。",
+      "images": []
+    },
+    {
+      "id": 62,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "对于 n 维高斯过程，各统计样本之间的不相关特性与统计独立有如下关系( )。",
+      "options": [
+        "没有直接的关系",
+        "等价",
+        "不等价",
+        "不相关不一定统计独立"
+      ],
+      "answer": "B",
+      "score": 1,
+      "reason": "n 维高斯过程中不相关与统计独立等价。",
+      "images": []
+    },
+    {
+      "id": 63,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "连续信道的信道容量将受到“三要素”的限制，其“三要素”是（）。",
+      "options": [
+        "带宽、信号功率、信息量",
+        "带宽、信号功率、噪声功率谱密度",
+        "带宽、信号功率、噪声功率",
+        "信息量、带宽、噪声功率谱密度"
+      ],
+      "answer": "B",
+      "score": 1,
+      "reason": "连续信道容量三要素为带宽、信号功率和噪声功率谱密度。",
+      "images": []
+    },
+    {
+      "id": 64,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "A律13折线各段的斜率不同，其中第3段的斜率为",
+      "options": [
+        "2",
+        "4",
+        "8",
+        "16"
+      ],
+      "answer": "C",
+      "score": 1,
+      "reason": "A 律 13 折线第 3 段的斜率为 8。",
+      "images": []
+    },
+    {
+      "id": 65,
+      "category": "tongxin",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "一个多进制数字传输系统，每隔0.5ms发送32个可能的电平值之一，则系统的信息传输速率为",
+      "options": [
+        "5kb/s",
+        "10kb/s",
+        "4kb/s",
+        "20kb/s 二、多选（共30题，每题1分，共30分）"
+      ],
+      "answer": "B",
+      "score": 1,
+      "reason": "每码元 5bit（32 个电平），码元速率 2000Baud，信息速率 10kb/s。",
+      "images": []
+    },
+    {
+      "id": 66,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列属于因果系统的是",
+      "options": [
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "answer": [
+        "A",
+        "C"
+      ],
+      "score": 1,
+      "reason": "含 f(t+1) 的系统输出依赖未来输入，非因果；A、C 为因果系统。",
+      "images": []
+    },
+    {
+      "id": 67,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列哪些是用来描述数字通信系统有效性的主要性能指标（ ）。",
+      "options": [
+        "信息速率",
+        "传码率",
+        "误码率",
+        "频带利用率"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "score": 1,
+      "reason": "有效性与信息速率、传码率、频带利用率有关，误码率是可靠性指标。",
+      "images": []
+    },
+    {
+      "id": 68,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "关于PCM与DM的对比，下列说法正确的是（ ）。",
+      "options": [
+        "PCM每个抽样点编8位码，DM系统编1位码",
+        "PCM使用于电话系统进行高质量传输，DM系统能适用于误码率较高的系统",
+        "、编码位数少于4的时候，PCM的抗噪性能要比DM系统差",
+        "PCM是对信号绝对幅度编码，DM系统是对前后抽样点的相对变化进行编码"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "PCM 每样值多比特、DM 每样值 1 比特；PCM 位数少时抗噪差；PCM 编码绝对幅度，DM 编码差值。",
+      "images": []
+    },
+    {
+      "id": 69,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "关于PCM30/32路基群，说法正确的是（ ）。",
+      "options": [
+        "我国和欧洲采用A律 13折线压缩扩张特性",
+        "我国和欧洲采用μ律 15折线压缩扩张特性。",
+        "30表示30路电话",
+        "32表示32个时隙"
+      ],
+      "answer": [
+        "A",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "我国和欧洲采用 A 律 13 折线；30 表示 30 路电话，32 表示 32 个时隙。",
+      "images": []
+    },
+    {
+      "id": 70,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列相关函数与谱密度的关系说法正确的是",
+      "options": [
+        "能量信号的自相关函数的傅里叶变换是能量谱密度",
+        "功率信号的自相关函数的傅里叶变换是功率谱密度",
+        "互相关函数的傅里叶不是互功率谱密度",
+        "功率信号自相关函数R(0)即为其平均功率"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "score": 1,
+      "reason": "维纳-辛钦定理：自相关函数与谱密度互为傅里叶变换对，R(0) 为平均功率。",
+      "images": []
+    },
+    {
+      "id": 71,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "关于数字调制技术，下列说法正确的是（ ）。",
+      "options": [
+        "2ASK的带宽相对于基带信号的带宽加倍了",
+        "二进制数字调制中，2FSK的有效性最差",
+        "2PSK会存在倒π现象",
+        "2PSK的可靠性最好"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "2ASK 带宽加倍，2FSK 有效性最差，2PSK 存在倒 π 且可靠性最好。",
+      "images": []
+    },
+    {
+      "id": 72,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "根据香农公式，要使信道容量无穷大，可以",
+      "options": [
+        "带宽无穷大",
+        "噪声功率为0",
+        "噪声功率谱密度为0",
+        "信号功率无穷大"
+      ],
+      "answer": [
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "带宽无穷时噪声随之增大，不能使容量无穷；噪声功率、噪声谱密度为 0 或信号功率无穷可以。",
+      "images": []
+    },
+    {
+      "id": 73,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "在信息传输速率相同的条件下，关于数字调制系统的频带利用率，下面说法正确的是",
+      "options": [
+        "2ASK 的频带利用率优于 2FSK",
+        "2ASK 的频带利用率等于 2PSK",
+        "2PSK 的频带利用率等于 QPSK",
+        "QPSK 的频带利用率优于 2PSK"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "score": 1,
+      "reason": "相同信息速率下，2ASK 频带利用率优于 2FSK、等于 2PSK，QPSK 优于 2PSK。",
+      "images": []
+    },
+    {
+      "id": 74,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列哪些调制解调方式适合应用在电力线载波(PLC)中的",
+      "options": [
+        "OFDM",
+        "FM",
+        "QPSK",
+        "QAM"
+      ],
+      "answer": [
+        "A",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "OFDM、QPSK、QAM 适合电力线载波传输，FM 不适合。",
+      "images": []
+    },
+    {
+      "id": 75,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "MSK的频谱特点是（ ）。",
+      "options": [
+        "离散",
+        "相位连续",
+        "占用频带窄",
+        "带外衰减快"
+      ],
+      "answer": [
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "MSK 相位连续、频谱主瓣窄、带外衰减快。",
+      "images": []
+    },
+    {
+      "id": 76,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "PCM30/32路系统中属于控制时隙的有（）。",
+      "options": [
+        "TS0",
+        "TS1",
+        "TS10",
+        "TS16"
+      ],
+      "answer": [
+        "A",
+        "D"
+      ],
+      "score": 1,
+      "reason": "PCM30/32 中 TS0 和 TS16 用于帧同步与信令，属于控制时隙。",
+      "images": []
+    },
+    {
+      "id": 77,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "影响数字传输系统的可靠性的因素有（）。",
+      "options": [
+        "改变发射功率",
+        "改变传输信号的进制数",
+        "采用均衡措施",
+        "改变量化电平数"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "发射功率、进制数、均衡和量化都会影响系统误码率即可靠性。",
+      "images": []
+    },
+    {
+      "id": 78,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列选项中可能产生门限效应的有（）。",
+      "options": [
+        "FM解调",
+        "AM包络检波",
+        "AM同步检测",
+        "SSB相干解调"
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "score": 1,
+      "reason": "FM 解调和 AM 包络检波在小信噪比时会出现门限效应。",
+      "images": []
+    },
+    {
+      "id": 79,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "关于PCM30/32路基群，说法正确的是（）。",
+      "options": [
+        "我国和欧洲采用A律 13折线压缩扩张特性",
+        "我国和欧洲采用μ律 15折线压缩扩张特性。",
+        "30表示30路电话",
+        "32表示32个时隙"
+      ],
+      "answer": [
+        "A",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "PCM30/32 采用 A 律 13 折线，30 路电话、32 个时隙。",
+      "images": []
+    },
+    {
+      "id": 80,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "数字通信网中传输QPSK信号，需要采用( )同步。",
+      "options": [
+        "载波同步",
+        "位同步",
+        "帧同步",
+        "网同步"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "QPSK 传输需要载波同步、位同步、帧同步，并接入网同步。",
+      "images": []
+    },
+    {
+      "id": 81,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "以下哪些是脉冲调制",
+      "options": [
+        "PAM",
+        "PPM",
+        "PDM",
+        "AM"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "PAM、PPM、PDM 属于脉冲调制，AM 是连续波幅度调制。",
+      "images": []
+    },
+    {
+      "id": 82,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "八进制数字信号在2分钟内共传送36000个码元，则( )。",
+      "options": [
+        "每个码元所含信息量为3bit",
+        "信息速率为900b/s",
+        "信息速率为36000b/s",
+        "信息速率为12000b/s。"
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "score": 1,
+      "reason": "每码元 3bit，码元速率 300Baud，信息速率 900b/s。",
+      "images": []
+    },
+    {
+      "id": 83,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列属于信源编码的方法是（）。",
+      "options": [
+        "PCM",
+        "ADPCM",
+        "Δ M",
+        "PAM"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "PCM、ADPCM、ΔM 都是信源编码方法，PAM 是脉冲幅度调制。",
+      "images": []
+    },
+    {
+      "id": 84,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "8PSK系统信息传输速率为600b/s，则（）。",
+      "options": [
+        "其无码间串扰传输的最小带宽为200Hz",
+        "其无码间串扰传输的最小带宽为400Hz",
+        "其抗噪性能比2PSK好",
+        "其抗噪性能比2PSK差"
+      ],
+      "answer": [
+        "A",
+        "D"
+      ],
+      "score": 1,
+      "reason": "8PSK 每码元 3bit，600b/s 时码元速率 200Baud，最小带宽 200Hz；8PSK 抗噪比 2PSK 差。",
+      "images": []
+    },
+    {
+      "id": 85,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "电力通信中，常用的差错控制编码包括",
+      "options": [
+        "汉明码",
+        "卷积码",
+        "RS码",
+        "曼彻斯特码"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "汉明码、卷积码、RS 码用于电力通信差错控制，曼彻斯特码是线路码。",
+      "images": []
+    },
+    {
+      "id": 86,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "关于FM，下列描述正确的是（）。",
+      "options": [
+        "占用带宽大",
+        "可用于电力线通信",
+        "有效性好",
+        "抗噪性能好"
+      ],
+      "answer": [
+        "A",
+        "D"
+      ],
+      "score": 1,
+      "reason": "FM 占用带宽大、抗噪性能好，可用于电力线通信场景，有效性不如窄带调制。",
+      "images": []
+    },
+    {
+      "id": 87,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "一个完整的数字通信系统由以下哪些部分组成？",
+      "options": [
+        "信源编码和译码",
+        "信源和信宿",
+        "加密和解密",
+        "数字调制和解调"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "完整数字通信系统包括信源/信宿、信源编解码、加密解密、调制解调及信道等。",
+      "images": []
+    },
+    {
+      "id": 88,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "频带传输系统的最高频带利用率是（）。",
+      "options": [
+        "1B/Hz",
+        "2B/Hz",
+        "log2M(b/s/Hz)",
+        "0.5B/Hz"
+      ],
+      "answer": [
+        "A",
+        "C"
+      ],
+      "score": 1,
+      "reason": "频带传输最高频带利用率为 log2M(b/s/Hz)，M=2 时为 1B/Hz。",
+      "images": []
+    },
+    {
+      "id": 89,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "连贯式插入群同步的特点包括（）。",
+      "options": [
+        "该码组应在信息码中很少出现",
+        "具有尖锐单峰特性的自相关函数",
+        "码长适当，以保证传输效率",
+        "常用的群同步码组是巴克码"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "连贯式插入群同步要求码组少出现、自相关尖锐、码长适当，常用巴克码。",
+      "images": []
+    },
+    {
+      "id": 90,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列属于部分相应的性质有（）。",
+      "options": [
+        "频带利用率高",
+        "尾巴衰减快",
+        "有人为的码间干扰存在",
+        "有误码传播的情况"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "部分响应系统频带利用率高、尾巴衰减快、存在人为码间干扰和误码传播。",
+      "images": []
+    },
+    {
+      "id": 91,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列属于线性分组码的是（）。",
+      "options": [
+        "汉明码",
+        "CRC码",
+        "BCH码",
+        "RS码"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "汉明码、CRC、BCH、RS 码都属于线性分组码。",
+      "images": []
+    },
+    {
+      "id": 92,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下面（）可以用来表示差错控制编码的性能。",
+      "options": [
+        "编码效率",
+        "码率",
+        "编码增益",
+        "幅度"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "差错控制编码性能常用编码效率、码率和编码增益衡量。",
+      "images": []
+    },
+    {
+      "id": 93,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "同步系统应具有比信息传输系统更高的可靠性和更好的质量指标，这些指标包括（）。",
+      "options": [
+        "同步误差小",
+        "相位抖动小",
+        "同步建立时间短",
+        "保持时间长"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "同步系统要求同步误差小、相位抖动小、建立时间短、保持时间长。",
+      "images": []
+    },
+    {
+      "id": 94,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "数字基带传输系统包括下面哪些部分？（）。",
+      "options": [
+        "信道信号形成器",
+        "信道",
+        "接收滤波器",
+        "抽样判决器和同步时钟"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "数字基带传输系统包括信道信号形成器、信道、接收滤波器和抽样判决器等。",
+      "images": []
+    },
+    {
+      "id": 95,
+      "category": "tongxin",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列哪些调制解调方式适合应用在电力线载波(PLC)中的",
+      "options": [
+        "OFDM",
+        "FM",
+        "QPSK",
+        "QAM 三、判断题（共30题，每题0.5分，共15分）"
+      ],
+      "answer": [
+        "A",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "OFDM、QPSK、QAM 适用于电力线载波通信。",
+      "images": []
+    },
+    {
+      "id": 96,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "时分复用通信是各路信号在信道上占有不同时间间隔进行通信。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "TDM 将信道时间划分为不同时隙分配给各路信号。",
+      "images": []
+    },
+    {
+      "id": 97,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "模拟信号的数字化传输不会对模拟信号带来任何影响。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": false,
+      "score": 0.5,
+      "reason": "抽样量化编码会引入量化误差，数字化传输对模拟信号有影响。",
+      "images": []
+    },
+    {
+      "id": 98,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "2PSK的抗噪性能最好，在实际中得到广泛应用。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": false,
+      "score": 0.5,
+      "reason": "2PSK 存在倒 π 现象，实际应用多采用 DPSK 或 QPSK。",
+      "images": []
+    },
+    {
+      "id": 99,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "2PSK调制方式在解调的时候容易出现相位模糊问题。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "2PSK 相干解调存在相位模糊（倒 π）问题。",
+      "images": []
+    },
+    {
+      "id": 100,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "为了减小多径传播带来的衰减问题，可以采用降低传码率的方法。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "降低传码率可增大码元宽度，减小多径引起的码间串扰。",
+      "images": []
+    },
+    {
+      "id": 101,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "匹配滤波器最佳接收机的抽样判决时刻应该选在码元周期的正中间，即T/2时刻。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": false,
+      "score": 0.5,
+      "reason": "匹配滤波器最佳抽样时刻应选在码元结束时刻，而非 T/2。",
+      "images": []
+    },
+    {
+      "id": 102,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "信道编码的功能是把模拟信号变为数字信号。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": false,
+      "score": 0.5,
+      "reason": "把模拟信号变为数字信号是信源编码的功能，不是信道编码。",
+      "images": []
+    },
+    {
+      "id": 103,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "在利用平方变换法提取载波同步时，电路中平方律部件会造成载波同步的相位模糊。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": false,
+      "score": 0.5,
+      "reason": "平方变换法提取载波时的相位模糊由分频器引起，平方律部件不直接造成相位模糊。",
+      "images": []
+    },
+    {
+      "id": 104,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "编码增益是衡量所编组码可靠性的一个基本参数，编码增益越大系统可靠性就越好。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "编码增益越大，纠错带来的信噪比收益越大，系统可靠性越好。",
+      "images": []
+    },
+    {
+      "id": 105,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "在频带利用率方面 QPSK 通信系统优于 2PSK 通信系统。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "QPSK 每码元 2 比特，频带利用率高于 2PSK。",
+      "images": []
+    },
+    {
+      "id": 106,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "均匀量化适合应用于对语音信号的处理",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": false,
+      "score": 0.5,
+      "reason": "语音信号宜用非均匀量化，均匀量化不适合直接处理语音。",
+      "images": []
+    },
+    {
+      "id": 107,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "误码率相同且相同解调方式下，ASK所需的信噪比比FSK多3dB",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "相同误码率下，2ASK 所需信噪比比 2FSK 多约 3dB。",
+      "images": []
+    },
+    {
+      "id": 108,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "数字调制方式2ASK、2FSK、2PSK中，2FSK有效性最差，2PSK可靠性最好。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "2FSK 占用带宽最大有效性最差，2PSK 抗噪最好。",
+      "images": []
+    },
+    {
+      "id": 109,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "对于信号传输出现的码间干扰可以通过均衡技术来解决。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "均衡技术可以解决码间干扰。",
+      "images": []
+    },
+    {
+      "id": 110,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "匹配滤波器最佳接收机的最大输出信噪比为2E/n0。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "匹配滤波器最大输出信噪比为 2E/n0。",
+      "images": []
+    },
+    {
+      "id": 111,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "若随机过程的数学期望与时间无关，自相关函数仅与时间间隔有关，则称为广义平稳随机。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "数学期望与时间无关、自相关仅与时间间隔有关，即广义平稳。",
+      "images": []
+    },
+    {
+      "id": 112,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "在数字通信系统的接收机中，应该先提取位同步信号，再提取帧同步信号。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "接收机应先提取位同步，再提取帧同步。",
+      "images": []
+    },
+    {
+      "id": 113,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "部分相应系统的频带利用率很高，不存在无码传播问题。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": false,
+      "score": 0.5,
+      "reason": "部分响应系统存在误码传播，需用预编码解决。",
+      "images": []
+    },
+    {
+      "id": 114,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "数字基带系统的频带利用率不可能大于2bit/(s.Hz)",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": false,
+      "score": 0.5,
+      "reason": "多进制基带系统频带利用率可大于 2bit/(s·Hz)，故该说法错误。",
+      "images": []
+    },
+    {
+      "id": 115,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "TDM在时域上各路信号是分离的，但在频域上各路信号是混叠的。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "TDM 各路信号在时域分离，频谱上相互混叠。",
+      "images": []
+    },
+    {
+      "id": 116,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "在给定同样的频带内，MSK能比2PSK的数据传输速率更高。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "MSK 频谱主瓣窄，相同频带内可比 2PSK 传输更高数据速率。",
+      "images": []
+    },
+    {
+      "id": 117,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "通过多路复用技术，多个终端能够共用一条信道。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "多路复用技术允许多个终端共用一条信道。",
+      "images": []
+    },
+    {
+      "id": 118,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "2DPSK的误码率小于2PSK的误码率。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": false,
+      "score": 0.5,
+      "reason": "2DPSK 差分检测比 2PSK 相干检测误码率略高，并非小于。",
+      "images": []
+    },
+    {
+      "id": 119,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "自适应均衡器一般按最小均方误差准则来构成。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "自适应均衡器一般按最小均方误差准则构成。",
+      "images": []
+    },
+    {
+      "id": 120,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "MQAM将幅度与相位相结合进行调制，能充分利用整个平面，使信号矢量端点之间的最小距离增加。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "MQAM 结合幅度与相位调制，可增大信号点间最小距离，提高功率利用率。",
+      "images": []
+    },
+    {
+      "id": 121,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "在数字通信系统中，位同步器是必不可少的单元。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "位同步是数字接收机必不可少的单元。",
+      "images": []
+    },
+    {
+      "id": 122,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "非均匀量化是考虑让量化间隔的大小随输入信号电平的大小而改变。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "非均匀量化根据输入电平大小改变量化间隔。",
+      "images": []
+    },
+    {
+      "id": 123,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "为了解决部分相应系统错误传播问题，引入了预编码方法。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "预编码方法用于解决部分响应系统的错误传播。",
+      "images": []
+    },
+    {
+      "id": 124,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "采用纠错编码技术的目的是提高数字通信系统的可靠性。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "纠错编码通过增加冗余提高数字通信系统的可靠性。",
+      "images": []
+    },
+    {
+      "id": 125,
+      "category": "tongxin",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "高斯白噪声在任意两个不同时刻上的取值之间，不仅是互不相关的，而且还是统计独立的",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": true,
+      "score": 0.5,
+      "reason": "高斯白噪声任意两个不同时刻取值不相关且统计独立。",
+      "images": []
+    }
+  ]
+}
