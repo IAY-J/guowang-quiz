@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.0.8';
+  var APP_VERSION = '1.0.9';
   var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
   var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
@@ -367,11 +367,13 @@
   }
 
   function renderAll() {
-    var isLogin = state.view === 'login';
+    var isAuth = state.view === 'login' || state.view === 'register';
     var topbar = document.querySelector('header.topbar');
-    if (topbar) topbar.style.display = isLogin ? 'none' : '';
+    if (topbar) topbar.style.display = isAuth ? 'none' : '';
     var lv = $('#loginView');
-    if (lv) lv.hidden = !isLogin;
+    if (lv) lv.hidden = state.view !== 'login';
+    var rv = $('#registerView');
+    if (rv) rv.hidden = state.view !== 'register';
     $('#bankTitle').textContent = state.bank ? state.bank.title : (state.master ? state.master.title : '尚未加载题库');
     $('#wrongBankBtn').hidden = false;
     $('#editBankBtn').hidden = !state.master;
@@ -914,12 +916,17 @@
   }
 
   async function accountRegister() {
-    var u = $('#accountUser').value.trim();
-    var p = $('#accountPass').value;
-    if (!u || !/^\d{6}$/.test(p)) { setAccountStatus('用户名不能为空，密码必须是6位数字'); return; }
+    var u = $('#regUser').value.trim();
+    var p = $('#regPass').value;
+    var st = $('#registerStatus');
+    if (!u || !/^\d{6}$/.test(p)) { if (st) st.textContent = '用户名不能为空，密码必须是6位数字'; return; }
     var r = await accountApi('/api/register', { user: u, pass: p });
-    if (!r.ok) { setAccountStatus(r.data.error || '注册失败'); return; }
-    await accountLogin(false);
+    if (!r.ok) { if (st) st.textContent = (r.data && (r.data.error || r.data.message)) || '注册失败'; return; }
+    if ($('#accountUser')) $('#accountUser').value = u;
+    if ($('#accountPass')) $('#accountPass').value = '';
+    state.view = 'login';
+    renderAll();
+    setAccountStatus('注册成功，请登录');
   }
 
   function accountLogout() {
@@ -2075,19 +2082,12 @@
   $('#pasteImportBtn').addEventListener('click', function () { importFromText($('#jsonInput').value); });
   $('#jsonInput').addEventListener('input', function () { $('#importError').hidden = true; });
   $('#accountLoginBtn').addEventListener('click', function () { accountLogin(false); });
-  $('#accountRegisterBtn').addEventListener('click', accountRegister);
+  $('#accountRegisterBtn').addEventListener('click', function () { state.view = 'register'; renderAll(); });
+  $('#registerSubmitBtn').addEventListener('click', accountRegister);
+  $('#registerBackBtn').addEventListener('click', function () { state.view = 'login'; renderAll(); });
   $('#accountLogoutBtn').addEventListener('click', accountLogout);
   $('#accountSaveBtn').addEventListener('click', saveAccountNow);
-  $('#guestModeBtn').addEventListener('click', function () {
-    state.accountUser = null;
-    state.accountPass = null;
-    if (accountInterval) clearInterval(accountInterval);
-    accountInterval = null;
-    state.view = 'mode';
-    saveState();
-    renderAll();
-    setAccountStatus('游客模式：数据仅保存在本机。');
-  });
+;
   $('#exportDataBtn').addEventListener('click', exportData);
   $('#importDataBtn').addEventListener('click', toggleImport);
   $('#importDataConfirmBtn').addEventListener('click', function () { importDataFromText($('#importDataText').value); });
@@ -2277,5 +2277,4 @@
   }
   state.view = 'login';
   renderAll();
-  autoLogin();
 })();

@@ -38,6 +38,7 @@
         </div>
         <h1>登录账号</h1>
         <p class="muted">登录后自动同步题库、错题和进度。</p>
+        <div class="login-features"><span>题库</span><span>错题</span><span>进度</span><span>已做</span></div>
         <div class="sync-fields">
           <label><span>用户名</span><input id="accountUser" placeholder="输入用户名"></label>
           <label><span>6位密码</span><input type="password" id="accountPass" maxlength="6" inputmode="numeric" placeholder="6位数字"></label>
@@ -45,9 +46,28 @@
         <div class="import-actions">
           <button class="btn btn-primary" id="accountLoginBtn" type="button">登录</button>
           <button class="btn btn-secondary" id="accountRegisterBtn" type="button">注册</button>
-          <button class="btn btn-secondary" id="guestModeBtn" type="button">游客模式</button>
         </div>
         <p class="muted small" id="accountStatus"></p>
+      </div>
+    </section>
+
+    <section class="view login-view" id="registerView" hidden>
+      <div class="login-card">
+        <div class="brand login-brand">
+          <span class="brand-mark" aria-hidden="true">题</span>
+          <span class="brand-name">国网通信刷题</span>
+        </div>
+        <h1>注册账号</h1>
+        <p class="muted">设置用户名和 6 位数字密码，注册后返回登录。</p>
+        <div class="sync-fields">
+          <label><span>用户名</span><input id="regUser" placeholder="输入用户名"></label>
+          <label><span>6位密码</span><input type="password" id="regPass" maxlength="6" inputmode="numeric" placeholder="6位数字"></label>
+        </div>
+        <div class="import-actions">
+          <button class="btn btn-primary" id="registerSubmitBtn" type="button">注册</button>
+          <button class="btn btn-secondary" id="registerBackBtn" type="button">返回登录</button>
+        </div>
+        <p class="muted small" id="registerStatus"></p>
       </div>
     </section>
 
