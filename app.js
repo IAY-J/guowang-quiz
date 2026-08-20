@@ -277,19 +277,44 @@
     return out;
   }
 
+  var PAPER_BANDS = [
+    { start: 1, end: 80, type: 'single', score: 0.5, section: '综合单选' },
+    { start: 81, end: 85, type: 'single', score: 1, section: '专业单选' },
+    { start: 86, end: 95, type: 'multiple', score: 0.5, section: '综合多选' },
+    { start: 96, end: 125, type: 'multiple', score: 1, section: '专业多选' },
+    { start: 126, end: 155, type: 'judge', score: 0.5, section: '专业判断' },
+    { start: 156, end: 165, type: 'single', score: 0.5, section: '资料分析' }
+  ];
+
+  function fillPaperType(pool, type, count, weights) {
+    var candidates = pool.filter(function (q) { return q.type === type && !q.done; });
+    if (candidates.length < count) candidates = pool.filter(function (q) { return q.type === type; });
+    if (!candidates.length) candidates = state.master.questions.filter(function (q) { return q.type === type; });
+    var chosen = weights ? weightedSample(candidates, Math.min(count, candidates.length), weights) : shuffle(candidates).slice(0, Math.min(count, candidates.length));
+    if (!chosen.length) chosen = candidates;
+    var out = chosen.map(cloneBank);
+    var i = 0;
+    while (out.length < count) { out.push(cloneBank(chosen[i % chosen.length])); i++; }
+    return out;
+  }
+
   function buildBankForMode(mode) {
     var master = state.master;
     if (!master) return null;
     var name = mode === 'composite' ? (master.composite && master.composite.name || '综合卷') : categoryName(mode);
-    var questions;
-    if (mode === 'composite') {
-      questions = buildCompositeBank(master);
-    } else {
-      questions = shuffle(master.questions.filter(function (q) { return q.category === mode && !q.done; }).map(cloneBank));
-    }
-    questions = orderByType(questions);
-    if (questions.length > 165) questions = questions.slice(0, 165);
-    if (!questions.length) return null;
+    var pool = mode === 'composite' ? master.questions.slice() : master.questions.filter(function (q) { return q.category === mode; });
+    var weights = master.composite && master.composite.weights;
+    var questions = [];
+    PAPER_BANDS.forEach(function (band) {
+      var count = band.end - band.start + 1;
+      var items = fillPaperType(pool, band.type, count, mode === 'composite' ? weights : null);
+      items.forEach(function (q) {
+        var c = cloneBank(q);
+        c.score = band.score;
+        c.section = band.section;
+        questions.push(c);
+      });
+    });
     return {
       title: master.title + ' · ' + name,
       categories: master.categories,
