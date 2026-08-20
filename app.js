@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.2.0';
+  var APP_VERSION = '1.2.1';
   var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
   var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
@@ -79,12 +79,16 @@
     bankVersion: 0,
     doneMap: {},
     masterDirty: false,
+    masterStamp: 0,
     accountUser: null,
     accountPass: null
   };
 
   var autoTimer = null;
   var idbWriteQueue = Promise.resolve();
+  var masterSaveTimer = null;
+  var masterSavePending = null;
+  var poolIndex = null;
 
   function cloneBank(bank) {
     try { return JSON.parse(JSON.stringify(bank)); } catch (e) { return bank; }
@@ -145,6 +149,100 @@
     else { try { delete state.doneMap[String(q.id)]; } catch (e) { state.doneMap[String(q.id)] = false; } }
   }
 
+  function rebuildPoolIndex() {
+    var idx = { questions: [], byType: {}, byCat: {}, byCatType: {}, bySection: {}, bySectionType: {} };
+    if (!state.master || !Array.isArray(state.master.questions)) { poolIndex = idx; return idx; }
+    var qs = state.master.questions;
+    idx.questions = qs;
+    qs.forEach(function (q) {
+      var t = q.type, c = q.category || '', sec = q.section || '';
+      (idx.byType[t] = idx.byType[t] || []).push(q);
+      (idx.byCat[c] = idx.byCat[c] || []).push(q);
+      var ct = c + '|' + t;
+      (idx.byCatType[ct] = idx.byCatType[ct] || []).push(q);
+      (idx.bySection[sec] = idx.bySection[sec] || []).push(q);
+      var st = sec + '|' + t;
+      (idx.bySectionType[st] = idx.bySectionType[st] || []).push(q);
+    });
+    poolIndex = idx;
+    return idx;
+  }
+
+  function ensurePoolIndex() {
+    if (!poolIndex) return rebuildPoolIndex();
+    return poolIndex;
+  }
+
+  function poolQuestions(category) {
+    var idx = ensurePoolIndex();
+    return category ? (idx.byCat[category] || []) : idx.questions;
+  }
+
+  function poolCount(category) {
+    var idx = ensurePoolIndex();
+    if (!category) return idx.questions.length;
+    return (idx.byCat[category] || []).length;
+  }
+
+  function poolSectionType(sec, type) {
+    var idx = ensurePoolIndex();
+    var key = sec + '|' + type;
+    return idx.bySectionType[key] || [];
+  }
+
+  function markMasterDirty() {
+    state.masterDirty = true;
+    state.masterStamp = (state.masterStamp || 0) + 1;
+    rebuildPoolIndex();
+  }
+
+  function flushMasterSave() {
+    if (masterSaveTimer) { clearTimeout(masterSaveTimer); masterSaveTimer = null; }
+    if (!state.masterDirty || masterSavePending) return Promise.resolve();
+    var stamp = state.masterStamp;
+    masterSavePending = idbSet(IDB_KEY, { version: EMBEDDED_BANK_VERSION, stamp: stamp, bank: state.master })
+      .then(function () {
+        if (stamp === state.masterStamp) state.masterDirty = false;
+      })
+      .catch(function () { /* IndexedDB 不可用时降级 */ })
+      .then(function () { masterSavePending = null; });
+    return masterSavePending;
+  }
+
+  function scheduleMasterSave() {
+    if (masterSaveTimer) clearTimeout(masterSaveTimer);
+    masterSaveTimer = setTimeout(flushMasterSave, 400);
+  }
+
+  function toCompactWrong(r) {
+    return { id: r.id, selected: r.selected, time: r.time || Date.now() };
+  }
+
+  function wrongFromCompact(r) {
+    if (!r || r.id == null) return null;
+    var q = null;
+    if (state.master) {
+      for (var i = 0; i < state.master.questions.length; i++) {
+        if (String(state.master.questions[i].id) === String(r.id)) { q = state.master.questions[i]; break; }
+      }
+    }
+    if (!q) return null;
+    return {
+      id: q.id,
+      category: q.category || '',
+      section: q.section || '',
+      type: q.type,
+      stem: q.stem,
+      options: q.options,
+      answer: q.answer,
+      score: q.score,
+      reason: q.reason || '',
+      images: Array.isArray(q.images) ? q.images.slice() : [],
+      selected: r.selected,
+      time: r.time || Date.now()
+    };
+  }
+
   function migrateLegacyMaster() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
@@ -157,12 +255,12 @@
         });
         stripDoneFlags(state.master);
         state.bankVersion = EMBEDDED_BANK_VERSION;
-        state.masterDirty = true;
+        markMasterDirty();
       }
     } catch (e) { /* ignore */ }
   }
 
-  async function saveState() {
+  function saveState() {
     if (!state.master) {
       try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
       return;
@@ -181,10 +279,7 @@
       doneMap: state.doneMap || {}
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) { /* ignore */ }
-    if (state.masterDirty) {
-      state.masterDirty = false;
-      try { await idbSet(IDB_KEY, { version: EMBEDDED_BANK_VERSION, bank: state.master }); } catch (e) { /* IndexedDB 不可用时降级 */ }
-    }
+    if (state.masterDirty) scheduleMasterSave();
     scheduleAccountSave();
   }
 
@@ -377,7 +472,7 @@
     var avail = pool.filter(function (q) { return q.type === type && !usedIds[String(q.id)]; });
     var candidates = avail.filter(function (q) { return !isDone(q); });
     if (candidates.length < count) candidates = avail;
-    if (!candidates.length) candidates = state.master.questions.filter(function (q) { return q.type === type && !usedIds[String(q.id)]; });
+    if (!candidates.length) candidates = ensurePoolIndex().byType[type].filter(function (q) { return !usedIds[String(q.id)]; });
     var chosen = weights ? weightedSample(candidates, Math.min(count, candidates.length), weights) : shuffle(candidates).slice(0, Math.min(count, candidates.length));
     if (!chosen.length) chosen = candidates;
     var out = chosen.map(cloneBank);
@@ -391,7 +486,7 @@
     var master = state.master;
     if (!master) return null;
     var name = mode === 'composite' ? (master.composite && master.composite.name || '综合卷') : categoryName(mode);
-    var pool = mode === 'composite' ? master.questions.slice() : master.questions.filter(function (q) { return q.category === mode; });
+    var pool = poolQuestions(mode === 'composite' ? null : mode).slice();
     var weights = master.composite && master.composite.weights;
     var questions = [];
     var usedIds = {};
@@ -521,8 +616,7 @@
     var compositeCount = master.questions.length;
     grid.append(makeModeCard('composite', master.composite && master.composite.name || '综合卷', compositeCount + ' 题 · 全部题型，按重点比例抽题'));
     master.categories.forEach(function (cat) {
-      var count = master.questions.filter(function (q) { return q.category === cat.id; }).length;
-      grid.append(makeModeCard(cat.id, cat.name, count + ' 题 · 单独套题'));
+      grid.append(makeModeCard(cat.id, cat.name, poolCount(cat.id) + ' 题 · 单独套题'));
     });
   }
 
@@ -773,12 +867,21 @@
       var raw = localStorage.getItem(WRONG_KEY);
       if (!raw) return [];
       var list = JSON.parse(raw);
-      return Array.isArray(list) ? list : [];
+      if (!Array.isArray(list)) return [];
+      var out = [];
+      list.forEach(function (r) {
+        var full = wrongFromCompact(r);
+        if (full) out.push(full);
+      });
+      return out;
     } catch (e) { return []; }
   }
 
   function saveStoredWrong(list) {
-    try { localStorage.setItem(WRONG_KEY, JSON.stringify(list)); } catch (e) { /* ignore */ }
+    try {
+      var compact = (Array.isArray(list) ? list : []).map(toCompactWrong);
+      localStorage.setItem(WRONG_KEY, JSON.stringify(compact));
+    } catch (e) { /* ignore */ }
   }
 
   function addStoredWrong(q, selected) {
@@ -878,7 +981,7 @@
     if (data.master && Array.isArray(data.master.questions)) {
       data.master.questions.forEach(function (q) { if (q && q.done) state.doneMap[String(q.id)] = true; });
     }
-    state.masterDirty = true;
+    markMasterDirty();
     state.bank = data.bank && Array.isArray(data.bank.questions) && data.bank.questions.length ? data.bank : null;
     state.answers = Array.isArray(data.answers) ? data.answers : [];
     if (!state.bank || state.answers.length !== state.bank.questions.length) {
@@ -1336,7 +1439,7 @@
       state.answers = [];
       state.current = 0;
       state.view = 'mode';
-      state.masterDirty = true;
+      markMasterDirty();
       saveState();
       renderAll();
       return true;
@@ -1578,8 +1681,7 @@
     }
     makeTab('all', '全部');
     (state.master ? state.master.categories : DEFAULT_CATEGORIES).forEach(function (cat) {
-      var count = state.master.questions.filter(function (q) { return q.category === cat.id; }).length;
-      makeTab(cat.id, cat.name + '（' + count + '）');
+      makeTab(cat.id, cat.name + '（' + poolCount(cat.id) + '）');
     });
   }
 
@@ -1862,7 +1964,7 @@
       question.id = maxId + 1;
       state.master.questions.push(question);
     }
-    state.masterDirty = true;
+    markMasterDirty();
     state.editorDirty = true;
     $('#questionEditor').hidden = true;
     renderEditorList();
@@ -1875,7 +1977,7 @@
     if (!confirm('确定删除第 ' + id + ' 题吗？')) return;
     state.master.questions.splice(index, 1);
     state.editorSelected.delete(String(id));
-    state.masterDirty = true;
+    markMasterDirty();
     state.editorDirty = true;
     renderEditorList();
   }
@@ -1960,7 +2062,7 @@
     if (state.editorDirty && !confirm('保存题库会重置当前作答进度，确定保存吗？')) return;
     try {
       state.master = stripDoneFlags(normalizeBank(state.master));
-      state.masterDirty = true;
+      markMasterDirty();
       state.editorDirty = false;
       state.editorSelected = new Set();
       if (state.wrongOnly || !state.mode) {
@@ -2063,7 +2165,7 @@
     var raw = window.BUNDLED_BANK || FALLBACK_MASTER;
     state.master = stripDoneFlags(cloneBank(normalizeBank(raw)));
     state.doneMap = {};
-    state.masterDirty = true;
+    markMasterDirty();
     state.bank = null;
     state.mode = null;
     state.answers = [];
@@ -2076,7 +2178,7 @@
   function resetToEmbeddedBank() {
     var raw = window.BUNDLED_BANK || FALLBACK_MASTER;
     state.master = stripDoneFlags(normalizeBank(cloneBank(raw)));
-    state.masterDirty = true;
+    markMasterDirty();
     state.bank = null;
     state.mode = null;
     state.modeName = '';
@@ -2109,7 +2211,7 @@
     var before = state.master.questions.length;
     state.master.questions = dedupeQuestionList(state.master.questions);
     if (state.master.questions.length !== before) {
-      state.masterDirty = true;
+      markMasterDirty();
       if (state.bank) {
         var kept = [];
         var keptAnswers = [];
@@ -2145,7 +2247,7 @@
       state.master.questions.push(norm);
       changed = true;
     });
-    if (changed) { state.masterDirty = true; saveState(); }
+    if (changed) { markMasterDirty(); saveState(); }
   }
 
   function syncEmbeddedImages() {
@@ -2187,7 +2289,7 @@
     if (state.bank && window.BUNDLED_BANK.title) {
       state.bank.title = window.BUNDLED_BANK.title + (state.modeName ? ' · ' + state.modeName : '');
     }
-    if (changed) { state.masterDirty = true; saveState(); }
+    if (changed) { markMasterDirty(); saveState(); }
   }
 
   $('#fileInput').addEventListener('change', function (e) {
@@ -2414,11 +2516,13 @@
         state.master = normalizeBank(saved.bank);
         stripDoneFlags(state.master);
         state.bankVersion = Number(saved.version) || EMBEDDED_BANK_VERSION;
+        state.masterStamp = Number(saved.stamp) || 0;
       }
     } catch (e) { /* IndexedDB 不可用时使用内置题库 */ }
     if (!state.master) resetToEmbeddedBank();
     restoreState();
     if (state.master) {
+      rebuildPoolIndex();
       dedupeMasterQuestions();
       syncEmbeddedImages();
       syncEmbeddedQuestions();
@@ -2426,4 +2530,10 @@
     state.view = 'login';
     renderAll();
   })();
+  window.addEventListener('beforeunload', function () {
+    try { flushMasterSave(); } catch (e) { /* ignore */ }
+  });
+  window.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') { try { flushMasterSave(); } catch (e) { /* ignore */ } }
+  });
 })();
