@@ -5,10 +5,11 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.0.2';
+  var APP_VERSION = '1.0.3';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
   var SYNC_KEY = 'smart-quiz-sync-v1';
   var ACCOUNT_KEY = 'smart-quiz-account-v1';
+  var GH_SYNC_KEY = 'smart-quiz-gh-sync-v1';
   var LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
   var EDITOR_PAGE_SIZE = 80;
 
@@ -100,8 +101,8 @@
       bankVersion: EMBEDDED_BANK_VERSION
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) { /* ignore */ }
+    scheduleGhUpload();
   }
-  scheduleAccountSave();
 
   function restoreState() {
     try {
@@ -378,7 +379,7 @@
     $('#resultView').hidden = state.view !== 'result';
     $('#wrongView').hidden = state.view !== 'wrong';
     $('#editorView').hidden = state.view !== 'editor';
-    if (state.view === 'mode') renderModeGrid();
+    if (state.view === 'mode') { renderModeGrid(); ghFill(); }
     if (state.view === 'quiz') renderQuiz();
     if (state.view === 'result') renderResult();
     if (state.view === 'wrong') renderStoredWrong();
@@ -961,6 +962,103 @@
     ta.hidden = !hidden;
     btn.hidden = !hidden;
     if (hidden) { ta.value = ''; ta.focus(); }
+  }
+
+  function ghLoad() {
+    try { return JSON.parse(localStorage.getItem(GH_SYNC_KEY) || 'null') || {}; } catch (e) { return {}; }
+  }
+
+  function ghSave() {
+    var s = { owner: $('#ghOwner').value.trim(), repo: $('#ghRepo').value.trim(), token: $('#ghToken').value.trim(), interval: Math.max(1, Number($('#ghInterval').value) || 5), auto: !!$('#ghAuto').checked };
+    localStorage.setItem(GH_SYNC_KEY, JSON.stringify(s));
+    ghStatus('GitHub 自动上传设置已保存');
+    startGhTimer();
+  }
+
+  function ghFill() {
+    var s = ghLoad();
+    if ($('#ghOwner')) $('#ghOwner').value = s.owner || 'IAY-J';
+    if ($('#ghRepo')) $('#ghRepo').value = s.repo || 'guowang-quiz';
+    if ($('#ghToken')) $('#ghToken').value = s.token || '';
+    if ($('#ghInterval')) $('#ghInterval').value = s.interval || 5;
+    if ($('#ghAuto')) $('#ghAuto').checked = !!s.auto;
+  }
+
+  function ghStatus(msg) {
+    var el = $('#ghStatus');
+    if (el) el.textContent = msg;
+  }
+
+  function buildCompactData() {
+    var doneIds = state.master ? state.master.questions.filter(function (q) { return q.done; }).map(function (q) { return q.id; }) : [];
+    return {
+      version: APP_VERSION,
+      doneIds: doneIds,
+      wrong: loadStoredWrong(),
+      progress: { bank: state.bank, answers: state.answers, current: state.current, mode: state.mode, modeName: state.modeName, submitted: state.submitted }
+    };
+  }
+
+  function applyCompactData(data) {
+    if (!data || !state.master) return;
+    var doneSet = {};
+    (data.doneIds || []).forEach(function (id) { doneSet[String(id)] = true; });
+    state.master.questions.forEach(function (q) { q.done = !!doneSet[String(q.id)]; });
+    if (Array.isArray(data.wrong)) saveStoredWrong(data.wrong);
+    if (data.progress && data.progress.bank && Array.isArray(data.progress.bank.questions)) {
+      state.bank = data.progress.bank;
+      state.answers = Array.isArray(data.progress.answers) ? data.progress.answers : [];
+      if (state.answers.length !== state.bank.questions.length) state.answers = new Array(state.bank.questions.length).fill(null);
+      state.current = Math.max(0, Math.min(Number(data.progress.current) || 0, state.bank.questions.length - 1));
+      state.mode = data.progress.mode || state.mode;
+      state.modeName = data.progress.modeName || state.modeName;
+      state.submitted = !!data.progress.submitted;
+    }
+    saveState();
+  }
+
+  async function uploadGh(silent) {
+    var s = ghLoad();
+    if (!s.token || !s.owner || !s.repo) return;
+    try {
+      var path = 'user-data.json';
+      var sha = null;
+      var get = await fetch('https://api.github.com/repos/' + encodeURIComponent(s.owner) + '/' + encodeURIComponent(s.repo) + '/contents/' + path, { headers: syncHeaders(s.token) });
+      if (get.ok) { var meta = await get.json(); sha = meta.sha; }
+      var body = { message: 'Auto sync user data', content: b64EncodeUtf8(JSON.stringify(buildCompactData())), branch: 'main' };
+      if (sha) body.sha = sha;
+      var put = await fetch('https://api.github.com/repos/' + encodeURIComponent(s.owner) + '/' + encodeURIComponent(s.repo) + '/contents/' + path, { method: 'PUT', headers: Object.assign(syncHeaders(s.token), { 'Content-Type': 'application/json' }), body: JSON.stringify(body) });
+      if (put.ok && !silent) ghStatus('已上传到 GitHub');
+    } catch (e) { if (!silent) ghStatus('上传失败：' + e.message); }
+  }
+
+  async function pullGh() {
+    var s = ghLoad();
+    if (!s.token || !s.owner || !s.repo) { ghStatus('请先保存 GitHub 设置'); return; }
+    try {
+      var res = await fetch('https://api.github.com/repos/' + encodeURIComponent(s.owner) + '/' + encodeURIComponent(s.repo) + '/contents/user-data.json', { headers: Object.assign(syncHeaders(s.token), { 'Accept': 'application/vnd.github.raw+json' }) });
+      if (res.status === 404) { ghStatus('GitHub 还没有 user-data.json'); return; }
+      if (!res.ok) { ghStatus('拉取失败：' + res.status); return; }
+      var data = JSON.parse(await res.text());
+      applyCompactData(data);
+      renderAll();
+      ghStatus('已从 GitHub 拉取并应用');
+    } catch (e) { ghStatus('拉取失败：' + e.message); }
+  }
+
+  var ghTimer = null;
+  var ghUploadTimer = null;
+  function scheduleGhUpload() {
+    if (!ghLoad().token) return;
+    if (ghUploadTimer) clearTimeout(ghUploadTimer);
+    ghUploadTimer = setTimeout(function () { uploadGh(true); }, 5000);
+  }
+
+  function startGhTimer() {
+    if (ghTimer) clearInterval(ghTimer);
+    var s = ghLoad();
+    if (!s.auto || !s.token) return;
+    ghTimer = setInterval(function () { uploadGh(true); }, Math.max(1, Number(s.interval) || 5) * 60 * 1000);
   }
 
   function questionFingerprint(q) {
@@ -1901,6 +1999,8 @@
 
   $('#pasteImportBtn').addEventListener('click', function () { importFromText($('#jsonInput').value); });
   $('#jsonInput').addEventListener('input', function () { $('#importError').hidden = true; });
+  $('#ghSaveBtn').addEventListener('click', ghSave);
+  $('#ghPullBtn').addEventListener('click', pullGh);
   $('#exportDataBtn').addEventListener('click', exportData);
   $('#importDataBtn').addEventListener('click', toggleImport);
   $('#importDataConfirmBtn').addEventListener('click', function () { importDataFromText($('#importDataText').value); });
@@ -2089,4 +2189,5 @@
     syncEmbeddedQuestions();
   }
   renderAll();
+  startGhTimer();
 })();
