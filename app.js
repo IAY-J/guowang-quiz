@@ -736,7 +736,7 @@
         body: JSON.stringify(body)
       });
       if (put.ok) setSyncStatus('推送成功，云端题库已更新');
-      else { var err = await put.json().catch(function () { return {}; }); setSyncStatus('推送失败：' + (err.message || put.status)); }
+      else { var err = await put.json().catch(function () { return {}; }); setSyncStatus('推送失败：' + (err.message || put.status) + '（请检查令牌是否有效且勾选 repo 权限）'); }
     } catch (e) { setSyncStatus('推送失败：' + e.message); }
   }
 
@@ -745,15 +745,28 @@
     var token = $('#syncToken').value.trim();
     var owner = $('#syncOwner').value.trim();
     var repo = $('#syncRepo').value.trim();
-    if (!token) { setSyncStatus('请填写 GitHub 令牌'); return; }
+    if (!token) { setSyncStatus('请先填写 GitHub 令牌并保存'); return; }
     setSyncStatus('正在拉取…');
     try {
-      var res = await fetch('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contents/cloud-bank.json', {
-        headers: Object.assign(syncHeaders(token), { 'Accept': 'application/vnd.github.raw+json' })
-      });
-      if (res.status === 404) { setSyncStatus('云端还没有题库，请先推送一次'); return; }
-      if (!res.ok) { setSyncStatus('拉取失败：' + res.status); return; }
-      var bank = normalizeBank(await res.json());
+      var apiUrl = 'https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/contents/cloud-bank.json';
+      var res = await fetch(apiUrl, { headers: Object.assign(syncHeaders(token), { 'Accept': 'application/vnd.github.raw+json' }) });
+      var raw = null;
+      if (res.ok) {
+        raw = await res.text();
+      } else if (res.status === 404) {
+        var fallback = await fetch('https://raw.githubusercontent.com/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo) + '/main/cloud-bank.json', { cache: 'no-store' });
+        if (fallback.ok) raw = await fallback.text();
+      } else {
+        var err = await res.json().catch(function () { return {}; });
+        setSyncStatus('拉取失败：' + (err.message || res.status) + '（请检查令牌是否有效且勾选 repo 权限）');
+        return;
+      }
+      if (!raw) {
+        setSyncStatus('云端还没有 cloud-bank.json，请先在任意设备点“推送题库到云端”上传一次');
+        return;
+      }
+      var bank;
+      try { bank = normalizeBank(JSON.parse(raw)); } catch (e) { setSyncStatus('云端题库格式不正确：' + e.message); return; }
       if (!confirm('拉取云端题库将替换当前题库，确定继续吗？')) { setSyncStatus('已取消'); return; }
       state.master = bank;
       state.bank = null;
@@ -767,7 +780,7 @@
     } catch (e) { setSyncStatus('拉取失败：' + e.message); }
   }
 
-  function questionFingerprint(q) {
+    function questionFingerprint(q) {
     return JSON.stringify([
       q.type,
       q.stem,
