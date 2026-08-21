@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.3.1';
+  var APP_VERSION = '1.3.2';
   var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
   var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
@@ -83,6 +83,7 @@
     savedAt: 0,
     cloudUpdatedAt: 0,
     accountDirty: false,
+    removedWrong: [],
     accountUser: null,
     accountPass: null
   };
@@ -283,7 +284,8 @@
       bankVersion: state.bankVersion || EMBEDDED_BANK_VERSION,
       doneMap: state.doneMap || {},
       savedAt: Date.now(),
-      cloudUpdatedAt: state.cloudUpdatedAt || 0
+      cloudUpdatedAt: state.cloudUpdatedAt || 0,
+      removedWrong: state.removedWrong || []
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) { /* ignore */ }
     if (state.accountUser) state.accountDirty = true;
@@ -319,6 +321,7 @@
       state.bankVersion = p.bankVersion || 0;
       state.savedAt = Number(p.savedAt) || 0;
       state.cloudUpdatedAt = Number(p.cloudUpdatedAt) || 0;
+      state.removedWrong = Array.isArray(p.removedWrong) ? p.removedWrong : [];
       state.draft = new Set();
       state.editorDirty = false;
       state.editorSelected = new Set();
@@ -636,6 +639,8 @@
 
   function renderAll() {
     var isAuth = state.view === 'login' || state.view === 'register';
+    var lvEl = $('#loginVersion');
+    if (lvEl) lvEl.textContent = '版本 ' + APP_VERSION;
     var topbar = document.querySelector('header.topbar');
     if (topbar) topbar.style.display = isAuth ? 'none' : '';
     var lv = $('#loginView');
@@ -960,16 +965,21 @@
     };
     var idx = list.findIndex(function (r) { return String(r.id) === String(q.id); });
     if (idx >= 0) list[idx] = rec; else list.push(rec);
+    unmarkWrongRemoved(q.id);
     saveStoredWrong(list);
   }
 
   function removeStoredWrong(id) {
     var list = loadStoredWrong();
     var next = list.filter(function (r) { return String(r.id) !== String(id); });
-    if (next.length !== list.length) saveStoredWrong(next);
+    if (next.length !== list.length) {
+      markWrongRemoved(id);
+      saveStoredWrong(next);
+    }
   }
 
   function clearStoredWrong() {
+    loadStoredWrong().forEach(function (r) { markWrongRemoved(r.id); });
     saveStoredWrong([]);
   }
 
@@ -1394,6 +1404,34 @@
     return Object.keys(byId).map(function (k) { return byId[k]; });
   }
 
+  function wrongRemovedSet(list) {
+    var m = {};
+    (list || []).forEach(function (id) { if (id != null) m[String(id)] = true; });
+    return m;
+  }
+
+  function filterWrongByRemoved(list, removed) {
+    var m = wrongRemovedSet(removed);
+    return (list || []).filter(function (r) { return !(r && r.id != null && m[String(r.id)]); });
+  }
+
+  function mergeRemovedIds(a, b) {
+    var m = wrongRemovedSet(a);
+    (b || []).forEach(function (id) { if (id != null) m[String(id)] = true; });
+    return Object.keys(m);
+  }
+
+  function markWrongRemoved(id) {
+    var k = String(id);
+    if (state.removedWrong.indexOf(k) < 0) state.removedWrong.push(k);
+  }
+
+  function unmarkWrongRemoved(id) {
+    var k = String(id);
+    var i = state.removedWrong.indexOf(k);
+    if (i >= 0) state.removedWrong.splice(i, 1);
+  }
+
   function mergeProgress(local, cloud) {
     var lt = Number(local && local.updatedAt) || 0;
     var ct = Number(cloud && cloud.updatedAt) || 0;
@@ -1408,10 +1446,12 @@
   function mergeCompactData(local, cloud) {
     local = local || {};
     cloud = cloud || {};
+    var removed = mergeRemovedIds(local.removedWrong, cloud.removedWrong);
     var out = {
       version: APP_VERSION,
       doneIds: mergeDoneSets(local.doneIds, cloud.doneIds),
-      wrong: mergeWrongLists(local.wrong, cloud.wrong),
+      wrong: filterWrongByRemoved(mergeWrongLists(local.wrong, cloud.wrong), removed),
+      removedWrong: removed,
       updatedAt: Math.max(Number(local.updatedAt) || 0, Number(cloud.updatedAt) || 0, Date.now())
     };
     var progress = mergeProgress(local, cloud);
@@ -1426,6 +1466,7 @@
       version: APP_VERSION,
       doneIds: doneIds,
       wrong: loadStoredWrong().map(toCompactWrong),
+      removedWrong: state.removedWrong || [],
       updatedAt: Date.now(),
       progress: { bank: state.bank, answers: state.answers, current: state.current, mode: state.mode, modeName: state.modeName, submitted: state.submitted }
     };
@@ -1437,8 +1478,10 @@
     (data.doneIds || []).forEach(function (id) { doneSet[String(id)] = true; });
     Object.keys(state.doneMap || {}).forEach(function (k) { if (state.doneMap[k]) doneSet[k] = true; });
     state.doneMap = doneSet;
+    state.removedWrong = mergeRemovedIds(state.removedWrong, data.removedWrong);
     if (Array.isArray(data.wrong)) {
-      saveStoredWrong(mergeWrongLists(loadStoredWrong(), data.wrong));
+      var mergedWrong = filterWrongByRemoved(mergeWrongLists(loadStoredWrong(), data.wrong), state.removedWrong);
+      saveStoredWrong(mergedWrong);
     }
     var cloudHas = data.progress && data.progress.bank && Array.isArray(data.progress.bank.questions);
     var localHas = !!(state.bank && state.answers && state.answers.length);
@@ -2612,6 +2655,7 @@
     if (!list.length) { alert('错题库已经是空的'); return; }
     if (!confirm('确定清空错题库吗？此操作不可恢复。')) return;
     clearStoredWrong();
+    saveState();
     renderStoredWrong();
   });
 
