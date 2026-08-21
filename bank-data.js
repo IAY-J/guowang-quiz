@@ -223,7 +223,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "大渡河金川水电站位于四川省。"
+      "reason": "大渡河金川水电站位于四川省境内，2026 年 6 月实现全容量投产；材料明确该电站所在省份为四川，故选择四川省，其余云南、青海、甘肃均不是该电站所在地。"
     },
     {
       "id": 12,
@@ -4682,7 +4682,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "均衡技术可以解决码间干扰。",
+      "reason": "均衡技术通过调整接收端或信道特性来抵消码间干扰的影响，能够有效解决信号传输中出现的码间干扰问题，因此该判断正确。",
       "images": []
     },
     {
@@ -4939,7 +4939,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "信源编码的核心是去除冗余并降低码元速率；提高载波频率属于调制，增加噪声和改变天线方向图都与信源编码无关。",
       "images": []
     },
     {
@@ -4956,7 +4956,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PCM 数字化必须按“抽样、量化、编码”的顺序：先抽样把时间离散，再量化把幅度离散，最后编码成二进制代码。",
       "images": []
     },
     {
@@ -4973,7 +4973,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "抽样是按等间隔取出样值，只把信号在时间上离散；幅度离散由量化完成，频率搬移由调制完成。",
       "images": []
     },
     {
@@ -4990,7 +4990,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "量化是用有限个预定电平表示样值，主要实现幅度上的离散；时间离散由抽样完成。",
       "images": []
     },
     {
@@ -5007,7 +5007,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "编码把量化后的电平转换为有限长度的二进制代码，而不是连续波形、正弦载波或模拟脉冲。",
       "images": []
     },
     {
@@ -5024,7 +5024,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "抽样只离散时间，样值幅度仍是连续取值，因此仍是模拟信号（PAM 信号），尚未成为数字信号。",
       "images": []
     },
     {
@@ -5041,7 +5041,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "低通抽样定理要求 fs≥2fh，fh=4kHz 时最低抽样频率为 8kHz，取 8kHz 可避免频谱混叠。",
       "images": []
     },
     {
@@ -5058,7 +5058,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "话音信号频带约为 0.3～3.4kHz，取上限 4kHz 计算，标准抽样频率为 8kHz。",
       "images": []
     },
     {
@@ -5075,7 +5075,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "抽样频率低于奈奎斯特频率时频谱副本重叠，产生混叠失真；孔径失真来自平顶抽样，过载失真来自量化或增量调制。",
       "images": []
     },
     {
@@ -5092,7 +5092,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "低通信号的频谱宽度由最高频率决定，抽样间隔必须满足 fs≥2fh，因此最大允许间隔由最高频率决定。",
       "images": []
     },
     {
@@ -5109,7 +5109,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "带通抽样利用信号频谱中的空隙，选择接近两倍带宽的较低抽样速率，可降低所需抽样频率。",
       "images": []
     },
     {
@@ -5126,7 +5126,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "带通信号带宽 B=33-30=3kHz，且最高频率不是带宽整数倍，最低抽样频率取 2B=6kHz 即可无混叠。",
       "images": []
     },
     {
@@ -5143,7 +5143,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "低通信号的奈奎斯特抽样速率等于两倍最高频率，fh=16kHz 时为 32kHz。",
       "images": []
     },
     {
@@ -5160,7 +5160,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PAM 用脉冲承载信息，属于脉冲调制；AM、FM、PM 是对正弦载波的调制方式。",
       "images": []
     },
     {
@@ -5177,7 +5177,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PAM（脉冲幅度调制）中随基带信号变化的是脉冲幅度；宽度、位置分别对应 PDM、PPM。",
       "images": []
     },
     {
@@ -5194,7 +5194,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PDM（脉冲宽度调制）中随基带信号变化的是脉冲宽度；幅度对应 PAM，位置对应 PPM。",
       "images": []
     },
     {
@@ -5211,7 +5211,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PPM（脉冲位置调制）中随基带信号变化的是脉冲位置；幅度对应 PAM，宽度对应 PDM。",
       "images": []
     },
     {
@@ -5228,7 +5228,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "理想抽样采用周期冲激序列，冲激宽度趋于零，便于理论分析；矩形窄脉冲是自然/平顶抽样的实现形式。",
       "images": []
     },
     {
@@ -5245,7 +5245,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "自然抽样直接取信号本身，抽样脉冲顶部随原信号变化；顶部平坦是平顶抽样的特征。",
       "images": []
     },
     {
@@ -5262,7 +5262,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "平顶抽样由抽样保持器实现，各脉冲顶部保持平坦；顶部随信号变化是自然抽样的特征。",
       "images": []
     },
     {
@@ -5279,7 +5279,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "自然抽样满足抽样定理时，原信号频谱出现在基带，通过低通滤波器即可恢复原信号。",
       "images": []
     },
     {
@@ -5296,7 +5296,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "平顶抽样保持脉冲的频率响应会带来孔径失真，恢复前需加频率补偿网络进行校正。",
       "images": []
     },
     {
@@ -5313,7 +5313,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "孔径失真的直接原因是保持（矩形）脉冲的频率响应对原频谱加权，使高频分量衰减；与抽样频率高低、量化级数无关。",
       "images": []
     },
     {
@@ -5330,7 +5330,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "量化是用有限个预定电平表示模拟抽样值，即对样值幅度进行分层；与载波、带宽、帧同步无关。",
       "images": []
     },
     {
@@ -5347,7 +5347,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "8 位二进制编码可表示 2^8=256 个量化级。",
       "images": []
     },
     {
@@ -5364,7 +5364,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "均匀量化时量化值取区间中点，正常量化区内最大绝对误差为半个量化间隔。",
       "images": []
     },
     {
@@ -5381,7 +5381,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "量化值与真实样值之间的误差称为量化噪声，是量化过程的固有误差。",
       "images": []
     },
     {
@@ -5398,7 +5398,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "量化信噪比越大，量化误差相对越小，说明量化性能越好；抽样频率、码元速率等与量化器性能无直接关系。",
       "images": []
     },
     {
@@ -5415,7 +5415,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "均匀量化把信号幅度等分，各量化区间宽度相同；输出概率、输入功率等并不相同。",
       "images": []
     },
     {
@@ -5432,7 +5432,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "均匀量化对小信号和大信号使用相同间隔，语音小信号幅度小，相对量化误差大，量化信噪比明显下降。",
       "images": []
     },
     {
@@ -5449,7 +5449,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "非均匀量化对弱信号用较密的量化间隔，改善弱信号的量化质量，常用于语音压扩。",
       "images": []
     },
     {
@@ -5466,7 +5466,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "压缩器（压扩器）对小幅度信号放大、对大幅度信号压缩，使小信号相对误差减小，等效提高小信号量化信噪比。",
       "images": []
     },
     {
@@ -5483,7 +5483,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "我国及欧洲数字电话 PCM 采用 A 律压扩（13 折线近似）。",
       "images": []
     },
     {
@@ -5500,7 +5500,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "北美和日本的 PCM 24 路系统采用 μ 律压扩。",
       "images": []
     },
     {
@@ -5517,7 +5517,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "国际数字电话系统互连时，通常以 A 律作为标准压扩方式（G.711 推荐 A 律）。",
       "images": []
     },
     {
@@ -5534,7 +5534,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "A 律 13 折线将 8 个段落共划分为 256 个量化级（正负各 128）。",
       "images": []
     },
     {
@@ -5551,7 +5551,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "A 律 13 折线 PCM 码字为 8 位：1 位极性码＋3 位段落码＋4 位段内码。",
       "images": []
     },
     {
@@ -5568,7 +5568,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "A 律 13 折线正极性部分划分为 8 个段落（负极性与之对称）。",
       "images": []
     },
     {
@@ -5585,7 +5585,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "A 律 13 折线每个段落内再均匀划分为 16 个量化间隔。",
       "images": []
     },
     {
@@ -5602,7 +5602,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "A 律 13 折线码字第一位（极性码）表示样值正负极性。",
       "images": []
     },
     {
@@ -5619,7 +5619,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "码字第 2 至第 4 位是段落码，表示样值落在哪个段落。",
       "images": []
     },
     {
@@ -5636,7 +5636,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "码字第 5 至第 8 位是段内码，表示在段落内的具体量化位置。",
       "images": []
     },
     {
@@ -5653,7 +5653,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "段落码 111 对应第 8 段（段落码从 000 到 111 对应第 1 至第 8 段）。",
       "images": []
     },
     {
@@ -5670,7 +5670,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "段内码 0011 的二进制值为 3，段内序号从 0 计起，对应第 4 个量化间隔。",
       "images": []
     },
     {
@@ -5687,7 +5687,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "折叠二进码在极性位出错时小信号只产生较小误差，语音小信号时误码影响比自然二进码小，故常用折叠二进码。",
       "images": []
     },
     {
@@ -5704,7 +5704,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "一路话音 8kHz 抽样、每样值 8 位，信息速率=8k×8=64kb/s。",
       "images": []
     },
     {
@@ -5721,7 +5721,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PCM 把模拟信号抽样、量化后的量化值变换为二进制代码传输。",
       "images": []
     },
     {
@@ -5738,7 +5738,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "增量调制（ΔM）每样值仅用 1 位码，表示相邻样值的差值即变化方向（上升或下降）。",
       "images": []
     },
     {
@@ -5755,7 +5755,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "简单增量调制每次抽样只输出 1 位二进制码。",
       "images": []
     },
     {
@@ -5772,7 +5772,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "简单增量调制中，当前输入高于本地预测值时输出 1（正增量），低于时输出 0。",
       "images": []
     },
     {
@@ -5789,7 +5789,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "当信号变化过快、预测阶梯跟不上输入变化时，出现斜率过载失真。",
       "images": []
     },
     {
@@ -5806,7 +5806,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "量阶不变时提高抽样频率，每个抽样间隔内输入变化更小，可提高最大跟踪斜率，减小斜率过载。",
       "images": []
     },
     {
@@ -5823,7 +5823,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "增量调制只需 1 位量化，为达到与 PCM 相近质量通常采用更高的抽样频率。",
       "images": []
     },
     {
@@ -5840,7 +5840,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "当 PCM 每个样值编码位数少于 4 位时，PCM 量化噪声急剧增大，此时增量调制的量化信噪比通常优于 PCM。",
       "images": []
     },
     {
@@ -5857,7 +5857,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "增量调制单码只表示变化方向，个别误码造成的幅度偏差较小，因此对单个误码不如 PCM 敏感。",
       "images": []
     },
     {
@@ -5874,7 +5874,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "ADPCM 用约 32kb/s 的码率可获得接近 64kb/s PCM 的数字电话质量。",
       "images": []
     },
     {
@@ -5891,7 +5891,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "DPCM 利用样值相关性，编码并传输当前样值与预测值之间的差值（预测误差）。",
       "images": []
     },
     {
@@ -5908,7 +5908,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "时分复用（TDM）把时间分成时隙，各路信号在不同时隙上传送，主要在时间上分离。",
       "images": []
     },
     {
@@ -5925,7 +5925,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "频分复用（FDM）把不同频率子带分配给各路信号，主要在频率上分离。",
       "images": []
     },
     {
@@ -5942,7 +5942,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "TDM 接收端帧同步用于识别每帧的起始位置，从而正确分接各路时隙。",
       "images": []
     },
     {
@@ -5959,7 +5959,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PCM30/32 路制式每帧含 32 个时隙：30 个话路时隙加 TS0、TS16。",
       "images": []
     },
     {
@@ -5976,7 +5976,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PCM30/32 路制式中，帧同步码位于 TS0 时隙。",
       "images": []
     },
     {
@@ -5993,7 +5993,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PCM30/32 路制式中，TS16 用于传送各话路的信令。",
       "images": []
     },
     {
@@ -6010,7 +6010,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PCM30/32 路制式抽样频率 8kHz，帧周期为 1/8000=125μs。",
       "images": []
     },
     {
@@ -6027,7 +6027,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PCM30/32 路基群标称速率=32×8×8k=2.048Mb/s。",
       "images": []
     },
     {
@@ -6048,7 +6048,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "信源编码可压缩数据、降低码元速率并完成模拟信号数字化；提高天线增益是天线系统功能，与信源编码无关。",
       "images": []
     },
     {
@@ -6069,7 +6069,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "PCM 发送端基本处理环节为抽样、量化、编码；鉴频是调频接收端的解调环节。",
       "images": []
     },
     {
@@ -6090,7 +6090,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "抽样定理按条件可分为低通抽样与带通抽样、均匀抽样与非均匀抽样、理想抽样与实际抽样；相干与非相干是解调方式分类，不属于抽样分类。",
       "images": []
     },
     {
@@ -6111,7 +6111,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "合理抽样应保证能恢复原信号、抽样速率尽量低且避免频谱混叠；把幅度直接变成有限电平是量化环节，不是抽样的要求。",
       "images": []
     },
     {
@@ -6132,7 +6132,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "低通抽样要求 fs 与最高频率有关、fs 不足会产生混叠、每个最高频率周期至少取两个样值；抽样后幅度仍连续取值，D 错。",
       "images": []
     },
     {
@@ -6153,7 +6153,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "带通抽样可利用频谱空隙、最低抽样频率可接近两倍带宽并需避免频谱副本重叠；并非只能取两倍最高频率，D 错。",
       "images": []
     },
     {
@@ -6174,7 +6174,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "自然抽样与理想抽样频谱都含原频谱周期性副本、满足条件都可用低通滤波恢复、抽样后幅度仍连续；自然抽样顶部随信号变化并非平坦，C 错。",
       "images": []
     },
     {
@@ -6195,7 +6195,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "平顶抽样又称瞬时抽样，由抽样保持电路实现，会引入孔径失真；仅用理想低通滤波不能完全补偿孔径失真，D 错。",
       "images": []
     },
     {
@@ -6216,7 +6216,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "PAM 对应幅度、PDM 对应宽度、PPM 对应位置；PCM 是脉冲编码调制而不是脉冲位置调制，D 错。",
       "images": []
     },
     {
@@ -6237,7 +6237,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "量化过程涉及量化区间、量化电平、量化间隔等概念；载波频偏属于载波同步问题，与量化无关。",
       "images": []
     },
     {
@@ -6258,7 +6258,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "均匀量化各区间宽度相同、量化电平常取区间中点、正常区内误差受量化间隔限制；小信号相对量化误差反而较大，D 错。",
       "images": []
     },
     {
@@ -6279,7 +6279,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "量化器进入过载区时输出饱和、量化误差明显增大，原因是输入幅度超出设计范围；量化区间不会自动变窄，D 错。",
       "images": []
     },
     {
@@ -6300,7 +6300,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "非均匀量化可改善弱信号量化信噪比、扩展动态范围、减少满足语音质量所需的编码位数；量化噪声无法完全消除，D 错。",
       "images": []
     },
     {
@@ -6322,7 +6322,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "我国通常采用 A 律，北美和日本常采用 μ 律，国际互连通常以 A 律为标准，两者都属于对数压扩思想，四个说法均正确。",
       "images": []
     },
     {
@@ -6344,7 +6344,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "A 律 13 折线正半轴输出轴等分为 8 段、输入轴各段宽度逐级扩大、第 1、2 段斜率相同、每段输出跨度相同，四个说法均正确。",
       "images": []
     },
     {
@@ -6365,7 +6365,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "256 个量化级由 2 个极性×8 个段落×每段 16 个量化间隔得到；每个样值采用 8 位编码而非 16 位，D 错。",
       "images": []
     },
     {
@@ -6386,7 +6386,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "编码把量化值变换为代码，译码由代码重建量化信号，PCM 码字对应量化后的样值；时间离散由抽样完成而非编码，D 错。",
       "images": []
     },
     {
@@ -6407,7 +6407,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "C1 为极性码，C2～C4 为段落码，C5～C8 为段内码；C8 是段内码最后一位，不是帧同步码，D 错。",
       "images": []
     },
     {
@@ -6429,7 +6429,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "逐次比较式 PCM 编码器包含极性判决、保持电路、比较判决和本地译码器，四个环节均涉及。",
       "images": []
     },
     {
@@ -6451,7 +6451,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "抽样频率决定样值数量，编码位数和量化级数决定精度，信道误码率影响传输质量，四个因素都会影响 PCM 系统。",
       "images": []
     },
     {
@@ -6473,7 +6473,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "简单增量调制编码器包含相减器、判决器、积分器和本地反馈支路，四个部分均正确。",
       "images": []
     },
     {
@@ -6493,7 +6493,7 @@ window.BUNDLED_BANK = {
         "B"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "增量调制的量化误差分为一般量化误差和斜率过载误差；孔径失真来自平顶抽样，帧同步误差与量化无关。",
       "images": []
     },
     {
@@ -6515,7 +6515,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "PCM 编码样值大小、增量调制编码变化方向、增量调制每次抽样传 1 位；相同抽样频率下 PCM 位数多于 1 位时码率更高。",
       "images": []
     },
     {
@@ -6537,7 +6537,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "DPCM 传输预测误差并利用样值相关性，ADPCM 引入自适应量化或预测，常用于语音压缩编码，四个说法均正确。",
       "images": []
     },
     {
@@ -6558,7 +6558,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "TDM 各路占用不同时间片、时隙按帧组织、收发双方需要同步；频域互不重叠是 FDM 的特点，D 错。",
       "images": []
     },
     {
@@ -6580,7 +6580,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "TDM 在时域分离、FDM 在频域分离，TDM 各路频谱可重叠，FDM 各路在时域可同时存在，四个说法均正确。",
       "images": []
     },
     {
@@ -6602,7 +6602,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "PCM30/32 每帧含 30 个话路时隙、1 个帧同步时隙 TS0、1 个信令时隙 TS16，共 32 个时隙。",
       "images": []
     },
     {
@@ -6624,7 +6624,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "PCM30/32 帧周期 125μs，16 帧组成一个复帧，复帧周期 2ms，重复频率 500Hz。",
       "images": []
     },
     {
@@ -6646,7 +6646,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "E1 速率 2.048Mb/s 承载 30 路话音，T1 速率 1.544Mb/s 承载 24 路话音，对应关系均正确。",
       "images": []
     },
     {
@@ -6668,7 +6668,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：PCM】",
+      "reason": "E2=8.448Mb/s、E3=34.368Mb/s、STM-1=155.52Mb/s、STM-4=622.08Mb/s，对应关系均正确。",
       "images": []
     },
     {
@@ -6683,7 +6683,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "抽样只使时间离散，样值幅度仍可连续取值，因此仍是模拟样值，说法正确。",
       "images": []
     },
     {
@@ -6698,7 +6698,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PCM 数据率等于抽样频率×编码位数，提高抽样频率会使样值数增多，数据率相应增加。",
       "images": []
     },
     {
@@ -6713,7 +6713,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "0.3～3.4kHz 话音按两倍上限约 6.8kHz，工程上取 8kHz，说法正确。",
       "images": []
     },
     {
@@ -6728,7 +6728,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "理想带限低通信号按两倍最高频率抽样，频谱恰好不重叠，处于临界无混叠状态。",
       "images": []
     },
     {
@@ -6743,7 +6743,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "带通抽样利用频谱空隙，最低抽样频率可接近两倍带宽，常显著低于两倍最高频率。",
       "images": []
     },
     {
@@ -6758,7 +6758,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "周期冲激序列在工程上难以直接产生，实际抽样用窄脉冲序列，因此说法错误。",
       "images": []
     },
     {
@@ -6773,7 +6773,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "自然抽样是用宽度很窄的脉冲序列直接取样，属于实际抽样方式。",
       "images": []
     },
     {
@@ -6788,7 +6788,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "平顶抽样的孔径失真不能仅靠低通滤波完全消除，还需频率补偿，因此说法错误。",
       "images": []
     },
     {
@@ -6803,7 +6803,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "孔径失真由抽样保持电路引入，特性已知，可通过频率补偿网络加以校正。",
       "images": []
     },
     {
@@ -6818,7 +6818,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PAM 样值幅度仍连续取值，只有时间离散，仍属模拟信号，不是数字信号。",
       "images": []
     },
     {
@@ -6833,7 +6833,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "量化误差由有限电平表示引起，增加量化级数只能减小，不能完全消除。",
       "images": []
     },
     {
@@ -6848,7 +6848,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "量化级数越多，量化间隔越小，正常量化区内的量化误差越小。",
       "images": []
     },
     {
@@ -6863,7 +6863,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "均匀量化未过载时，各量化区间宽度即量化间隔相同。",
       "images": []
     },
     {
@@ -6878,7 +6878,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "均匀量化对弱信号使用相同间隔，小信号相对误差大，量化信噪比明显下降。",
       "images": []
     },
     {
@@ -6893,7 +6893,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "非均匀量化对小信号用较密的量化区间，各区间宽度不同，因此说法错误。",
       "images": []
     },
     {
@@ -6908,7 +6908,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "A 律压扩参数 A=87.6，说法正确。",
       "images": []
     },
     {
@@ -6923,7 +6923,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "A 律 13 折线正半轴第 1、2 段斜率相同，合并为一段几何线段。",
       "images": []
     },
     {
@@ -6938,7 +6938,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "A 律 13 折线正负半轴各 8 段，共可观察到 16 个几何线段（第 1、2 段合并后为 13 段折线）。",
       "images": []
     },
     {
@@ -6953,7 +6953,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "8 位二进制码共有 2^8=256 种码组。",
       "images": []
     },
     {
@@ -6968,7 +6968,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "折叠二进码极性位误码时，小信号幅度误差比自然二进码小，更适合语音。",
       "images": []
     },
     {
@@ -6983,7 +6983,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "简单增量调制每个抽样时刻输出 1 位代码，表示样值变化方向。",
       "images": []
     },
     {
@@ -6998,7 +6998,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "简单增量调制每秒输出位数等于抽样频率，因此码率与抽样频率数值相同。",
       "images": []
     },
     {
@@ -7013,7 +7013,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "相同抽样频率下，PCM 每样值编码位数大于 1 时，PCM 码率高于增量调制。",
       "images": []
     },
     {
@@ -7028,7 +7028,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "输入信号变化过快、预测阶梯跟不上时，增量调制会出现斜率过载失真。",
       "images": []
     },
     {
@@ -7043,7 +7043,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "增大量阶可提高跟踪斜率、减轻斜率过载，但会增大一般量化误差。",
       "images": []
     },
     {
@@ -7058,7 +7058,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "ADPCM 是在 DPCM 基础上引入自适应量化和/或自适应预测形成的。",
       "images": []
     },
     {
@@ -7073,7 +7073,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "TDM 帧按固定时隙关系组织多路数据，是时分复用的基本结构。",
       "images": []
     },
     {
@@ -7088,7 +7088,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "帧同步用于识别帧的起始位置，从而确定各路数据的排列顺序。",
       "images": []
     },
     {
@@ -7103,7 +7103,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "TS0 用于帧同步，TS16 用于信令，二者都不传普通话音样值，因此说法错误。",
       "images": []
     },
     {
@@ -7118,7 +7118,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：PCM】",
+      "reason": "PCM 24 路制式每帧可增加 1 位作为帧同步位，说法正确。",
       "images": []
     },
     {
@@ -7135,7 +7135,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "广义信道按包含的功能分为调制信道和编码信道；有线/无线、恒参/随参是按媒质特性分类。",
       "images": []
     },
     {
@@ -7152,7 +7152,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "狭义信道指发送与接收设备之间的传输媒质本身。",
       "images": []
     },
     {
@@ -7169,7 +7169,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "调制信道传输连续波形，又称连续信道或模拟信道。",
       "images": []
     },
     {
@@ -7186,7 +7186,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "编码信道输入输出为离散符号，又称离散信道或数字信道。",
       "images": []
     },
     {
@@ -7203,7 +7203,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "架空明线传输损耗较低，但导线裸露易受天气和环境影响。",
       "images": []
     },
     {
@@ -7220,7 +7220,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "对称电缆把每对导线扭绞，可减小线对之间的串扰干扰。",
       "images": []
     },
     {
@@ -7237,7 +7237,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "同轴电缆外导体接地可起电屏蔽作用，减小外界干扰和辐射。",
       "images": []
     },
     {
@@ -7254,7 +7254,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "单模光纤纤芯细，用激光器注入，色散小、传输容量大。",
       "images": []
     },
     {
@@ -7271,7 +7271,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "长波波长长、绕射能力强，主要依靠地波沿地面传播。",
       "images": []
     },
     {
@@ -7288,7 +7288,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "中波频率范围通常为 300kHz～3MHz。",
       "images": []
     },
     {
@@ -7305,7 +7305,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "短波依靠电离层反射形成天波传播，可进行远距离通信。",
       "images": []
     },
     {
@@ -7322,7 +7322,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "超短波和微波是视距传播，适当架高天线可增大视距和通信距离。",
       "images": []
     },
     {
@@ -7339,7 +7339,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "用户移动产生多普勒频移，多径传播造成衰落，使移动信道复杂。",
       "images": []
     },
     {
@@ -7356,7 +7356,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "调制信道模型 s_o(t)=k(t)s_i(t)+n(t)，包含乘性干扰 k(t) 和加性噪声 n(t)。",
       "images": []
     },
     {
@@ -7373,7 +7373,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "乘性干扰随信号存在而存在、随信号消失而消失，与信号同时出现。",
       "images": []
     },
     {
@@ -7390,7 +7390,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "恒参信道参数基本不随时间变化或变化很缓慢，如光纤、同轴电缆。",
       "images": []
     },
     {
@@ -7407,7 +7407,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "二进制无记忆信道中 P(0|0)=1-P(1|0)，即正确接收与误码概率互补。",
       "images": []
     },
     {
@@ -7424,7 +7424,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "编码信道的错码及转移概率主要由调制信道的不理想特性决定。",
       "images": []
     },
     {
@@ -7441,7 +7441,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "恒参信道无失真传输要求幅频特性在信号频带内为常数。",
       "images": []
     },
     {
@@ -7458,7 +7458,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "无失真传输要求相频特性为频率的线性函数，即群时延为常数。",
       "images": []
     },
     {
@@ -7475,7 +7475,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "幅频失真直接原因是信号频带内 |H(ω)| 随频率变化，各频率分量衰减不一致。",
       "images": []
     },
     {
@@ -7492,7 +7492,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "数字信号对相位失真敏感，相位-频率失真会造成码间串扰。",
       "images": []
     },
     {
@@ -7509,7 +7509,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "模拟通信常用线性补偿网络进行频域均衡，补偿恒参信道频率失真。",
       "images": []
     },
     {
@@ -7526,7 +7526,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "短波电离层反射信道参数随时间随机变化，属于随参信道。",
       "images": []
     },
     {
@@ -7543,7 +7543,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "电离层通常位于离地面约 60～600km 的高空。",
       "images": []
     },
     {
@@ -7560,7 +7560,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "单频正弦经多径传输后，接收信号包络和相位随机缓慢变化，成为窄带随机过程。",
       "images": []
     },
     {
@@ -7577,7 +7577,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "多径衰落属于快衰落、小尺度衰落，阴影衰落属于慢衰落、大尺度衰落。",
       "images": []
     },
     {
@@ -7594,7 +7594,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "多径传播造成不同路径时延差，使不同频率分量衰落不同，产生频率选择性衰落。",
       "images": []
     },
     {
@@ -7611,7 +7611,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "相关带宽近似为最大相对时延差的倒数，即 Bc≈1/τm。",
       "images": []
     },
     {
@@ -7628,7 +7628,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "为避免明显频率选择性衰落，实际信号带宽应取 B≈(1/3～1/5)(1/τm)。",
       "images": []
     },
     {
@@ -7645,7 +7645,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "窄带带通噪声可分解为同相与正交分量：n_i(t)=n_c(t)cosωct-n_s(t)sinωct。",
       "images": []
     },
     {
@@ -7662,7 +7662,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "脉冲噪声突发产生、幅度大、持续时间远短于间隔且频谱宽。",
       "images": []
     },
     {
@@ -7679,7 +7679,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "热噪声、散弹噪声和宇宙噪声都属于起伏噪声。",
       "images": []
     },
     {
@@ -7696,7 +7696,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "理想白噪声功率谱密度在频率轴上为常数。",
       "images": []
     },
     {
@@ -7713,7 +7713,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "信道容量是信道能传输的最大平均信息速率。",
       "images": []
     },
     {
@@ -7730,7 +7730,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "C=B·log2(1+S/N)=4k×log2(64)=4k×6=24kb/s。",
       "images": []
     },
     {
@@ -7747,7 +7747,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "带宽趋于无穷时，容量趋于有限值 1.44S/n0。",
       "images": []
     },
     {
@@ -7764,7 +7764,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "调制的本质是按基带信号规律控制载波的某些参数（幅度、频率或相位）。",
       "images": []
     },
     {
@@ -7781,7 +7781,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "需要调制解调的通信系统称为频带传输系统。",
       "images": []
     },
     {
@@ -7798,7 +7798,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "调制可搬移频谱、支持复用、改善抗干扰，但无法保证信道无噪声，D 不属于调制作用。",
       "images": []
     },
     {
@@ -7818,7 +7818,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "AM、DSB、SSB、VSB、FM、PM 的调制信号为模拟信号，均属于模拟调制。",
       "images": []
     },
     {
@@ -7835,7 +7835,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "载波为周期性脉冲序列时，调制归为脉冲波调制。",
       "images": []
     },
     {
@@ -7852,7 +7852,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "线性调制主要发生频谱搬移，频谱形状基本不变。",
       "images": []
     },
     {
@@ -7869,7 +7869,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "包络检波不失真要求 A0≥|m(t)|max，保证 m(t)+A0 始终为正。",
       "images": []
     },
     {
@@ -7886,7 +7886,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "普通 AM 信号带宽为 2fm（上下边带各 fm）。",
       "images": []
     },
     {
@@ -7903,7 +7903,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "AM 包络检波是非相干解调，不过调时实现简单；发生调幅失真则不能无失真解调。",
       "images": []
     },
     {
@@ -7920,7 +7920,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "相干解调需要恢复与发送端同频同相的本地载波。",
       "images": []
     },
     {
@@ -7937,7 +7937,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "AM 信号中只有边带功率携带调制信息，载波功率不携带信息。",
       "images": []
     },
     {
@@ -7954,7 +7954,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "单音 100% 调制时 AM 最大调制效率为 1/3。",
       "images": []
     },
     {
@@ -7971,7 +7971,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "抑制载波双边带 DSB-SC 表达式为 s(t)=m(t)cosωct。",
       "images": []
     },
     {
@@ -7988,7 +7988,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "DSB-SC 信号带宽为 2fm。",
       "images": []
     },
     {
@@ -8005,7 +8005,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "DSB-SC 抑制载波，只能用相干解调恢复原信号。",
       "images": []
     },
     {
@@ -8022,7 +8022,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "SSB 只传一个边带，带宽为 fm。",
       "images": []
     },
     {
@@ -8039,7 +8039,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "经典 SSB 产生方法包括滤波法、相移法和 Weaver 法；包络法和鉴频法不是 SSB 产生方法。",
       "images": []
     },
     {
@@ -8056,7 +8056,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "滤波法需在载频附近用截止特性很陡的边带滤波器滤除一个边带，这是主要工程困难。",
       "images": []
     },
     {
@@ -8073,7 +8073,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "Weaver 法只需对两个载波进行相移，避免了对基带全频段精确 90° 相移，工程上较易实现。",
       "images": []
     },
     {
@@ -8090,7 +8090,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "VSB 保留一个完整边带和另一个边带的一部分，带宽介于 SSB 与 DSB 之间。",
       "images": []
     },
     {
@@ -8107,7 +8107,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "调制制度增益 G 定义为输出信噪比与输入信噪比之比 (So/No)/(Si/Ni)。",
       "images": []
     },
     {
@@ -8124,7 +8124,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "DSB 相干解调后输出信噪比提高一倍，制度增益 G=2。",
       "images": []
     },
     {
@@ -8141,7 +8141,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "SSB 相干解调的制度增益 G=1。",
       "images": []
     },
     {
@@ -8158,7 +8158,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "相同输入信号功率和噪声功率谱密度下，DSB 与 SSB 解调输出信噪比相同，抗噪性能相同。",
       "images": []
     },
     {
@@ -8175,7 +8175,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "AM 包络检波在小信噪比时输出信噪比急剧恶化，出现门限效应。",
       "images": []
     },
     {
@@ -8192,7 +8192,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "FM 中瞬时频偏与调制信号 m(t) 成正比，相偏与 m(t) 的积分成正比。",
       "images": []
     },
     {
@@ -8209,7 +8209,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "PM 中瞬时相偏与调制信号 m(t) 成正比。",
       "images": []
     },
     {
@@ -8226,7 +8226,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "按卡森公式 B=2(Δf+fm)=2(mf·fm+fm)=2(5×15k+15k)=180kHz。",
       "images": []
     },
     {
@@ -8247,7 +8247,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "狭义信道主要指传输媒质，广义信道还包括部分转换装置并可分调制信道和编码信道；狭义信道特性直接影响通信效果，D 错。",
       "images": []
     },
     {
@@ -8269,7 +8269,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "架空明线、对称电缆、同轴电缆和光纤都属于有线传输媒质。",
       "images": []
     },
     {
@@ -8291,7 +8291,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "长波主要靠地波，中波可用地波和天波，短波可经电离层多次反射，超短波和微波主要视距传播，均正确。",
       "images": []
     },
     {
@@ -8313,7 +8313,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "k(t)s_i(t) 是乘性作用，n(t) 是加性干扰，k(t) 快速变化对应随参信道，无输入时乘性项消失，均正确。",
       "images": []
     },
     {
@@ -8334,7 +8334,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "有线信道、微波视距中继和卫星信道参数较稳定，可视为恒参信道；短波电离层反射是典型随参信道。",
       "images": []
     },
     {
@@ -8355,7 +8355,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "无失真要求幅频特性为常数、相频特性为频率的线性函数、群时延为常数；D 允许任意衰减与无失真矛盾。",
       "images": []
     },
     {
@@ -8377,7 +8377,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "幅频不平坦产生幅频失真，相频非线性产生群时延失真，相频失真改变谐波时间关系并可能引起码间串扰。",
       "images": []
     },
     {
@@ -8398,7 +8398,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "模拟通信用线性补偿网络频域均衡，数字通信合理设计收发滤波器，信道慢变时用自适应时域均衡；分集不能消除所有失真，D 错。",
       "images": []
     },
     {
@@ -8419,7 +8419,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "随参信道损耗和时延随时间变化并常有多径传播；参数保持常数是恒参信道，D 错。",
       "images": []
     },
     {
@@ -8441,7 +8441,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "多径各路径衰减时延不同，接收包络相位随机变化，多径衰落属小尺度快衰落，阴影衰落属大尺度慢衰落。",
       "images": []
     },
     {
@@ -8463,7 +8463,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "频率选择性衰落与多径时延差有关，时延差越大相关带宽越小，信号带宽远小于相关带宽时影响较弱，降低码率可减轻多径影响。",
       "images": []
     },
     {
@@ -8485,7 +8485,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "空间分集、频率分集、极化分集和时间分集都是常见分集接收方式。",
       "images": []
     },
     {
@@ -8507,7 +8507,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "选择式选信噪比最好一路，等增益合并等权相加，最大比合并按信噪比加权且效果最好。",
       "images": []
     },
     {
@@ -8528,7 +8528,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "噪声来源分为人为噪声、自然噪声和内部噪声；码元噪声不是噪声来源分类。",
       "images": []
     },
     {
@@ -8549,7 +8549,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "按性质噪声分为脉冲噪声、窄带噪声和起伏噪声；恒参噪声不是课件中的噪声类型。",
       "images": []
     },
     {
@@ -8571,7 +8571,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "热噪声、散弹噪声属起伏噪声，常近似为高斯白噪声，宽带噪声经窄带网络变为窄带噪声，理想白噪声功率谱为常数。",
       "images": []
     },
     {
@@ -8592,7 +8592,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "香农容量与带宽、信号功率、噪声功率谱有关，提高信噪比可提高容量，带宽与信噪比可互换；S 和 n0 固定时带宽无限容量有限，D 错。",
       "images": []
     },
     {
@@ -8614,7 +8614,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "调制可搬移频谱匹配信道、实现多路复用、改善抗干扰能力并提高天线辐射效率，均正确。",
       "images": []
     },
     {
@@ -8636,7 +8636,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "按调制信号分模拟/数字调制，按载波分连续波/脉冲波调制，按被控参数分幅度/频率/相位调制，ASK、FSK、PSK 属数字调制。",
       "images": []
     },
     {
@@ -8658,7 +8658,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "AM、DSB、SSB、VSB 都是线性调制方式。",
       "images": []
     },
     {
@@ -8680,7 +8680,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "AM 表达式为[A0+m(t)]cosωct，不过调条件 A0≥|m(t)|max，带宽 2fm，载波分量不携带调制信息。",
       "images": []
     },
     {
@@ -8702,7 +8702,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "DSB-SC 抑制载波、保留上下边带、带宽 2fm，通常用相干解调。",
       "images": []
     },
     {
@@ -8724,7 +8724,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "SSB 只传一个边带、带宽 fm，可用滤波法、相移法或 Weaver 法产生，通常用相干解调。",
       "images": []
     },
     {
@@ -8745,7 +8745,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "滤波法需陡峭边带滤波器，相移法需近似 90° 相移，Weaver 法只需对载波相移；SSB 并非只能滤波法，D 错。",
       "images": []
     },
     {
@@ -8767,7 +8767,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "VSB 介于 DSB 与 SSB 之间，保留一个完整边带和另一部分，带宽 fm<B<2fm，可用于电视广播。",
       "images": []
     },
     {
@@ -8789,7 +8789,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "DSB G=2、SSB G=1，相同输入条件下二者抗噪性能相同，制度增益越大表示解调器抗噪性能越好。",
       "images": []
     },
     {
@@ -8809,7 +8809,7 @@ window.BUNDLED_BANK = {
         "B"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "AM 包络检波和 FM 鉴频在小信噪比时会出现门限效应；DSB、SSB 相干解调不存在门限效应。",
       "images": []
     },
     {
@@ -8831,7 +8831,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "FM 瞬时频偏与 m(t) 成比例，PM 瞬时相偏与 m(t) 成比例，单音 FM 的 mf=Δf/fm，二者均为非线性角度调制。",
       "images": []
     },
     {
@@ -8853,7 +8853,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "FM 卡森公式 B=2(Δf+fm)，直接调频用 VCO 但稳度较低，间接调频先 NBFM 再倍频，鉴频法把频率变化转为幅度变化再包络检波。",
       "images": []
     },
     {
@@ -8875,7 +8875,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：VIVI2】",
+      "reason": "FDM 各路频段互不重叠、用带通滤波器分离、相邻信号间设保护间隔，多路载波电话和广播是典型应用。",
       "images": []
     },
     {
@@ -8890,7 +8890,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "狭义信道指发送与接收设备之间的信号传输媒质，说法正确。",
       "images": []
     },
     {
@@ -8905,7 +8905,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "广义信道的功能分类是调制信道和编码信道，有线/无线是媒质分类，故说法错误。",
       "images": []
     },
     {
@@ -8920,7 +8920,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "调制信道又称连续信道或模拟信道，编码信道又称离散信道或数字信道，说法正确。",
       "images": []
     },
     {
@@ -8935,7 +8935,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "窄带调频带宽约 2fm，不满足窄带条件时应按宽带调频处理。",
       "images": []
     },
     {
@@ -8950,7 +8950,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "同轴电缆外导体接地可起电屏蔽作用，说法正确。",
       "images": []
     },
     {
@@ -8965,7 +8965,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "多模光纤传播路径多、色散大，容量通常小于单模光纤，故说法错误。",
       "images": []
     },
     {
@@ -8980,7 +8980,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "中波既可靠地波传播，也可利用电离层反射形成天波，说法正确。",
       "images": []
     },
     {
@@ -8995,7 +8995,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "移动通信信道参数随时间随机变化，属于随参信道而非恒参信道。",
       "images": []
     },
     {
@@ -9010,7 +9010,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "乘性干扰随信号存在而存在，没有输入信号时随之消失，故说法错误。",
       "images": []
     },
     {
@@ -9025,7 +9025,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "恒参信道参数基本不变或随时间非常缓慢地变化，说法正确。",
       "images": []
     },
     {
@@ -9040,7 +9040,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "P(1|0) 表示发送 0 而接收 1 的概率，题目说法相反，故错误。",
       "images": []
     },
     {
@@ -9055,7 +9055,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "编码信道由调制信道加编译码构成，调制信道不理想会提高错码概率，说法正确。",
       "images": []
     },
     {
@@ -9070,7 +9070,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "无失真传输要求相频特性为频率的线性函数（群时延为常数），不是常数，故说法错误。",
       "images": []
     },
     {
@@ -9085,7 +9085,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "无失真传输要求群时延为常数，说法正确。",
       "images": []
     },
     {
@@ -9100,7 +9100,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "相位-频率失真改变各频率分量时间关系，数字信号可能产生码间串扰。",
       "images": []
     },
     {
@@ -9115,7 +9115,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "多径引起的瑞利型快衰落属于小尺度衰落，说法正确。",
       "images": []
     },
     {
@@ -9130,7 +9130,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "遮挡引起的阴影衰落属于大尺度慢衰落，说法正确。",
       "images": []
     },
     {
@@ -9145,7 +9145,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "信号带宽远大于相关带宽时频率选择性衰落明显，不可忽略，故说法错误。",
       "images": []
     },
     {
@@ -9160,7 +9160,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "降低码元速率可减小信号带宽，从而减轻多径效应，说法正确。",
       "images": []
     },
     {
@@ -9175,7 +9175,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "三种分集合并中最大比值相加（最大比合并）效果通常最好。",
       "images": []
     },
     {
@@ -9190,7 +9190,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "脉冲噪声持续时间短、幅度大、频谱宽，与题目描述相反。",
       "images": []
     },
     {
@@ -9205,7 +9205,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "理想白噪声功率谱密度在频率轴上为常数，说法正确。",
       "images": []
     },
     {
@@ -9220,7 +9220,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "S 和 n0 固定时，带宽趋于无穷容量趋于有限值 1.44S/n0，不会趋于无穷。",
       "images": []
     },
     {
@@ -9235,7 +9235,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "调制还可实现多路复用、改善抗干扰、提高天线辐射效率，不是唯一作用。",
       "images": []
     },
     {
@@ -9250,7 +9250,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "ASK、FSK、PSK 使用连续正弦载波但属于数字调制，因此连续波调制不一定是模拟调制。",
       "images": []
     },
     {
@@ -9265,7 +9265,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "过调后包络发生失真，普通包络检波不能无失真恢复，故说法错误。",
       "images": []
     },
     {
@@ -9280,7 +9280,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "DSB 带宽 2fm，SSB 带宽 fm，二者带宽不同。",
       "images": []
     },
     {
@@ -9295,7 +9295,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "SSB 不含载波且只传单边带，通常用相干解调而非包络检波。",
       "images": []
     },
     {
@@ -9310,7 +9310,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "WBFM 理论频谱含无穷多个分量，工程上用卡森公式估算有效带宽。",
       "images": []
     },
     {
@@ -9325,7 +9325,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：VIVI2】",
+      "reason": "预加重/去加重可改善 FM 解调输出高频端信噪比，FDM 各路频谱间通常设置保护间隔。",
       "images": []
     },
     {
@@ -9342,7 +9342,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "（n,k）分组码码率 R=k/n。",
       "images": []
     },
     {
@@ -9359,7 +9359,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "2DPSK 用相邻码元载波相位差表示信息，可解决 2PSK 相位模糊问题。",
       "images": []
     },
     {
@@ -9376,7 +9376,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "广义信道在狭义信道基础上还包括发送、接收端的部分转换装置。",
       "images": []
     },
     {
@@ -9393,7 +9393,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "广义平稳要求均值为常数且自相关函数只与时间间隔有关。",
       "images": []
     },
     {
@@ -9410,7 +9410,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "数字基带信号指未经载波调制的原始数字信号，强调未调制。",
       "images": []
     },
     {
@@ -9427,7 +9427,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "信源把消息转换为原始电信号或基带信号。",
       "images": []
     },
     {
@@ -9444,7 +9444,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "巴克码非零位移自相关旁瓣小，便于群同步识别。",
       "images": []
     },
     {
@@ -9461,7 +9461,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "非均匀量化通过压缩小信号量化间隔，改善小信号量化信噪比并扩展动态范围。",
       "images": []
     },
     {
@@ -9478,7 +9478,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "似然比准则的判决门限与两个发送信号的先验概率之比有关。",
       "images": []
     },
     {
@@ -9495,7 +9495,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "SSB 只传一个边带，信息不重复，比 DSB 节省一半带宽。",
       "images": []
     },
     {
@@ -9512,7 +9512,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "系统码编码后信息码元仍以原形式保留在码字中。",
       "images": []
     },
     {
@@ -9529,7 +9529,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "2ASK 用二进制码控制载波通断，因此又称 OOK（通断键控）。",
       "images": []
     },
     {
@@ -9546,7 +9546,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "恒参信道参数不变或变化非常缓慢。",
       "images": []
     },
     {
@@ -9563,7 +9563,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "线性系统满足齐次性与可加性（叠加原理）。",
       "images": []
     },
     {
@@ -9580,7 +9580,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "随机基带信号的连续功率谱反映频谱形状和占用带宽。",
       "images": []
     },
     {
@@ -9597,7 +9597,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "概率为 1 的事件确定发生，自信息量为 0 bit。",
       "images": []
     },
     {
@@ -9614,7 +9614,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "群同步（帧同步）核心任务是识别每帧起始位置及组内码元次序。",
       "images": []
     },
     {
@@ -9631,7 +9631,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "简单增量调制每个码元表示输入相对预测值的上升或下降方向。",
       "images": []
     },
     {
@@ -9648,7 +9648,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "各信号先验概率相等时，最大后验概率准则化为最大似然准则。",
       "images": []
     },
     {
@@ -9665,7 +9665,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "调制的根本作用是频谱搬移，使信号适合信道传输。",
       "images": []
     },
     {
@@ -9682,7 +9682,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "多径传播使接收信号产生衰落，时延差较大时出现频率选择性衰落。",
       "images": []
     },
     {
@@ -9699,7 +9699,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "相干解调需要恢复同频同相的本地载波，这是与包络检波的关键区别。",
       "images": []
     },
     {
@@ -9716,7 +9716,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "误码率或误信率直接反映数字通信系统的传输可靠性。",
       "images": []
     },
     {
@@ -9733,7 +9733,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "信道信号形成器完成码型变换和波形变换，形成适合信道传输的基带波形。",
       "images": []
     },
     {
@@ -9750,7 +9750,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "相关接收机通过比较接收波形与各候选信号的相关值进行判决。",
       "images": []
     },
     {
@@ -9767,7 +9767,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "A 律 13 折线因正负两侧部分线段斜率重合，按不同斜率段计数共 13 段而得名。",
       "images": []
     },
     {
@@ -9784,7 +9784,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "非相干解调不需要恢复同频同相载波，结构简单但抗噪性能通常较差。",
       "images": []
     },
     {
@@ -9801,7 +9801,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "能量有限且平均功率为零的信号属于能量信号；周期信号和噪声不属于此类。",
       "images": []
     },
     {
@@ -9818,7 +9818,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "直接法从已调信号本身提取载波，插入导频法额外发送载波分量；导频法会占用功率和频带，A 错。",
       "images": []
     },
     {
@@ -9835,7 +9835,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "ARQ 依靠反馈重传纠错，FEC 由接收端直接纠错；这是二者的根本区别。",
       "images": []
     },
     {
@@ -9852,7 +9852,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "甲、乙均可收发但同一时刻只能单向，是半双工通信。",
       "images": []
     },
     {
@@ -9869,7 +9869,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "卷积码的监督元不仅与本组信息有关，还与前面若干信息码元有关，这是与分组码的主要区别。",
       "images": []
     },
     {
@@ -9886,7 +9886,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "理想白噪声功率谱密度在全频域为常数，“白”指频谱均匀，与幅度分布无关。",
       "images": []
     },
     {
@@ -9903,7 +9903,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "FM 瞬时频偏与 m(t) 成比例，PM 瞬时相偏与 m(t) 成比例，这是根本区别。",
       "images": []
     },
     {
@@ -9920,7 +9920,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "抽样首先使信号在时间上离散；幅度离散由量化完成。",
       "images": []
     },
     {
@@ -9937,7 +9937,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "传输码型要求低频分量少、无直流，以适应低频传输特性差或含隔直变压器的信道。",
       "images": []
     },
     {
@@ -9954,7 +9954,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "“最佳”指在给定准则和条件下达到最优，而非绝对最优或结构最简单。",
       "images": []
     },
     {
@@ -9971,7 +9971,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "实际信道多呈带通特性，不能直接传输低通基带信号，因此需要调制搬移频谱。",
       "images": []
     },
     {
@@ -9988,7 +9988,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "信道幅频特性不平坦首先造成幅频失真。",
       "images": []
     },
     {
@@ -10005,7 +10005,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "捕捉态用较高判决门限可降低假同步概率；进入同步态后再降低门限以降低漏同步。",
       "images": []
     },
     {
@@ -10022,7 +10022,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "自然抽样脉冲顶部随原信号变化，平顶抽样保持瞬时样值、顶部平坦。",
       "images": []
     },
     {
@@ -10039,7 +10039,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "码间串扰的本质是其他码元的拖尾在本码元抽样时刻产生非零贡献。",
       "images": []
     },
     {
@@ -10056,7 +10056,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "位同步的任务是确定码元的最佳抽样时刻和码元间隔。",
       "images": []
     },
     {
@@ -10073,7 +10073,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "匹配滤波器在指定抽样时刻使输出信噪比最大。",
       "images": []
     },
     {
@@ -10090,7 +10090,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "2PSK 是绝对调相，信息由当前码元载波的绝对相位承载。",
       "images": []
     },
     {
@@ -10107,7 +10107,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "高斯过程的关键性质是任意有限维联合分布均为高斯分布。",
       "images": []
     },
     {
@@ -10124,7 +10124,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "通信系统真正要传递的是信息，消息和信号只是信息的载体和表现形式。",
       "images": []
     },
     {
@@ -10141,7 +10141,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "差错控制编码在信息码元后按确定约束增加监督码元，以便收端检错纠错。",
       "images": []
     },
     {
@@ -10158,7 +10158,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "包络检波不失真要求 A0+m(t)≥0（即不过调）。",
       "images": []
     },
     {
@@ -10175,7 +10175,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "k(t) 表示乘性干扰或信道传输特性对信号的影响。",
       "images": []
     },
     {
@@ -10192,7 +10192,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "fs≥2fH 使抽样频谱相邻副本不重叠，避免混叠失真。",
       "images": []
     },
     {
@@ -10209,7 +10209,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "HDB3 通过破坏脉冲和替换规则限制长连 0，同时保留 AMI 双极性优点。",
       "images": []
     },
     {
@@ -10226,7 +10226,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "通信同步按功能包括载波同步、位同步、群同步和网同步。",
       "images": []
     },
     {
@@ -10243,7 +10243,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "最大后验概率准则直接比较给定接收观测后各发送信号的后验概率。",
       "images": []
     },
     {
@@ -10260,7 +10260,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "相位不连续 2FSK 可看成两个互补基带序列分别控制不同载波的 2ASK 信号之和。",
       "images": []
     },
     {
@@ -10277,7 +10277,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "时移 x(t-t0) 对应频谱乘以线性相位因子 e^{-jωt0}，幅度不变。",
       "images": []
     },
     {
@@ -10294,7 +10294,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "判断模拟/数字已调信号主要看载波参数可能状态数是否有限。",
       "images": []
     },
     {
@@ -10311,7 +10311,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "错码零星独立出现的信道称为随机信道。",
       "images": []
     },
     {
@@ -10328,7 +10328,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "VSB 在 SSB 滤波器难以实现时，兼顾带宽与滤波器可实现性。",
       "images": []
     },
     {
@@ -10345,7 +10345,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "香农容量是在给定带宽和信噪比下理论上可达到的最高信息速率。",
       "images": []
     },
     {
@@ -10362,7 +10362,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "折叠二进码正负极性共用同一套幅度码，另设极性位表示正负。",
       "images": []
     },
     {
@@ -10379,7 +10379,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "协方差函数等于自相关函数减去两个时刻均值的乘积，即扣除均值影响。",
       "images": []
     },
     {
@@ -10396,7 +10396,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "二进制时 RB 与 Rb 数值相等；多进制时 Rb=RB·log2M。",
       "images": []
     },
     {
@@ -10413,7 +10413,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "DSB-SC 的本质变化是抑制载波分量而保留双边带。",
       "images": []
     },
     {
@@ -10430,7 +10430,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "广义信道按功能分为调制信道与编码信道。",
       "images": []
     },
     {
@@ -10452,7 +10452,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "PM 瞬时相偏与 m(t) 成比例，FM 瞬时频偏与 m(t) 成比例，二者都属于恒定包络的角度调制。",
       "images": []
     },
     {
@@ -10473,7 +10473,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "2PSK 存在 180° 相位模糊，2DPSK 可用差分相干解调并以相邻码元相位差表示信息；2DPSK 抗噪性能并不必然优于相干 2PSK，A 错。",
       "images": []
     },
     {
@@ -10494,7 +10494,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "广义平稳要求均方值有限、自相关只与时间间隔有关、均值与时间无关；任意阶联合分布与绝对时间无关是严平稳，B 错。",
       "images": []
     },
     {
@@ -10515,7 +10515,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "信道编码按约束关系分分组码与卷积码，按码字结构分线性码与非线性码、系统码与非系统码；调幅码、调频码不是信道编码分类。",
       "images": []
     },
     {
@@ -10536,7 +10536,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "AMI 传号极性交替，长连 0 不利定时，HDB3 通过替换长连 0 改善定时；HDB3 仍保留极性破坏脉冲，C 错。",
       "images": []
     },
     {
@@ -10556,7 +10556,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "低通抽样频率不足会产生混叠，抽样使时间离散；无失真要求 fs≥2fH 而非 fH，抽样不完成量化，A、C 错。",
       "images": []
     },
     {
@@ -10577,7 +10577,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "帧同步要求同步建立时间短、漏同步概率低、假同步概率低；同步码与信息码高概率重复会增大假同步，A 错。",
       "images": []
     },
     {
@@ -10597,7 +10597,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "k(t)s_i(t) 是乘性影响，n(t) 是加性干扰；无输入时乘性项消失，k(t) 随机变化对应随参信道，B、D 错。",
       "images": []
     },
     {
@@ -10619,7 +10619,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "通信系统一般模型包括信源、发送设备、信道与噪声源、接收设备和信宿。",
       "images": []
     },
     {
@@ -10640,7 +10640,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "相关器由相乘器、积分器和抽样比较环节组成；包络检波器不是相关器组成部分。",
       "images": []
     },
     {
@@ -10661,7 +10661,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "非均匀量化改善小信号量化信噪比、扩展动态范围、在语音质量一定时减少所需位数；过载量化噪声不能消除，D 错。",
       "images": []
     },
     {
@@ -10683,7 +10683,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "VSB 带宽介于 SSB 与 DSB 之间，DSB 与 AM 带宽均为 2fm，SSB 带宽为 fm；三者并非都能直接包络检波，D 错。",
       "images": []
     },
     {
@@ -10704,7 +10704,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "无失真要求相频特性为线性函数、幅频特性在信号带内为常数、群时延为常数；信道增益不必等于 1，B 错。",
       "images": []
     },
     {
@@ -10726,7 +10726,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "匹配滤波器冲激响应是输入信号的时反移位，判决时刻偏差会降低性能，指定时刻输出信噪比最大，可替代相关器构成最佳接收机。",
       "images": []
     },
     {
@@ -10746,7 +10746,7 @@ window.BUNDLED_BANK = {
         "B"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "自相关函数在零时延处等于均方值，协方差等于自相关减均值乘积；自相关为零不一定独立，协方差不一定只与时间间隔有关，C、D 错。",
       "images": []
     },
     {
@@ -10768,7 +10768,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "GMSK 在 MSK 前加高斯低通预滤波，QAM 同时利用幅度和相位，MSK 是连续相位 FSK，OFDM 用正交多子载波。",
       "images": []
     },
     {
@@ -10789,7 +10789,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "数字通信便于加密和数字处理、可再生成抑制噪声积累、差错可控；数字信号通常占用更宽频带，D 错。",
       "images": []
     },
     {
@@ -10809,7 +10809,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "理想线路码型便于提取定时且无直流或直流分量小；不必四电平，频谱越宽越好是错的。",
       "images": []
     },
     {
@@ -10831,7 +10831,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "纠正 t 个错误需 dmin≥2t+1，检测 e 个错误需 dmin≥e+1，dmin 越大纠检错能力越强，线性码最小码距等于非零码字最小码重。",
       "images": []
     },
     {
@@ -10853,7 +10853,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "相互同步可靠性较高但可能自激，码速调整属准同步，水库法依赖高稳时钟和大容量缓冲器，主从同步从站简单但依赖主时钟。",
       "images": []
     },
     {
@@ -10875,7 +10875,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "PCM 数字化基本环节为抽样、量化、编码，接收端还需译码和 D/A 恢复。",
       "images": []
     },
     {
@@ -10895,7 +10895,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "AM 含载波分量和两个边带，满足不过调条件时可包络检波；带宽为 2fm 而非基带带宽，边带功率不为零，B、C 错。",
       "images": []
     },
     {
@@ -10917,7 +10917,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "容量随信噪比增加而增加、随带宽增加而增加，但带宽增长时容量增长非线性，容量是可靠传输速率理论上限。",
       "images": []
     },
     {
@@ -10937,7 +10937,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "最大后验概率准则考虑先验概率，先验等概时化为最大似然；最大似然并不要求先验不等，B 错。",
       "images": []
     },
     {
@@ -10959,7 +10959,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "高斯白噪声经线性系统仍为高斯过程，理想功率谱为常数，自相关与冲激函数成比例，任意有限维分布具有高斯性。",
       "images": []
     },
     {
@@ -10979,7 +10979,7 @@ window.BUNDLED_BANK = {
         "B"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "2FSK 可通过两个频率支路比较判决，2ASK 对幅度衰减敏感；2ASK 包络检波不需恢复载波，2FSK 带宽不一定小于 2ASK，C、D 错。",
       "images": []
     },
     {
@@ -10999,7 +10999,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "消息是表达信息的客体，信号是消息的具体表现形式；通信客观上传输的是信号而非信息本身，信息与消息不是同一概念，A、B 错。",
       "images": []
     },
     {
@@ -11021,7 +11021,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "无码间串扰设计涉及发送滤波器、信道、接收滤波器以及抽样时刻的总响应条件。",
       "images": []
     },
     {
@@ -11041,7 +11041,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "ARQ 需要反馈信道，FEC 适合实时性要求较高的单向传输；ARQ 收端需检错重传而非强纠错，FEC 需要监督码元，B、D 错。",
       "images": []
     },
     {
@@ -11061,7 +11061,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：模拟卷A】",
+      "reason": "平方变换法属于直接提取法，相干解调通常需要载波同步；2ASK 包络检波不需载波同步，导频法会消耗功率和频带，A、D 错。",
       "images": []
     },
     {
@@ -11076,7 +11076,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "两个高斯变量不相关不一定独立，除非它们联合高斯分布，故说法错误。",
       "images": []
     },
     {
@@ -11091,7 +11091,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "AM、DSB、SSB 均属于线性调制，说法正确。",
       "images": []
     },
     {
@@ -11106,7 +11106,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "最大似然准则不依赖先验概率，任何情况下都可用，故说法错误。",
       "images": []
     },
     {
@@ -11121,7 +11121,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "数字通信有效性可用传输速率和频带利用率衡量，说法正确。",
       "images": []
     },
     {
@@ -11136,7 +11136,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "提高信号功率时容量按对数增长，有限带宽下容量有上限，不会无限大。",
       "images": []
     },
     {
@@ -11151,7 +11151,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "能纠错的码必然也能检错，说法正确。",
       "images": []
     },
     {
@@ -11166,7 +11166,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "A 律 13 折线正负方向共可观察到 16 个几何线段（按斜率合并后为 13 段），故说法错误。",
       "images": []
     },
     {
@@ -11181,7 +11181,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "QPSK 每码元携带 2 比特，相同比特率下码元速率是 2PSK 的一半。",
       "images": []
     },
     {
@@ -11196,7 +11196,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "位同步确定每个码元的最佳抽样时刻，不只是帧第一位，故说法错误。",
       "images": []
     },
     {
@@ -11211,7 +11211,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "无直流并不保证能直接提取位同步，还需要足够的电平跳变，故说法错误。",
       "images": []
     },
     {
@@ -11226,7 +11226,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "能量信号总能量有限、平均功率为零；功率信号平均功率有限、总能量无穷。",
       "images": []
     },
     {
@@ -11241,7 +11241,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "FM 通过占用更宽频带换取抗噪性能改善。",
       "images": []
     },
     {
@@ -11256,7 +11256,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "匹配滤波器最佳判决时刻偏移会降低性能，故说法错误。",
       "images": []
     },
     {
@@ -11271,7 +11271,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "通信形式上传输消息、客观上传输信号、实质上传输信息，说法正确。",
       "images": []
     },
     {
@@ -11286,7 +11286,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "相频特性非线性意味着群时延随频率变化，说法正确。",
       "images": []
     },
     {
@@ -11301,7 +11301,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "线性分组码按模 2 相加，不是按十进制逐位相加，故说法错误。",
       "images": []
     },
     {
@@ -11316,7 +11316,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "量化使幅度离散，不是只离散时间，故说法错误。",
       "images": []
     },
     {
@@ -11331,7 +11331,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "2FSK 比较式判决使用零门限，不像 2ASK 需随衰减调整 a/2 门限。",
       "images": []
     },
     {
@@ -11346,7 +11346,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "主从同步中各站时钟相位与传输路径时延有关，路径时延不同会影响相位一致。",
       "images": []
     },
     {
@@ -11361,7 +11361,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "眼图张开越大，码间串扰和噪声影响越小。",
       "images": []
     },
     {
@@ -11376,7 +11376,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "宽平稳只要求均值、方差和自相关平稳，不要求所有阶联合分布不变，故说法错误。",
       "images": []
     },
     {
@@ -11391,7 +11391,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "SSB 无载波且只传单边带，通常需相干解调，不能直接恢复任意双极性基带信号。",
       "images": []
     },
     {
@@ -11406,7 +11406,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "接收机“最佳”与准则有关，一个准则下最佳在另一准则下不一定最佳。",
       "images": []
     },
     {
@@ -11421,7 +11421,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "时间离散而幅度连续的抽样信号仍是模拟信号（PAM），不是数字信号。",
       "images": []
     },
     {
@@ -11436,7 +11436,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "乘性干扰随信号存在而存在，无输入时消失，故说法错误。",
       "images": []
     },
     {
@@ -11451,7 +11451,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "监督位增加会降低码率，纠错能力取决于最小码距，二者不必然同时提高。",
       "images": []
     },
     {
@@ -11466,7 +11466,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "平顶抽样保持脉冲的频响会引入孔径失真，说法正确。",
       "images": []
     },
     {
@@ -11481,7 +11481,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "2DPSK 差分相干解调用前一码元作参考，不需恢复同频同相载波。",
       "images": []
     },
     {
@@ -11496,7 +11496,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "捕捉态提高判决门限可降低假同步概率，说法正确。",
       "images": []
     },
     {
@@ -11511,7 +11511,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：模拟卷A】",
+      "reason": "奈奎斯特第一准则允许频谱副本重叠，只要叠加后满足无码间串扰条件。",
       "images": []
     },
     {
@@ -11528,7 +11528,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "通信的实质是信息传输，频率变换等只是手段。",
       "images": []
     },
     {
@@ -11545,7 +11545,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "接收设备之后连接信宿，即信息最终到达者。",
       "images": []
     },
     {
@@ -11562,7 +11562,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "数字通信可通过中继再生抑制噪声积累，这是其典型优点。",
       "images": []
     },
     {
@@ -11579,7 +11579,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "现代通信四大基本技术是传输、复用、交换和网络；机械加工不是通信技术。",
       "images": []
     },
     {
@@ -11596,7 +11596,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "MSC 是移动交换中心（Mobile Switching Center），负责移动通信的交换和接续。",
       "images": []
     },
     {
@@ -11613,7 +11613,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "FM 属于模拟连续波调制；PCM、DPCM、ΔM 都是数字调制方式。",
       "images": []
     },
     {
@@ -11630,7 +11630,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "PAM（脉冲幅度调制）属于模拟脉冲调制；PCM 是数字脉冲调制，ASK、PSK 是数字载波调制。",
       "images": []
     },
     {
@@ -11647,7 +11647,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "PCM 是数字脉冲调制；AM 是模拟连续波调制，PPM 是模拟脉冲调制，FM 是模拟连续波调制。",
       "images": []
     },
     {
@@ -11664,7 +11664,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "WDM 表示波分复用，在一根光纤上用不同波长同时传多路信号。",
       "images": []
     },
     {
@@ -11681,7 +11681,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "单工通信只能沿一个方向传送信息。",
       "images": []
     },
     {
@@ -11698,7 +11698,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "概率 1/8 的事件自信息量 I=-log2(1/8)=3bit。",
       "images": []
     },
     {
@@ -11715,7 +11715,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "8 个等概率符号的信源熵 H=log2 8=3bit/符号。",
       "images": []
     },
     {
@@ -11732,7 +11732,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "固定符号数时，离散信源在均匀分布（等概率）下熵最大。",
       "images": []
     },
     {
@@ -11749,7 +11749,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "连续随机变量的一∫f(x)log2f(x)dx 称为微分熵。",
       "images": []
     },
     {
@@ -11766,7 +11766,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "模拟通信有效性主要用占用带宽衡量，带宽越窄有效性越高。",
       "images": []
     },
     {
@@ -11783,7 +11783,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "模拟通信可靠性主要用输出信噪比衡量。",
       "images": []
     },
     {
@@ -11800,7 +11800,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "系统带宽由整个系统各环节的总传输特性决定，不一定等于信道带宽。",
       "images": []
     },
     {
@@ -11817,7 +11817,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "码元速率 RB=1/TB，与码元持续时间成反比。",
       "images": []
     },
     {
@@ -11834,7 +11834,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "比特率=码元速率×log2M=2400×4=9600bit/s。",
       "images": []
     },
     {
@@ -11851,7 +11851,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "按比特率定义的频带利用率单位为 bit/(s·Hz)。",
       "images": []
     },
     {
@@ -11868,7 +11868,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "一个码元错并不等于该码元所有比特都错，因此 Pb≤Pe。",
       "images": []
     },
     {
@@ -11885,7 +11885,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "能由明确数学表达式完全描述的信号称为确定信号。",
       "images": []
     },
     {
@@ -11902,7 +11902,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "抽样信号时间离散、幅度连续（未量化）。",
       "images": []
     },
     {
@@ -11919,7 +11919,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "两个连续周期信号之和仍为周期信号的条件是两周期之比为有理数。",
       "images": []
     },
     {
@@ -11936,7 +11936,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "因果信号满足 t<0 时 f(t)=0。",
       "images": []
     },
     {
@@ -11953,7 +11953,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "满足 0<E<∞ 的非零信号属于能量信号。",
       "images": []
     },
     {
@@ -11970,7 +11970,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "复指数 Ae^(α+jω)t 中 α<0 且 ω≠0 表示衰减振荡。",
       "images": []
     },
     {
@@ -11987,7 +11987,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "Sa(t)=sin(t)/t 的第一个正零点在 t=π。",
       "images": []
     },
     {
@@ -12004,7 +12004,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "f(2t) 将时间轴压缩为原来的 1/2。",
       "images": []
     },
     {
@@ -12021,7 +12021,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "u(t-3) 在 t=3 处发生跳变。",
       "images": []
     },
     {
@@ -12038,7 +12038,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "单位冲激函数 δ(t) 全时域积分为 1，且仅在 t=0 非零。",
       "images": []
     },
     {
@@ -12055,7 +12055,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "∫f(t)δ(t-t0)dt=f(t0)，即冲激的抽样（筛选）性质。",
       "images": []
     },
     {
@@ -12072,7 +12072,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "∫δ′(t)dt 等于 δ(t) 在无穷远处的值之差，结果为 0。",
       "images": []
     },
     {
@@ -12089,7 +12089,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "信号偶分量为 fe(t)=[f(t)+f(-t)]/2。",
       "images": []
     },
     {
@@ -12106,7 +12106,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "周期信号的直流分量是一个周期内的平均值。",
       "images": []
     },
     {
@@ -12123,7 +12123,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "线性系统满足齐次性和可加性，必然有 T{0}=0。",
       "images": []
     },
     {
@@ -12140,7 +12140,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "时不变性应检验输入延时后输出是否同样延时，即 T{x(t-t0)} 是否等于 y(t-t0)。",
       "images": []
     },
     {
@@ -12157,7 +12157,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "因果系统在时刻 t0 的输出不能依赖 t>t0 的（未来）输入。",
       "images": []
     },
     {
@@ -12174,7 +12174,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "零输入响应由系统的初始状态产生，与外加激励无关。",
       "images": []
     },
     {
@@ -12191,7 +12191,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "LTI 系统的冲激响应 h(t) 是对单位冲激 δ(t) 的零状态响应。",
       "images": []
     },
     {
@@ -12208,7 +12208,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "f(t)*δ(t)=f(t)，冲激函数是卷积的单位元。",
       "images": []
     },
     {
@@ -12225,7 +12225,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "f(t)*δ(t-t0)=f(t-t0)。",
       "images": []
     },
     {
@@ -12242,7 +12242,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "周期信号傅里叶级数频谱是离散谱，谱线间隔为基频。",
       "images": []
     },
     {
@@ -12259,7 +12259,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "周期为 T 的信号谱线频率间隔为 1/T。",
       "images": []
     },
     {
@@ -12276,7 +12276,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "F0 是傅里叶级数中的直流分量。",
       "images": []
     },
     {
@@ -12293,7 +12293,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "帕塞瓦尔定理把周期信号平均功率表示为各 |Fn|² 之和。",
       "images": []
     },
     {
@@ -12310,7 +12310,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "矩形脉冲 gτ(t) 的傅里叶变换为 τSa(ωτ/2)。",
       "images": []
     },
     {
@@ -12327,7 +12327,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "δ(t) 的傅里叶变换为 1（所有频率等幅）。",
       "images": []
     },
     {
@@ -12344,7 +12344,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "实信号频谱满足共轭对称性 F(-ω)=F*(ω)。",
       "images": []
     },
     {
@@ -12361,7 +12361,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "实偶信号的傅里叶变换是实偶函数。",
       "images": []
     },
     {
@@ -12378,7 +12378,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "时移性质：f(t-t0) 的傅里叶变换为 F(ω)e^(-jωt0)。",
       "images": []
     },
     {
@@ -12395,7 +12395,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "尺度变换：f(at) 的傅里叶变换为 (1/|a|)F(ω/a)。",
       "images": []
     },
     {
@@ -12412,7 +12412,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "调制（频移）性质：f(t)cosω0t 的频谱为 [F(ω-ω0)+F(ω+ω0)]/2。",
       "images": []
     },
     {
@@ -12429,7 +12429,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "对偶性质：F(t) 的傅里叶变换为 2πf(-ω)。",
       "images": []
     },
     {
@@ -12446,7 +12446,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "时域相乘对应频域卷积（乘 1/(2π)）。",
       "images": []
     },
     {
@@ -12463,7 +12463,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "时域求导对应频域乘以 jω：若 f(t)↔F(ω)，则 df(t)/dt 的傅里叶变换为 jωF(ω)；时域积分则对应除以 jω，故选择 B。",
       "images": []
     },
     {
@@ -12480,7 +12480,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "无失真传输要求系统幅频特性在信号频带内为常数。",
       "images": []
     },
     {
@@ -12497,7 +12497,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "无失真系统的相频特性应为频率的线性函数，使群时延为常数。",
       "images": []
     },
     {
@@ -12514,7 +12514,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "理想低通滤波器在截止频率之外的幅频响应为 0。",
       "images": []
     },
     {
@@ -12531,7 +12531,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "最高频率 5kHz 的带限信号，奈奎斯特速率 fs=2fm=10kHz。",
       "images": []
     },
     {
@@ -12548,7 +12548,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "抽样频率小于 2fm 时频谱副本重叠，发生混叠。",
       "images": []
     },
     {
@@ -12565,7 +12565,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "实能量信号自相关函数在 τ=0 处等于信号能量。",
       "images": []
     },
     {
@@ -12582,7 +12582,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "实信号自相关函数是偶函数，R(τ)=R(-τ)。",
       "images": []
     },
     {
@@ -12599,7 +12599,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "自相关函数通常在 τ=0 处取得最大值。",
       "images": []
     },
     {
@@ -12616,7 +12616,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "持续时间为 τ 的矩形脉冲，其第一零点单边带宽为 1/τ。",
       "images": []
     },
     {
@@ -12638,7 +12638,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "通信系统基本模型包括信源、发送设备、信道、接收设备和信宿。",
       "images": []
     },
     {
@@ -12659,7 +12659,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "数字通信便于再生、加密和处理、便于集成；任何条件下都不产生误码说法绝对化，D 错。",
       "images": []
     },
     {
@@ -12681,7 +12681,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "现代通信核心技术包括传输、复用、交换和网络。",
       "images": []
     },
     {
@@ -12702,7 +12702,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "AM、FM、PM 属于模拟连续波调制；PCM 是数字调制。",
       "images": []
     },
     {
@@ -12724,7 +12724,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "ASK、FSK、PSK、QPSK 都属于数字载波调制。",
       "images": []
     },
     {
@@ -12745,7 +12745,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "PAM、PDM、PPM 属于模拟脉冲调制；DPCM 是数字差分脉冲编码调制。",
       "images": []
     },
     {
@@ -12767,7 +12767,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "FDM、TDM、CDM、WDM 都是常见复用方式。",
       "images": []
     },
     {
@@ -12788,7 +12788,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "概率越小自信息量越大，等概率离散信源熵最大，M 个等概率符号熵为 log2M；概率为 1 的事件自信息量为 0 最小，D 错。",
       "images": []
     },
     {
@@ -12810,7 +12810,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "通信系统性能指标包括有效性、可靠性、标准性、经济性等。",
       "images": []
     },
     {
@@ -12831,7 +12831,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "信号带宽由信号频谱决定，信道带宽由信道特性决定，系统带宽由总传输特性决定；系统带宽不一定等于信道带宽，D 错。",
       "images": []
     },
     {
@@ -12852,7 +12852,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "数字通信有效性用码元速率、比特率和频带利用率衡量；输出波形相似度是模拟指标。",
       "images": []
     },
     {
@@ -12874,7 +12874,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "提高功率、选择合适调制解调方式、采用最佳接收和纠错编码都可降低误码率。",
       "images": []
     },
     {
@@ -12896,7 +12896,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "信号可按确定/随机、连续/离散时间、能量/功率、周期/非周期等维度分类。",
       "images": []
     },
     {
@@ -12917,7 +12917,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "连续周期信号满足 f(t)=f(t+nT)，离散周期信号满足 f[k]=f[k+nN]，周期之比为有理数时其和通常仍周期；任意两周期信号之和不一定周期，D 错。",
       "images": []
     },
     {
@@ -12938,7 +12938,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "能量信号满足 0<E<∞ 且平均功率为 0，功率信号满足 0<P<∞；非零信号不能同时是能量信号和功率信号，D 错。",
       "images": []
     },
     {
@@ -12959,7 +12959,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "α 决定增长或衰减，ω 决定振荡快慢，α=0、ω≠0 为等幅振荡；α<0、ω=0 是衰减指数而非增长指数，D 错。",
       "images": []
     },
     {
@@ -12980,7 +12980,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "Sa(t) 是偶函数，t→0 时极限为 1，零点为 ±nπ；t→∞ 时趋于 0，D 错。",
       "images": []
     },
     {
@@ -13002,7 +13002,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "f(t-t0) 右移 t0，f(t+t0) 左移 t0，f(at) 且 a>1 时压缩，a<0 时包含反转。",
       "images": []
     },
     {
@@ -13023,7 +13023,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "δ(t) 全时域积分为 1、是偶函数、满足 f(t)δ(t-t0)=f(t0)δ(t-t0)；δ(t) 不是处处有限的普通函数，D 错。",
       "images": []
     },
     {
@@ -13045,7 +13045,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "f=fe+fo，偶分量 fe=[f(t)+f(-t)]/2，奇分量 fo=[f(t)-f(-t)]/2，周期信号直流分量是周期平均值。",
       "images": []
     },
     {
@@ -13066,7 +13066,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "线性系统满足齐次性、叠加性且 T{0}=0；线性不必然时不变，D 错。",
       "images": []
     },
     {
@@ -13087,7 +13087,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "时不变系统输入延时输出同样延时，因果系统不能依赖未来输入，因果性与线性是不同性质；时不变不要求 y(0)=0，C 错。",
       "images": []
     },
     {
@@ -13108,7 +13108,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "全响应=零输入响应+零状态响应，零输入响应由初始状态引起，零状态响应由外加输入引起；冲激响应是 LTI 系统对 δ(t) 的零状态响应，D 错。",
       "images": []
     },
     {
@@ -13130,7 +13130,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "卷积满足交换律、结合律、分配律，且 f*δ=f。",
       "images": []
     },
     {
@@ -13151,7 +13151,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "周期信号傅里叶级数频谱离散，谱线位于整数倍基频处，F0 为直流分量；谱线间隔为基频 1/T（角频率 2π/T），不是 2πT，D 错。",
       "images": []
     },
     {
@@ -13173,7 +13173,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "δ(t)↔1，1↔2πδ(ω)，e^(-αt)u(t)↔1/(α+jω)（α>0），sgn(t)↔2/(jω)，四个变换对均正确。",
       "images": []
     },
     {
@@ -13194,7 +13194,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "实信号频谱满足共轭对称，幅度谱为偶函数、相位谱为奇函数；实信号的 F(ω) 不一定为实数，D 错。",
       "images": []
     },
     {
@@ -13216,7 +13216,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "傅里叶变换性质包括时移、尺度变换、调制（频移）和卷积定理。",
       "images": []
     },
     {
@@ -13238,7 +13238,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "无失真要求幅频特性为常数、相频特性关于 ω 线性，标准抽样条件 fs≥2fm，fs<2fm 时可能混叠。",
       "images": []
     },
     {
@@ -13259,7 +13259,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：Day8】",
+      "reason": "实信号自相关为偶函数，R(0) 对应能量或平均功率，自相关最大值通常在 τ=0；3dB 点幅度为最大值的 1/√2 而非 1/2，D 错。",
       "images": []
     },
     {
@@ -13274,7 +13274,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "信息、消息和信号是不同概念：信息是内容，消息是载体，信号是表现形式。",
       "images": []
     },
     {
@@ -13289,7 +13289,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "通信系统基本模型包含信源、发送设备、信道、接收设备和信宿。",
       "images": []
     },
     {
@@ -13304,7 +13304,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "再生可抑制噪声积累但不能保证任何条件下都不误码。",
       "images": []
     },
     {
@@ -13319,7 +13319,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "FM（调频）用连续正弦波作载波、调制信号为模拟信号，属于模拟连续波调制；PCM、DPCM、ΔM 等属于数字调制，故该判断正确。",
       "images": []
     },
     {
@@ -13334,7 +13334,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "PPM（脉冲位置调制）是模拟脉冲调制，不是数字脉冲调制。",
       "images": []
     },
     {
@@ -13349,7 +13349,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "固定符号数时等概率分布使离散信源熵最大。",
       "images": []
     },
     {
@@ -13364,7 +13364,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "事件出现概率越小，其自信息量越大。",
       "images": []
     },
     {
@@ -13379,7 +13379,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "系统带宽由总传输特性决定，不一定等于信道带宽。",
       "images": []
     },
     {
@@ -13394,7 +13394,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "波特是码元速率单位，bit/s 是比特率单位，只有二进制时二者数值才相等，多进制时不相等。",
       "images": []
     },
     {
@@ -13409,7 +13409,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "M 进制数字信号满足 Rb=RB·log2M。",
       "images": []
     },
     {
@@ -13424,7 +13424,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "抽样只使时间离散，幅度仍连续，仍是模拟信号，不是数字信号。",
       "images": []
     },
     {
@@ -13439,7 +13439,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "连续时间信号指时间变量连续，其幅度不一定连续（例如量化后的阶梯信号）。",
       "images": []
     },
     {
@@ -13454,7 +13454,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "只有两周期之比为有理数时，其和才是周期信号；无理数比时不是周期信号。",
       "images": []
     },
     {
@@ -13469,7 +13469,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "非零信号不可能同时既是能量信号又是功率信号，二者互斥。",
       "images": []
     },
     {
@@ -13484,7 +13484,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "Sa(t)=sin(t)/t 满足 Sa(-t)=Sa(t)，是偶函数。",
       "images": []
     },
     {
@@ -13499,7 +13499,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "f(t-3) 是把 f(t) 向右平移 3。",
       "images": []
     },
     {
@@ -13514,7 +13514,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "单位阶跃在 t=0 的取值在不同教材中有 0、1 或 1/2 等不同定义，并非固定为 1。",
       "images": []
     },
     {
@@ -13529,7 +13529,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "δ(t) 是广义函数，不能用普通函数在 t=0 取无穷大来严格描述。",
       "images": []
     },
     {
@@ -13544,7 +13544,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "δ(t)=δ(-t)，是偶函数。",
       "images": []
     },
     {
@@ -13559,7 +13559,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "δ′(t) 满足 δ′(-t)=-δ′(t)，是奇函数。",
       "images": []
     },
     {
@@ -13574,7 +13574,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "时不变性只要求延时平移关系，不要求 y(0)=0。",
       "images": []
     },
     {
@@ -13589,7 +13589,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "线性系统满足齐次性和叠加性，零输入时输出为零。",
       "images": []
     },
     {
@@ -13604,7 +13604,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "因果系统输出可依赖当前和过去输入，不能依赖未来输入。",
       "images": []
     },
     {
@@ -13619,7 +13619,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "零输入响应由初始状态引起，与外加输入无关。",
       "images": []
     },
     {
@@ -13634,7 +13634,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "连续时间卷积满足交换律 f1*f2=f2*f1。",
       "images": []
     },
     {
@@ -13649,7 +13649,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "周期信号傅里叶级数频谱是离散谱，谱线间隔为基频。",
       "images": []
     },
     {
@@ -13664,7 +13664,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "实信号的傅里叶变换满足共轭对称，但不一定为实函数。",
       "images": []
     },
     {
@@ -13679,7 +13679,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "时域平移只给频谱乘线性相位因子，改变相位谱，不改变幅度谱。",
       "images": []
     },
     {
@@ -13694,7 +13694,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "无失真传输要求相频特性为频率的线性函数，不是任意非线性函数。",
       "images": []
     },
     {
@@ -13709,7 +13709,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day8】",
+      "reason": "理想带限信号标准抽样条件为 fs≥2fm，说法正确。",
       "images": []
     },
     {
@@ -13726,7 +13726,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "数字基带信号指未经载波调制的消息代码电波形。",
       "images": []
     },
     {
@@ -13743,7 +13743,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "数字基带传输不经过载波调制，数字频带传输需载波调制，这是主要区别。",
       "images": []
     },
     {
@@ -13760,7 +13760,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "高频功率放大器属于频带（射频）系统环节，不属于典型数字基带传输系统主体。",
       "images": []
     },
     {
@@ -13777,7 +13777,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "码型和波形变换使基带波形更适合信道传输，便于同步和判决。",
       "images": []
     },
     {
@@ -13794,7 +13794,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "接收滤波器滤除带外噪声并改善判决波形。",
       "images": []
     },
     {
@@ -13811,7 +13811,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "位定时不准确直接影响抽样判决时刻的选取。",
       "images": []
     },
     {
@@ -13828,7 +13828,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "线路码型通常要求直流和低频分量较少，便于隔直变压器和定时提取。",
       "images": []
     },
     {
@@ -13845,7 +13845,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "单极性不归零波形含直流和较丰富低频分量，长距离传输时不利于隔直和稳定。",
       "images": []
     },
     {
@@ -13862,7 +13862,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "等概双极性不归零波形平均值为零，直流分量小。",
       "images": []
     },
     {
@@ -13879,7 +13879,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "单极性归零波形的“1”脉冲在码元内回零，产生定时分量，便于提取定时。",
       "images": []
     },
     {
@@ -13896,7 +13896,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "双极性归零波形经全波整流后可提取定时信息。",
       "images": []
     },
     {
@@ -13913,7 +13913,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "单极性不归零波形中“1”为高电平、“0”为低电平且码元内不归零，按图示选择 A。",
       "images": []
     },
     {
@@ -13930,7 +13930,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "差分波形用相邻脉冲电平的相对变化表示代码，因此又称相对码波形。",
       "images": []
     },
     {
@@ -13947,7 +13947,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "多电平波形一个码元可承载多个比特，在高速传输中节约频带。",
       "images": []
     },
     {
@@ -13964,7 +13964,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "AMI 码要求传号正负交替、空号为零，按图示选择 A。",
       "images": []
     },
     {
@@ -13981,7 +13981,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "AMI 码长连 0 时电平长时间不跳变，定时提取困难。",
       "images": []
     },
     {
@@ -13998,7 +13998,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "HDB3 码在 AMI 基础上通过替换规则限制连续零码的长度。",
       "images": []
     },
     {
@@ -14015,7 +14015,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "按“1→10、0→01”约定，数字双相码每码元中心有跃变，按图示选择 A。",
       "images": []
     },
     {
@@ -14032,7 +14032,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "CMI 码中“0”固定编码为 01。",
       "images": []
     },
     {
@@ -14049,7 +14049,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "密勒码遇到连续两个“0”时，在两个零码的边界处发生电平跃变。",
       "images": []
     },
     {
@@ -14066,7 +14066,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "nBmB 码利用多余码组设置禁用码组，从中选择有利码组改善传输特性。",
       "images": []
     },
     {
@@ -14083,7 +14083,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "4B/3T 用 3 个三元码表示 4 个二进制码，码元数减少，提高频带利用率。",
       "images": []
     },
     {
@@ -14100,7 +14100,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "2B1Q 表示两个比特映射为一个四电平码元。",
       "images": []
     },
     {
@@ -14117,7 +14117,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "AMI 码和 HDB3 码又称 1B/1T 码，T 表示三元码（ternary）。",
       "images": []
     },
     {
@@ -14134,7 +14134,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "HDB3 译码识别破坏脉冲 V 的依据是它与前一个非零脉冲同极性。",
       "images": []
     },
     {
@@ -14151,7 +14151,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "四种单码元幅度谱中，B 的第一零点距离原点最远。",
       "images": []
     },
     {
@@ -14168,7 +14168,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "随机序列没有确定的傅里叶频谱函数，因此用功率谱密度描述频谱特性。",
       "images": []
     },
     {
@@ -14185,7 +14185,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "数字基带信号功率谱中的连续谱主要用来判断信号所需传输带宽。",
       "images": []
     },
     {
@@ -14202,7 +14202,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "离散谱主要反映直流分量和码元定时分量。",
       "images": []
     },
     {
@@ -14219,7 +14219,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "是否出现离散谱取决于两种码元的平均波形及其出现概率。",
       "images": []
     },
     {
@@ -14236,7 +14236,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "等概双极性信号正负码元统计平均波形相互抵消，因此通常不含离散谱。",
       "images": []
     },
     {
@@ -14253,7 +14253,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "单极性不归零信号在码元频率处的离散谱线被脉冲频谱零点抑制，难以直接提取定时。",
       "images": []
     },
     {
@@ -14270,7 +14270,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "单极性归零信号在码元频率处可出现离散谱线，比不归零信号更容易直接提取定时。",
       "images": []
     },
     {
@@ -14287,7 +14287,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "理想基带低通特性在通带内幅频为常数、截止处陡降，按图示选择 A。",
       "images": []
     },
     {
@@ -14304,7 +14304,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "占空比减小使脉冲变窄，频谱第一零点带宽增大。",
       "images": []
     },
     {
@@ -14321,7 +14321,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "覆盖 -τ 到 +τ 的矩形脉冲宽度为 2τ，第一零点频率为 1/(2τ)。",
       "images": []
     },
     {
@@ -14350,7 +14350,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "按滚降系数由小到大排列的图示顺序为 A、D、C、B，选择 A。",
       "images": []
     },
     {
@@ -14367,7 +14367,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "码元速率不变时升余弦滚降系数增大，所需带宽增大。",
       "images": []
     },
     {
@@ -14384,7 +14384,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "滚降系数为 1 时，二进制频带利用率 η=2/(1+α)=1 Baud/Hz。",
       "images": []
     },
     {
@@ -14401,7 +14401,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "理想低通信道带宽 B=3kHz，无码间串扰最高码元速率 RB=2B=6k Baud。",
       "images": []
     },
     {
@@ -14418,7 +14418,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "无码间串扰要求在抽样时刻只有一个码元响应非零，按图示选择 A。",
       "images": []
     },
     {
@@ -14435,7 +14435,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "无码间串扰指其他码元在本码元判决抽样时刻的响应为零。",
       "images": []
     },
     {
@@ -14452,7 +14452,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "理想低通频率响应边沿突变、时域拖尾按 1/t 衰减慢，工程实现困难。",
       "images": []
     },
     {
@@ -14469,7 +14469,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "频域奈奎斯特准则的互补对称指相邻移位频谱在重叠区相加为常数。",
       "images": []
     },
     {
@@ -14486,7 +14486,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "四进制 RB=2.048M/2=1.024M Baud，最小基带带宽=RB/2=512kHz。",
       "images": []
     },
     {
@@ -14503,7 +14503,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "二进制 7200 Baud 理想低通最小带宽=RB/2=3.6kHz。",
       "images": []
     },
     {
@@ -14520,7 +14520,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "升余弦带宽 B=RB(1+α)/2=2.048M×1.5/2=1.536MHz。",
       "images": []
     },
     {
@@ -14537,7 +14537,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "码间串扰是其他码元在当前抽样时刻的响应总和。",
       "images": []
     },
     {
@@ -14554,7 +14554,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "等概双极性信号在对称高斯噪声下最佳判决门限为 0。",
       "images": []
     },
     {
@@ -14571,7 +14571,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "等概单极性 0/A 电平最佳判决门限为 A/2。",
       "images": []
     },
     {
@@ -14588,7 +14588,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "发送 -A 要误判为 +A，噪声样值需大于 A。",
       "images": []
     },
     {
@@ -14605,7 +14605,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "双极性信号两个信号点 ±A 到门限 0 的距离为 A，大于单极性的 A/2，抗噪性能更好。",
       "images": []
     },
     {
@@ -14622,7 +14622,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "等概最佳门限下，信号峰值与噪声标准差之比增大使误码率降低。",
       "images": []
     },
     {
@@ -14639,7 +14639,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "总误码率按各码元先验概率对条件误码率加权求和。",
       "images": []
     },
     {
@@ -14656,7 +14656,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "等概双极性两条件高斯密度关于门限互为镜像，左右误码面积相等。",
       "images": []
     },
     {
@@ -14673,7 +14673,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "单极性信号一半码元取零电平，平均功率为 A²/4，双极性为 A²/2，表达不同。",
       "images": []
     },
     {
@@ -14690,7 +14690,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "M 增大时每码元承载比特数增加，有效性提高，但信号电平间距减小，可靠性下降。",
       "images": []
     },
     {
@@ -14707,7 +14707,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "部分响应系统有意引入可控码间串扰，再在接收端消除，以提高频带利用率。",
       "images": []
     },
     {
@@ -14724,7 +14724,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "二进制双极性输入经第Ⅰ类部分响应后，抽样电平为 -2、0、+2。",
       "images": []
     },
     {
@@ -14741,7 +14741,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "第Ⅰ类部分响应递推译码依赖前一码元判决结果，易造成错误传播。",
       "images": []
     },
     {
@@ -14758,7 +14758,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "C",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "相关编码前加预编码器，可避免递推判决造成的错误传播。",
       "images": []
     },
     {
@@ -14775,7 +14775,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "眼图张开最大表示码间串扰和噪声影响最小，按图示选择 A。",
       "images": []
     },
     {
@@ -14792,7 +14792,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "A",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "眼睛张开最大的时刻对应最佳抽样时刻。",
       "images": []
     },
     {
@@ -14809,7 +14809,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "B",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "时域均衡器对若干延时样值加权相加，抵消抽样点处的拖尾，减小码间串扰。",
       "images": []
     },
     {
@@ -14826,7 +14826,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": "D",
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "LMS 算法是基于随机梯度思想的自适应均衡算法。",
       "images": []
     },
     {
@@ -14847,7 +14847,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "典型数字基带系统包括传输信道、信道信号形成器、接收滤波器等；载波功率放大器属于频带系统。",
       "images": []
     },
     {
@@ -14868,7 +14868,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "码型与波形变换考虑利于同步和判决、与信道特性匹配、减小码间串扰；不改变信源语义，D 错。",
       "images": []
     },
     {
@@ -14888,7 +14888,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "线路码型希望便于提取定时、直流分量少；不是只保留单一离散谱线，码速率也不是越高越好，A、D 错。",
       "images": []
     },
     {
@@ -14909,7 +14909,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "线性调制频带系统可等效为基带系统研究，频带传输需搬移频谱，基带传输不经过载波调制；无线信道不能直接传基带，C 错。",
       "images": []
     },
     {
@@ -14929,7 +14929,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "单极性不归零波形电平取 0 和正值、可能含直流分量；码元内不归零，中点也不一定跃变，A、D 错。",
       "images": []
     },
     {
@@ -14950,7 +14950,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "双极性不归零波形用正负电平表示两个符号、平均值零、直流被抑制；码元中点不跃变，B 错。",
       "images": []
     },
     {
@@ -14971,7 +14971,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "归零波形脉冲在码元结束前回零、有效脉宽小于码元周期、比同码速 NRZ 占更宽频带；长连零时单极性 RZ 提取定时仍困难，C 错。",
       "images": []
     },
     {
@@ -14991,7 +14991,7 @@ window.BUNDLED_BANK = {
         "B"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "AMI 码空号保持零电平、传号极性交替；长连零时跳变稀疏而非密集，且使用正、负、零三个电平，C、D 错。",
       "images": []
     },
     {
@@ -15012,7 +15012,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "HDB3 引入破坏脉冲 V、保持较小直流和低频分量、限制连续零码个数；并未取消极性交替规律，B 错。",
       "images": []
     },
     {
@@ -15033,7 +15033,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "数字双相码每码元中心有跃变，CMI 码 0 固定为 01，密勒码 1 用码元中心跃变表示；它们不是 1B1T 码，B 错。",
       "images": []
     },
     {
@@ -15053,7 +15053,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "nBmB 利用多余组合设置禁用码组，2B1Q 用四电平表示两比特组合；4B/3T 是 3 个三元码表示 4 个二进制码，B、D 错。",
       "images": []
     },
     {
@@ -15074,7 +15074,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "连续谱用于确定带宽，离散谱可反映直流分量和定时分量；连续谱与判决门限无关，C 错。",
       "images": []
     },
     {
@@ -15094,7 +15094,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "占空比减小会使频带展宽，第一零点带宽与脉宽成反比；离散谱不用于确定连续谱带宽，脉冲幅度不影响第一零点频率，A、C 错。",
       "images": []
     },
     {
@@ -15115,7 +15115,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "等概条件下，双极性不归零码、数字双相码和 AMI 码的平均值均为零、不含直流分量；单极性不归零码含直流分量，C 错。",
       "images": []
     },
     {
@@ -15136,7 +15136,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "无码间串扰要求当前脉冲在其他码元抽样点取零、在自身抽样点保留主值，不同码元波形可在抽样点之间重叠；不要求任意非抽样时刻为零，B 错。",
       "images": []
     },
     {
@@ -15156,7 +15156,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "理想低通冲激响应具有较长拖尾、频带利用率最高可达 2 Baud/Hz；它对定时偏差敏感，拖尾在一个码元周期外并不为零，A、B 错。",
       "images": []
     },
     {
@@ -15177,7 +15177,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "升余弦滚降系统拖尾衰减较快、频谱边缘平滑、对定时误差影响较小；滚降系数增大时所需带宽增大而非减小，C 错。",
       "images": []
     },
     {
@@ -15197,7 +15197,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "RB=8k Baud 时理想低通最小带宽 4kHz，滚降系数 0.5 时带宽 6kHz；滚降系数 1 时带宽为 8kHz，第一零点带宽由脉宽决定并非 4kHz，A、C 错。",
       "images": []
     },
     {
@@ -15218,7 +15218,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "接收抽样值由当前码元主值、其他码元产生的码间串扰和接收噪声瞬时值组成；发送端载波频率不是抽样值成分，A 错。",
       "images": []
     },
     {
@@ -15238,7 +15238,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "抗噪声分析通常假设加性噪声为零均值高斯噪声、接收滤波器为线性网络；噪声不只在发送 1 时出现，门限由信号与噪声分布确定，A、C 错。",
       "images": []
     },
     {
@@ -15259,7 +15259,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "等概二进制信号中，单极性最佳门限位于两电平中点 A/2，双极性最佳门限为 0 且不随信号幅度同比变化；单极性门限与信号幅度有关，A 错。",
       "images": []
     },
     {
@@ -15279,7 +15279,7 @@ window.BUNDLED_BANK = {
         "C"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "总误码率由先验概率加权求和，条件误码率是概率密度越过门限的尾面积；增大噪声标准差会提高误码率，信号点越靠近门限误码概率越高，B、D 错。",
       "images": []
     },
     {
@@ -15300,7 +15300,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "同一幅度 A 下，单极性平均功率约为双极性的一半，双极性信号点间距为 2A，单极性信号点到中间门限距离为 A/2；双极性点到门限距离为 A 而非 A/2，A 错。",
       "images": []
     },
     {
@@ -15320,7 +15320,7 @@ window.BUNDLED_BANK = {
         "B"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "部分响应系统通过引入确定且可控的码间串扰改善拖尾衰减和频带利用率；它不以降低频带利用率为代价，输出仍需判决，C、D 错。",
       "images": []
     },
     {
@@ -15341,7 +15341,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "第Ⅰ类部分响应当前抽样值与当前及前一码元有关，直接递推译码会错误传播，二进制双极性输入产生三电平输出；其频谱集中在低频段，C 错。",
       "images": []
     },
     {
@@ -15361,7 +15361,7 @@ window.BUNDLED_BANK = {
         "B"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "预编码通常位于相关编码之前，可解除递推判决中的错误传播；接收端按预编码规则直接恢复，不需逐码元递推，也不用于扩大噪声，C、D 错。",
       "images": []
     },
     {
@@ -15382,7 +15382,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "眼图可定性估计噪声影响强弱、码间串扰大小和最佳抽样时刻；不能得到信道精确冲激响应数值，B 错。",
       "images": []
     },
     {
@@ -15403,7 +15403,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "眼图上下阴影间距反映噪声容限，斜边越陡对定时误差越敏感，眼睛张开越大性能越好；过零点畸变与定时提取有关，A 错。",
       "images": []
     },
     {
@@ -15423,7 +15423,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "时域均衡用延时加权波形补偿抽样点拖尾，频域均衡侧重校正系统频率特性；预置式均衡在传输前设定，有限长横向均衡器会留下剩余失真，A、C 错。",
       "images": []
     },
     {
@@ -15444,7 +15444,7 @@ window.BUNDLED_BANK = {
         "D"
       ],
       "score": 1,
-      "reason": "【来源：数字基带】",
+      "reason": "判决反馈均衡、LMS 均衡和 RLS 均衡属于自适应或非线性均衡处理；HDB3 是线路编码译码，不是均衡器。",
       "images": []
     },
     {
@@ -15459,7 +15459,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "数字基带传输将基带信号不经载波调制直接送入适合的信道，说法正确。",
       "images": []
     },
     {
@@ -15474,7 +15474,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "无线信道呈带通特性，基带信号一般不能直接传输，故说法错误。",
       "images": []
     },
     {
@@ -15489,7 +15489,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "接收滤波器可抑制带外噪声，并可通过设计承担一定信道均衡作用。",
       "images": []
     },
     {
@@ -15504,7 +15504,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "单极性不归零波形在 0/1 等概时平均值为 A/2，含直流分量，故说法错误。",
       "images": []
     },
     {
@@ -15519,7 +15519,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "双极性不归零波形正负码元等概时平均值恰好为零。",
       "images": []
     },
     {
@@ -15534,7 +15534,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "长连零时单极性归零码缺乏电平跳变，不能稳定提取全部位定时。",
       "images": []
     },
     {
@@ -15549,7 +15549,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "AMI 码非零脉冲正负极性交替，零码保持零电平。",
       "images": []
     },
     {
@@ -15564,7 +15564,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "HDB3 码通过替换规则把连续零码的最大长度限制在 3 个以内。",
       "images": []
     },
     {
@@ -15579,7 +15579,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "CMI 码中二进制 0 固定编码为 01。",
       "images": []
     },
     {
@@ -15594,7 +15594,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "密勒码只在表示 1 时码元中心跃变，不是每个码元中心都跃变。",
       "images": []
     },
     {
@@ -15609,7 +15609,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "4B/3T 码用 3 个三元码表示 4 个二进制码，编码后码元数减少而非增加，从而提高频带利用率。",
       "images": []
     },
     {
@@ -15624,7 +15624,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "随机数字基带序列没有确定的傅里叶频谱函数，需用功率谱密度描述，故说法错误。",
       "images": []
     },
     {
@@ -15639,7 +15639,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "连续谱通常用于估计信号带宽，说法正确。",
       "images": []
     },
     {
@@ -15654,7 +15654,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "离散谱既可反映直流分量，也可反映码元定时分量。",
       "images": []
     },
     {
@@ -15669,7 +15669,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "矩形脉冲占空比越小，脉冲越窄，第一零点带宽越大。",
       "images": []
     },
     {
@@ -15684,7 +15684,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "单极性不归零信号在码元频率处的离散谱线被脉冲频谱零点抑制，不能直接提取位定时。",
       "images": []
     },
     {
@@ -15699,7 +15699,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "0/1 等概的双极性基带信号统计平均波形抵消，通常没有由均值产生的离散谱。",
       "images": []
     },
     {
@@ -15714,7 +15714,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "无码间串扰只要求其他码元在判决抽样时刻为零，不要求所有连续时间点为零。",
       "images": []
     },
     {
@@ -15729,7 +15729,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "理想低通频率响应边沿突变、时域拖尾衰减慢，工程实现困难。",
       "images": []
     },
     {
@@ -15744,7 +15744,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "相同码元速率下，升余弦滚降系数增大使所需带宽增大。",
       "images": []
     },
     {
@@ -15759,7 +15759,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "固定信道带宽时，滚降系数增大反而降低允许的最大码元速率。",
       "images": []
     },
     {
@@ -15774,7 +15774,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "匹配滤波只能提高信噪比，是否无码间串扰还取决于系统总传输特性是否满足奈奎斯特条件。",
       "images": []
     },
     {
@@ -15789,7 +15789,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "等概双极性信号最佳门限为零，不随信号幅度同比变化。",
       "images": []
     },
     {
@@ -15804,7 +15804,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "等概单极性信号最佳判决门限为两电平中点 A/2，不是零。",
       "images": []
     },
     {
@@ -15819,7 +15819,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "双极性误码概率可理解为噪声把接收样值推过判决门限的尾部概率。",
       "images": []
     },
     {
@@ -15834,7 +15834,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "部分响应系统通过引入受控码间串扰改善频带利用率和时域拖尾特性。",
       "images": []
     },
     {
@@ -15849,7 +15849,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "预编码器用于避免错误传播，不能消除信道高斯噪声。",
       "images": []
     },
     {
@@ -15864,7 +15864,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "眼图越闭合、线迹越模糊，说明串扰和噪声影响越大。",
       "images": []
     },
     {
@@ -15879,7 +15879,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "有限抽头横向均衡器可压低主要抽样点串扰，但通常仍留有剩余失真。",
       "images": []
     },
     {
@@ -15894,7 +15894,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：数字基带】",
+      "reason": "盲均衡指不利用确知训练序列进行初始调整的均衡方法，说法正确。",
       "images": []
     },
     {
@@ -18994,7 +18994,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "最简单的点到点电信系统由终端和传输媒介组成，不一定需要交换设备。",
       "images": []
     },
     {
@@ -19009,7 +19009,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "汇接局汇接中继线路，通常不直接连接用户终端，用户经端局接入。",
       "images": []
     },
     {
@@ -19024,7 +19024,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "同步时分复用中用户时隙周期性出现、按固定顺序分配，不是按需动态分配。",
       "images": []
     },
     {
@@ -19039,7 +19039,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "ATM 采用统计复用，信元按需占用时隙，可视为统计时分复用的一种应用。",
       "images": []
     },
     {
@@ -19054,7 +19054,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "多级交换网络不一定严格无阻塞，只有满足特定条件（如 Clos 无阻塞条件）才无阻塞。",
       "images": []
     },
     {
@@ -19069,7 +19069,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "Clos 网络当中间级数 m≥2n−1 时可实现严格无阻塞。",
       "images": []
     },
     {
@@ -19084,7 +19084,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "电路交换在资源不足时会拒绝呼叫（呼损/阻塞），这是其基本特性。",
       "images": []
     },
     {
@@ -19099,7 +19099,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "数据报方式无需建立虚电路，每个分组独立转发；虚电路方式才需要建立连接。",
       "images": []
     },
     {
@@ -19114,7 +19114,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "BORSCHT 中的 R 为振铃（Ringing），由模拟用户电路提供。",
       "images": []
     },
     {
@@ -19129,7 +19129,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "BRI 为 2B+D（2 个 B 信道和 1 个 D 信道），30B+D 是 E1 的 PRI 结构。",
       "images": []
     },
     {
@@ -19144,7 +19144,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "T 型交换单元完成时隙交换（时间交换），S 型交换单元完成空间交换。",
       "images": []
     },
     {
@@ -19159,7 +19159,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "S 型交换在不同线路之间交换而不改变时隙号，实现空间交换。",
       "images": []
     },
     {
@@ -19174,7 +19174,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "交换机软件数据包括系统数据（程序）、局数据（网络配置）和用户数据（用户属性）。",
       "images": []
     },
     {
@@ -19189,7 +19189,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "话务量主要评价话路系统的话路负荷，BHCA 主要评价控制系统的呼叫处理能力。",
       "images": []
     },
     {
@@ -19204,7 +19204,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day1】",
+      "reason": "平均话务强度（爱尔兰）可理解为观察期间平均同时占用的话路数。",
       "images": []
     },
     {
@@ -20103,7 +20103,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "BHCA 表示忙时一小时内的呼叫尝试次数，是控制系统处理能力指标。",
       "images": []
     },
     {
@@ -20118,7 +20118,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "逻辑信道号只在所在链路段内有效，不具有端到端全局唯一意义。",
       "images": []
     },
     {
@@ -20133,7 +20133,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "数据报方式无连接，不需要建立和拆除连接。",
       "images": []
     },
     {
@@ -20148,7 +20148,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "X.25 支持交换虚电路 SVC 和永久虚电路 PVC。",
       "images": []
     },
     {
@@ -20163,7 +20163,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "帧中继简化了差错处理，但并未完全取消检错和拥塞控制。",
       "images": []
     },
     {
@@ -20178,7 +20178,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "ATM 不在逐段对用户信息纠错重传，但可进行流量与拥塞控制。",
       "images": []
     },
     {
@@ -20193,7 +20193,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "ATM 的 GFC 字段用于 UNI 用户网络接口，在 NNI 中该字段扩展为 VPI 字段。",
       "images": []
     },
     {
@@ -20208,7 +20208,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "ATM 固定信元在统计复用下仍可能排队，不能完全消除排队。",
       "images": []
     },
     {
@@ -20223,7 +20223,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "VP 交换改变 VPI 而保持 VCI 不变，实现虚通路交换。",
       "images": []
     },
     {
@@ -20238,7 +20238,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "AAL 的 SAR 子层负责将高层数据分段为信元并重组。",
       "images": []
     },
     {
@@ -20253,7 +20253,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "MPLS 标签仅在局部链路有意义、可逐跳更换，不是全网唯一、端到端不变。",
       "images": []
     },
     {
@@ -20268,7 +20268,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "MPLS 标签通常由下游 LSR 决定并向上游分发（下游分发方式）。",
       "images": []
     },
     {
@@ -20283,7 +20283,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "P 路由器不维护 VPN 的 VRF，只负责核心标签转发；VRF 在 PE 上维护。",
       "images": []
     },
     {
@@ -20298,7 +20298,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "SDN 控制集中可以是逻辑集中，物理上可部署多台控制器。",
       "images": []
     },
     {
@@ -20313,7 +20313,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day2】",
+      "reason": "OpenFlow 是 SDN 常用南向协议，但 SDN 还包括北向接口、应用平面等，不等同于 SDN 全部。",
       "images": []
     },
     {
@@ -21218,7 +21218,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "SDN 控制集中是逻辑集中，物理上可部署多台控制器。",
       "images": []
     },
     {
@@ -21233,7 +21233,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "OpenFlow 常用作 SDN 南向协议，连接控制器与数据平面。",
       "images": []
     },
     {
@@ -21248,7 +21248,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "OpenFlow 1.1 引入了多流表流水线和组表。",
       "images": []
     },
     {
@@ -21263,7 +21263,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "G.902 中用户经 UNI 接口接入业务节点，并非通过 RP 接口自由选择业务节点。",
       "images": []
     },
     {
@@ -21278,7 +21278,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "Y.1231 的接入功能可涉及 AAA、QoS 和安全管理等。",
       "images": []
     },
     {
@@ -21293,7 +21293,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "ODN 由无源光器件组成，OLT 和 ONU 是有源设备。",
       "images": []
     },
     {
@@ -21308,7 +21308,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "PON 下行采用广播方式，上行采用 TDMA 方式避免冲突。",
       "images": []
     },
     {
@@ -21323,7 +21323,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "PON 测距用于测量并补偿各 ONU 到 OLT 的传播时延差异。",
       "images": []
     },
     {
@@ -21338,7 +21338,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "APON 以 ATM 信元为基本承载单位，不是变长以太网帧。",
       "images": []
     },
     {
@@ -21353,7 +21353,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "1G EPON 采用 8B/10B 线路编码。",
       "images": []
     },
     {
@@ -21368,7 +21368,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "EPON 下行通过 LLID 标识过滤帧，使 ONU 只接收属于自己的数据。",
       "images": []
     },
     {
@@ -21383,7 +21383,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "GPON 业务数据主要依据 GEM Port-ID 进行识别和区分。",
       "images": []
     },
     {
@@ -21398,7 +21398,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "GPON 的 ONU-ID 主要用于 PLOAM 控制消息的寻址。",
       "images": []
     },
     {
@@ -21413,7 +21413,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "Alloc-ID 用于 GPON 上行带宽分配（T-CONT 映射）。",
       "images": []
     },
     {
@@ -21428,7 +21428,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day3】",
+      "reason": "OMCI、PLOAM 和 MPCP 功能不同：OMCI 管理 ONU，PLOAM 是 GPON 物理层管理，MPCP 是 EPON 控制协议。",
       "images": []
     },
     {
@@ -22331,7 +22331,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "XG-PON1 下行 10Gb/s、上行 2.5Gb/s。",
       "images": []
     },
     {
@@ -22346,7 +22346,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "EPON 使用以太网帧承载，GPON 支持 GEM 封装。",
       "images": []
     },
     {
@@ -22361,7 +22361,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "WLAN/WPAN/WMAN 分别对应 IEEE 802.11、802.15、802.16。",
       "images": []
     },
     {
@@ -22376,7 +22376,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "WiMAX 既支持固定接入，也支持移动接入（802.16e 支持移动）。",
       "images": []
     },
     {
@@ -22391,7 +22391,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "Ad-hoc WLAN 由站点直接组网，没有中心 AP。",
       "images": []
     },
     {
@@ -22406,7 +22406,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "ESSID 是网络名称/标识，不是 MAC 地址。",
       "images": []
     },
     {
@@ -22421,7 +22421,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "一个物理 AP 可配置多个 SSID。",
       "images": []
     },
     {
@@ -22436,7 +22436,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "RTS/CTS 用于减少隐藏节点问题，不是每次数据发送都必须执行。",
       "images": []
     },
     {
@@ -22451,7 +22451,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "SIFS 用于 ACK 等高优先级响应，通常短于 DIFS。",
       "images": []
     },
     {
@@ -22466,7 +22466,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "802.11b 采用 DSSS，802.11a 采用 OFDM。",
       "images": []
     },
     {
@@ -22481,7 +22481,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": false,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "LMDS 频率更高、覆盖范围通常小于 MMDS。",
       "images": []
     },
     {
@@ -22496,7 +22496,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "WiMAX 支持 PMP（点对多点）和 Mesh 拓扑。",
       "images": []
     },
     {
@@ -22511,7 +22511,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "经典蓝牙采用 TDD 和 FHSS。",
       "images": []
     },
     {
@@ -22526,7 +22526,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "ZigBee 省电主要依靠终端节点休眠和低占空比通信。",
       "images": []
     },
     {
@@ -22541,7 +22541,7 @@ window.BUNDLED_BANK = {
       ],
       "answer": true,
       "score": 0.5,
-      "reason": "【来源：Day4】",
+      "reason": "蓝牙和 ZigBee 都属于 IEEE 802.15 系列 WPAN 技术。",
       "images": []
     },
     {
@@ -53801,6 +53801,2064 @@ window.BUNDLED_BANK = {
       "reason": "原句错误，其否定句正确。【来源：培训题集-VIVI培训5：差错控制编码】",
       "images": [],
       "id": 3092
+    },
+    {
+      "id": 3093,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "按服务对象和使用性质划分，企业内部专用的通信网属于（ ）。",
+      "options": [
+        "公用网",
+        "专用网",
+        "本地网",
+        "长途网"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "企业内部使用的通信网面向特定用户群体，按服务对象和使用性质属于专用网；公用网面向社会公众。"
+    },
+    {
+      "id": 3094,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "兼具星型和总线型特点的拓扑结构是（ ）。",
+      "options": [
+        "树型",
+        "环型",
+        "网状型",
+        "复合型"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "树型结构由总线型主干加分支组成，分支末端可构成星型连接，因此兼具星型和总线型特点。"
+    },
+    {
+      "id": 3095,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "下列采用“无连接”通信技术的是（ ）。",
+      "options": [
+        "ATM",
+        "IP",
+        "X.25",
+        "FR"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "IP 采用无连接的数据报方式，每个分组独立选路；ATM、X.25、帧中继均为面向连接技术。"
+    },
+    {
+      "id": 3096,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "ATM交换的特点是（ ）。",
+      "options": [
+        "低时延，固定带宽",
+        "低时延，灵活带宽",
+        "高时延，固定带宽",
+        "高时延，灵活带宽"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "ATM 采用固定长度信元且面向连接，时延低；通过统计复用按需分配带宽，带宽灵活。"
+    },
+    {
+      "id": 3097,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "输入控制方式的T接线器在CM中写入（ ）。",
+      "options": [
+        "语音编码",
+        "时钟",
+        "输入时隙号",
+        "输出时隙号"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "输入控制方式中，控制存储器 CM 在输入时隙写入对应的输出时隙号，控制话音存储器按时隙顺序读出。"
+    },
+    {
+      "id": 3098,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "下列网络中，在数据传输过程中延时最小的是（ ）。",
+      "options": [
+        "分组交换",
+        "帧中继",
+        "DDN",
+        "X.25"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "DDN 为同步数字专线，采用固定透明传输，无存储转发和排队，端到端时延最小。"
+    },
+    {
+      "id": 3099,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "帧中继网是一种（ ）。",
+      "options": [
+        "广域网",
+        "局域网",
+        "以太网",
+        "ATM网"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "帧中继基于分组交换，覆盖范围大，属于广域网技术。"
+    },
+    {
+      "id": 3100,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "为了适应通信双方可能是异种终端，分组交换采用了（ ）技术。",
+      "options": [
+        "统计时分复用",
+        "存储转发",
+        "差错控制",
+        "流量控制"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "分组交换采用存储转发，可缓存并转换速率、格式，从而适配异种终端。"
+    },
+    {
+      "id": 3101,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "以下关于电路交换中帧与时隙的关系，说法正确的是（ ）。",
+      "options": [
+        "帧是基本传输单位，时隙是帧的组成部分",
+        "时隙是基本传输单位，帧用于同步和组织时隙",
+        "帧和时隙均可独立承载用户数据",
+        "帧负责数据传输，时隙负责同步适配"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "时分复用中时隙承载用户数据，帧用于同步和组织各时隙。"
+    },
+    {
+      "id": 3102,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "从交换结构的角度来看，Banyan网络是一种（ ）网络。",
+      "options": [
+        "空分交换",
+        "时分交换",
+        "时空交换",
+        "以上均不是"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "Banyan 网络由多级 2×2 交换单元构成，属于空分交换结构。"
+    },
+    {
+      "id": 3103,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "某系统采用爱尔兰B模型，10条中继线承载6Erl，呼损不变，承载12Erl，需要的中继数是（ ）。",
+      "options": [
+        "等于20",
+        "大于20",
+        "小于20",
+        "随机变化"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "按爱尔兰 B 公式，6Erl 用 10 条中继；承载 12Erl 且保持相同呼损约需 18 条左右，少于 20 条。"
+    },
+    {
+      "id": 3104,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "交换机的BHCA值为36000，其平均每秒可处理的呼叫次数为（ ）。",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "12"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "BHCA 36000 表示忙时每小时可处理 36000 次呼叫，36000÷3600=10 次/秒。"
+    },
+    {
+      "id": 3105,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "WiFi的拓扑结构是（ ）。",
+      "options": [
+        "点到点",
+        "Mesh",
+        "星型",
+        "网状"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "WiFi 基本服务集以 AP 为中心，各站点通过 AP 通信，呈星型拓扑。"
+    },
+    {
+      "id": 3106,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "从（ ）开始完全弃用电路交换技术，采用分组交换技术。",
+      "options": [
+        "2G",
+        "3G",
+        "4G",
+        "5G"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "4G 网络采用全 IP 分组交换架构，从 4G 起完全弃用电路交换。"
+    },
+    {
+      "id": 3107,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "无线局域网的标准是IEEE的（ ）系列。",
+      "options": [
+        "802.11",
+        "802.15",
+        "802.16",
+        "802.12"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "无线局域网标准为 IEEE 802.11 系列。"
+    },
+    {
+      "id": 3108,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "无线局域网的核心设备称为接入点AP，属于（ ）的设备。",
+      "options": [
+        "物理层",
+        "链路层",
+        "网络层",
+        "传输层"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "AP 负责无线 MAC 接入控制与帧转发，属于数据链路层设备。"
+    },
+    {
+      "id": 3109,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "软件定义网络SDN是一种（ ）。",
+      "options": [
+        "软件产品",
+        "协议产品",
+        "硬件产品",
+        "体系结构"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "SDN 不是具体软硬件产品，而是一种控制与转发分离的网络体系结构。"
+    },
+    {
+      "id": 3110,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "MPLS的基本构成部件（ ）。",
+      "options": [
+        "LSR",
+        "路由转发协议",
+        "标签转发协议",
+        "路由表"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "MPLS 基本构成部件是标签交换路由器 LSR，包括 LER 和中间 LSR。"
+    },
+    {
+      "id": 3111,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "（ ）为相隔较远的局域网提供数据链路层的永久虚电路服务。",
+      "options": [
+        "MPLS",
+        "帧中继",
+        "TCP",
+        "IP网络"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "帧中继可提供数据链路层的永久虚电路（PVC）服务，连接相隔较远的局域网。"
+    },
+    {
+      "id": 3112,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "宽带接入FTTH系统由（ ）三部分组成。",
+      "options": [
+        "OLT  OTN  ONU",
+        "OTM  ONU  ODN",
+        "OTM  OLT  ODU",
+        "OLT  ONU  ODN"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "FTTH 系统由光线路终端 OLT、光网络单元 ONU 和光分配网络 ODN 三部分组成。"
+    },
+    {
+      "id": 3113,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "设计分组交换的初衷是为了进行（ ）通信。",
+      "options": [
+        "数据",
+        "多媒体",
+        "远距离",
+        "电话"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "分组交换最初是为数据通信设计的，以分组为基本传输单位。"
+    },
+    {
+      "id": 3114,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "IEEE802.11无线局域网涵盖了（ ）和数据链路层。",
+      "options": [
+        "网络层",
+        "传输层",
+        "应用层",
+        "物理层"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "IEEE 802.11 标准涵盖物理层和数据链路层（MAC 层）。"
+    },
+    {
+      "id": 3115,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "在一根光纤上同时传输不同波长光信号的传输技术为（ ）。",
+      "options": [
+        "PDH",
+        "WDM",
+        "MSTP",
+        "PTN"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "WDM 波分复用在一根光纤上同时传输多个不同波长的光信号。"
+    },
+    {
+      "id": 3116,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "OLT在无源光网络中，下行方向通常采用的复用技术是（ ）。",
+      "options": [
+        "WDM",
+        "CDM",
+        "TDM",
+        "FDM"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "PON 下行方向采用 TDM 广播方式，OLT 将数据按时隙下发给各 ONU。"
+    },
+    {
+      "id": 3117,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "GPON的传播波长范围是（ ）。",
+      "options": [
+        "1530-1560nm",
+        "1450nm-1480nm",
+        "1260-1360nm",
+        "1600-1650nm"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "GPON 上行波长范围为 1260-1360nm，下行波长为 1480-1500nm，题目考查的传播波长范围取上行窗口。"
+    },
+    {
+      "id": 3118,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "分组交换是以（ ）为核心，传送（ ）业务。",
+      "options": [
+        "分组 话务",
+        "电路 话务",
+        "分组 以太",
+        "电路 以太"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "分组交换以“分组”为交换单位，主要用于承载以太网等数据业务。"
+    },
+    {
+      "id": 3119,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "固定局域网数据链路层使用（ ）；无线局域网数据链路层使用（ ）。​​",
+      "options": [
+        "CSMA/CD，CSMA/CA",
+        "CSMA/CA，CSMA/CD",
+        "CSMA/CD，CSMA/CD",
+        "CSMA/CA，CSMA/CA"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "有线局域网数据链路层采用 CSMA/CD，无线局域网因难以检测冲突采用 CSMA/CA。"
+    },
+    {
+      "id": 3120,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "一个电信系统至少由（ ）组成。",
+      "options": [
+        "终端和交换设备",
+        "终端和传输媒介",
+        "传输媒介、终端和交换设备",
+        "交换设备和传输媒介"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "一个最简单的电信系统至少由终端和传输媒介组成，交换设备按需增设。"
+    },
+    {
+      "id": 3121,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "程控交换系统是对（ ）进行交换的设备。",
+      "options": [
+        "模拟信号",
+        "数字信号",
+        "模拟信号和数字信号",
+        "话音信号"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "程控交换系统既能处理数字信号，也能经用户电路接入模拟信号，因此可对模拟和数字信号进行交换。"
+    },
+    {
+      "id": 3122,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "光交换网络与电交换网络相比，电交换网络中没有（ ）交换。",
+      "options": [
+        "空分",
+        "波分",
+        "时分",
+        "频分"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "波分交换利用不同波长选路，属于光交换特有技术，电交换网络中没有波分交换。"
+    },
+    {
+      "id": 3123,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "在EPON中（ ）实现动态带宽分配。",
+      "options": [
+        "OMCI",
+        "PLOAM",
+        "MPCP",
+        "OAM"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "EPON 通过 MPCP 协议实现动态带宽分配（DBA）。"
+    },
+    {
+      "id": 3124,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "关于光分路器说法错误的是（ ）。",
+      "options": [
+        "光分路器为无源光纤分路器",
+        "是一个连接OLT和ONU的无源设备",
+        "它的功能是分发下行数据并集中上行数据",
+        "如果断电，则光分路器无法正常工作"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "光分路器是无源器件，断电不影响其分光功能，因此“断电无法正常工作”说法错误。"
+    },
+    {
+      "id": 3125,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "EPON的上行最大带宽每个ONU不能超过（ ）bps。",
+      "options": [
+        "256M",
+        "512M",
+        "1G",
+        "1.25G"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "EPON 用户侧为 GE 接口，单个 ONU 上行速率不超过 1Gbps。"
+    },
+    {
+      "id": 3126,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "EPON系统中采用（ ）传输方式。",
+      "options": [
+        "单纤单向",
+        "双纤双向",
+        "双纤单向",
+        "单纤双向"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "EPON 采用单纤双向传输，上下行共用一根光纤、使用不同波长。"
+    },
+    {
+      "id": 3127,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "XG-PON2的上下行传输速率为（ ）Gbps。",
+      "options": [
+        "10， 2.5",
+        "10， 10",
+        "10， 1",
+        "2.5，2.5"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "XG-PON2 上下行速率均为 10Gbps。"
+    },
+    {
+      "id": 3128,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "EPON的国际标准是（ ），GPON的国际标准是（ ）。",
+      "options": [
+        "ITU-T G.984.x    IEEE 802.3ah",
+        "IEEE 802.3ah     ITU-T G.984.x",
+        "ITU-T G.984.x    ITU-T G.984.x",
+        "IEEE 802.3ah     IEEE 802.3ah"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "EPON 标准为 IEEE 802.3ah，GPON 标准为 ITU-T G.984.x。"
+    },
+    {
+      "id": 3129,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "OLT和ONU之间的动态分配协议是（ ）。",
+      "options": [
+        "SBA",
+        "OBD",
+        "DBA",
+        "CBA"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "OLT 与 ONU 之间通过 DBA（动态带宽分配）协议动态分配上行带宽。"
+    },
+    {
+      "id": 3130,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "FTTX在网络组网中属于（ ）。",
+      "options": [
+        "网络控制层",
+        "核心交换层",
+        "业务管理层",
+        "边缘接入层"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "FTTX 位于网络边缘，属于边缘接入层。"
+    },
+    {
+      "id": 3131,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "FTTH ODN网络拓扑结构一般属于下列（ ）类型。",
+      "options": [
+        "树形",
+        "星形",
+        "总线",
+        "环形"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "FTTH 的 ODN 采用树形拓扑，由 OLT 经分路器连接多个 ONU。"
+    },
+    {
+      "id": 3132,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "在通信专业中，PON的英文全称是（ ）。",
+      "options": [
+        "Private Optical Network",
+        "Passive Optical Network",
+        "Private Optical Node",
+        "Protected Optical Node"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "PON 的英文全称是 Passive Optical Network，即无源光网络。"
+    },
+    {
+      "id": 3133,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "5GHz频段相比2.4GHz频段，最核心的优势是（ ）。",
+      "options": [
+        "传输距离更远，穿墙能力更强",
+        "信道数量更多，干扰更小，速率更高",
+        "设备兼容性更好，老终端均支持",
+        "发射功率更高，覆盖范围更大"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "5GHz 频段信道更多、干扰更小、可支持更高速率，这是其相对 2.4GHz 的核心优势。"
+    },
+    {
+      "id": 3134,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "（ ）不属于Zigbee拓扑结构。",
+      "options": [
+        "星型网",
+        "树型网",
+        "总线网",
+        "网状网"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "ZigBee 支持星型、树型和网状拓扑，不支持总线型拓扑。"
+    },
+    {
+      "id": 3135,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "由于无线通信过程中信号强度太弱，错误率较高，无线客户端切换到其他无线AP的信道，这个过程称为（ ） 。",
+      "options": [
+        "关联",
+        "重关联",
+        "漫游",
+        "负载平衡"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "无线客户端因信号变弱而切换到其他 AP 的过程称为漫游。"
+    },
+    {
+      "id": 3136,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "网桥在OSI模型中的（ ）上实现局域网互连。",
+      "options": [
+        "物理层",
+        "数据链路层",
+        "网络层",
+        "传输层"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "网桥根据 MAC 地址转发帧，在数据链路层实现局域网互连。"
+    },
+    {
+      "id": 3137,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "WLAN分配资源的方式是（ ）。",
+      "options": [
+        "平均分配给每个终端",
+        "发令牌，收到才允许发送",
+        "轮流，每个终端占用一个时隙",
+        "终端争抢"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "WLAN 采用 CSMA/CA 争用方式，各终端竞争信道发送数据。"
+    },
+    {
+      "id": 3138,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "假设AP使用1信道，下列（ ）设备不会对WLAN信号造成干扰。",
+      "options": [
+        "微波炉",
+        "使用6信道的AP",
+        "PHS基站",
+        "使用2信道的AP"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "1 信道与 6 信道频谱不重叠，不会互相干扰；微波炉、PHS 和 2 信道 AP 均可能产生干扰。"
+    },
+    {
+      "id": 3139,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "（ ）是指在受限的网络覆盖面积中，用户设备能够在以步行速度移动时进行网络通信，提供有限的切换能力。",
+      "options": [
+        "固定接入",
+        "移动接入",
+        "便携接入",
+        "牧游接入"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "该定义描述的是便携接入：覆盖受限、步行速度移动并提供有限切换能力。"
+    },
+    {
+      "id": 3140,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "关于SSID描述正确的是（ ）。",
+      "options": [
+        "SSID是AP网卡的MAC地址",
+        "SSID是无线网络名称，用户搜索WiFi看到的名称",
+        "同一台AP只能配置1个SSID",
+        "SSID具备全球唯一性，不可重复"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "SSID 是无线网络名称，用户搜索 WiFi 时看到的名称即为 SSID。"
+    },
+    {
+      "id": 3141,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "关于多协议标记交换技术，下面的描述中不正确的是（ ）。",
+      "options": [
+        "标记是一个固定长度的标号",
+        "标记用于区分不同的源和目标",
+        "路由器使用标记进行路由查找",
+        "每个数据包都要加上一个标记"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "MPLS 标签用于标识转发等价类 FEC，并非用于区分不同的源和目标，故该描述不正确。"
+    },
+    {
+      "id": 3142,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "在MPLS VPN中，用来分发VPN标签的协议是（ ）。",
+      "options": [
+        "LDP",
+        "MP-BGP",
+        "OSPF",
+        "DTP"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "MPLS VPN 中 VPN 标签由 MP-BGP 分发，LDP 只分发公网标签。"
+    },
+    {
+      "id": 3143,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "MPLS转发时，决定标签交换操作的组件是（ ）。",
+      "options": [
+        "FIB",
+        "LIB",
+        "LFIB",
+        "RIB"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "LFIB 是标签转发信息库，决定标签交换的具体操作（替换、弹出、压栈）。"
+    },
+    {
+      "id": 3144,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "MPLS报文标签字段中，用于区分同一条链路下不同转发等价类FEC的核心标识是（ ）。",
+      "options": [
+        "Label标签值",
+        "EXP优先级位",
+        "S栈底标识位",
+        "TTL 生存时间"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "Label 标签值用于区分同一条链路下不同的转发等价类 FEC。"
+    },
+    {
+      "id": 3145,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "MPLS网络中，下面（ ）功能不是出口LER的基本功能。",
+      "options": [
+        "标签置换",
+        "分组转发",
+        "标记弹出",
+        "标记分配"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "标签置换是中间 LSR 的功能；出口 LER 的典型功能是标签弹出、分组转发和标记分配。"
+    },
+    {
+      "id": 3146,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "MPLS TE最主要的功能是（ ）。",
+      "options": [
+        "寻求最短路径",
+        "提高网络质量",
+        "作为代理服务器，提高访问速度",
+        "平衡网络流量，使网络带宽资源使用尽量达到最优"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "MPLS TE 的主要功能是平衡网络流量，使带宽资源利用达到最优。"
+    },
+    {
+      "id": 3147,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "ONF组织定义的SDN基础架构标准中，核心规范对象是（ ）。",
+      "options": [
+        "网络设备硬件参数",
+        "控制与转发分离的架构体系",
+        "服务器操作系统版本",
+        "终端接入认证协议"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "ONF 定义的 SDN 核心规范是控制与转发分离的架构体系。"
+    },
+    {
+      "id": 3148,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "负责制定全球无线电通信规则及频谱分配的ITU部门是（ ）。",
+      "options": [
+        "ITU-T",
+        "ITU-R",
+        "ITU-D",
+        "ITU-S"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "ITU-R 负责全球无线电通信规则和频谱划分；ITU-T 负责电信标准。"
+    },
+    {
+      "id": 3149,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "SDN的三层架构通常不包括（ ）。",
+      "options": [
+        "基础设施层",
+        "控制层",
+        "应用层",
+        "物理传输层"
+      ],
+      "answer": "D",
+      "score": 0.5,
+      "reason": "SDN 三层架构为基础设施层、控制层和应用层，不包括物理传输层。"
+    },
+    {
+      "id": 3150,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "以下（ ）不是SDN的典型应用场景。",
+      "options": [
+        "数据中心网络虚拟化",
+        "流量工程与负载均衡",
+        "静态路由配置",
+        "网络安全策略动态部署"
+      ],
+      "answer": "C",
+      "score": 0.5,
+      "reason": "静态路由配置不属于 SDN 的典型应用场景；数据中心虚拟化、流量工程、安全策略动态部署等才是典型场景。"
+    },
+    {
+      "id": 3151,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "与传统网络相比，SDN的最大优势之一是（ ）。",
+      "options": [
+        "降低设备成本",
+        "提高网络可编程性和灵活性",
+        "减少网络延迟",
+        "消除所有故障"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "SDN 的最大优势是提高网络可编程性和灵活性，实现集中控制与快速业务部署。"
+    },
+    {
+      "id": 3152,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "SDN是一种新型的网络架构，其核心要点不包括（ ）。",
+      "options": [
+        "虚拟化网络",
+        "网络控制集中",
+        "控制和转发分离",
+        "网络开放/可编程"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "SDN 核心要点是控制集中、控制转发分离和网络开放可编程，不包括“虚拟化网络”本身。"
+    },
+    {
+      "id": 3153,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "SDN流表中，不用于报文匹配的字段是（ ）。",
+      "options": [
+        "源IP地址",
+        "目的MAC地址",
+        "交换机设备序列号",
+        "传输层端口号"
+      ],
+      "answer": "C",
+      "score": 1,
+      "reason": "流表匹配字段针对报文内容（IP、MAC、端口等），交换机设备序列号不属于报文匹配字段。"
+    },
+    {
+      "id": 3154,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "电路交换传输期间不会产生的时延是（ ）。",
+      "options": [
+        "传播时延",
+        "排队时延",
+        "传输时延",
+        "建立时延"
+      ],
+      "answer": "B",
+      "score": 1,
+      "reason": "电路交换建立连接后独占链路，无排队等待，因此传输期间不产生排队时延。"
+    },
+    {
+      "id": 3155,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "ATM信元固定53字节，主要作用是（ ）。",
+      "options": [
+        "减少地址开销",
+        "硬件快速转发",
+        "增大传输带宽",
+        "简化上层协议"
+      ],
+      "answer": "B",
+      "score": 1,
+      "reason": "ATM 信元固定 53 字节，结构规整，便于硬件并行快速转发。"
+    },
+    {
+      "id": 3156,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "GPON上行采用TDMA是为了（ ）。",
+      "options": [
+        "增加传输距离",
+        "放大光信号",
+        "提升上行速率",
+        "避免ONU上行数据冲突"
+      ],
+      "answer": "D",
+      "score": 1,
+      "reason": "GPON 上行采用 TDMA 时分多址，各 ONU 在分配时隙发送，避免上行数据冲突。"
+    },
+    {
+      "id": 3157,
+      "category": "jiaohuan",
+      "section": "专业单选",
+      "type": "single",
+      "stem": "SDN中，OpenFlow交换机收到数据包后在流表中未匹配，通常首先（ ）。",
+      "options": [
+        "广播转发",
+        "丢弃数据包",
+        "上传控制器",
+        "泛洪到所有端口"
+      ],
+      "answer": "C",
+      "score": 1,
+      "reason": "OpenFlow 交换机在流表未匹配时，通常将数据包封装后上传控制器处理。"
+    },
+    {
+      "id": 3158,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "关于MPLS标签分发与转发，正确的有（ ）。",
+      "options": [
+        "LDP用TCP建立会话，逐跳分发标签",
+        "标签压栈只在入口边缘设备",
+        "中间LSR按标签转发表替换标签，不查IP路由表",
+        "标签弹栈只在出口边缘设备"
+      ],
+      "answer": [
+        "A",
+        "C"
+      ],
+      "score": 1,
+      "reason": "A 对：LDP 用 TCP 建立会话逐跳分发标签；B 错：LSP 嵌套等场景中间节点也可能压栈，压栈并非只在入口；C 对：中间 LSR 按 LFIB 替换标签，不查 IP 路由表；D 错：弹栈还可在倒数第二跳（PHP）完成，不只出口。"
+    },
+    {
+      "id": 3159,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "组成数字交换网络的主要部件有（ ）。",
+      "options": [
+        "T接线器",
+        "S接线器",
+        "复用器/分路器",
+        "信号音发生器"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "数字交换网络由 T 接线器、S 接线器和复用/分路器组成；信号音发生器属于信令业务部件，不属于交换网络本身。"
+    },
+    {
+      "id": 3160,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "电路交换不适合突发数据业务的原因包括（ ）。",
+      "options": [
+        "建立连接需要时间，响应慢",
+        "链路资源长期占用，利用率低",
+        "无法保证数据可靠传输",
+        "空闲时资源无法让给其他用户"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "score": 1,
+      "reason": "电路交换建连耗时、链路长期独占导致利用率低、空闲资源不能让给其他用户，均不适合突发数据；可靠性并非其短板，故 C 不选。"
+    },
+    {
+      "id": 3161,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "影响数字交换网络阻塞的因素有（ ）。",
+      "options": [
+        "网络级数",
+        "链路数量",
+        "控制方式",
+        "时钟频率"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "网络级数、链路数量和选择控制方式都会影响阻塞；时钟频率不影响交换网络阻塞。"
+    },
+    {
+      "id": 3162,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "分组交换的主要特点包括（ ）。",
+      "options": [
+        "存储-转发",
+        "资源独占",
+        "统计复用",
+        "按序交付"
+      ],
+      "answer": [
+        "A",
+        "C"
+      ],
+      "score": 1,
+      "reason": "分组交换采用存储转发和统计复用；资源独占是电路交换特点，分组交换也不保证按序交付。"
+    },
+    {
+      "id": 3163,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "ATM交换的核心特征包括（ ）。",
+      "options": [
+        "面向连接",
+        "统计复用",
+        "固定长度信元",
+        "差错控制"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "ATM 面向连接、统计复用、固定信元；差错控制主要在 AAL 层，不是 ATM 核心特征。"
+    },
+    {
+      "id": 3164,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "与分组交换相比，ATM的优点主要体现在（ ）。",
+      "options": [
+        "高速交换性能",
+        "服务质量（QoS）保障",
+        "硬件实现简单",
+        "时延抖动小"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "score": 1,
+      "reason": "ATM 高速交换、提供 QoS 保障、时延抖动小；硬件实现简单不是 ATM 的优点。"
+    },
+    {
+      "id": 3165,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "关于Banyan网络的结构特点，下列说法正确的有（ ）。",
+      "options": [
+        "是一种多级互连网络（MIN）",
+        "每级由2×2交换单元构成",
+        "拓扑具有自相似性",
+        "任意两级结构完全相同"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "Banyan 是多级互连网络，每级由 2×2 交换单元组成且具有自相似性；不同级结构不同，D 错。"
+    },
+    {
+      "id": 3166,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "在MPLS网络中，参与标签交换的设备有（ ）​。",
+      "options": [
+        "CE",
+        "LER",
+        "LSR",
+        "普通IP路由器"
+      ],
+      "answer": [
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "LER 和 LSR 参与标签交换；CE 是用户边缘设备，普通 IP 路由器不参与 MPLS 标签转发。"
+    },
+    {
+      "id": 3167,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "在MPLS L3VPN中，必须存在的组件有（ ）。",
+      "options": [
+        "CE路由器",
+        "PE路由器",
+        "P路由器",
+        "RR"
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "score": 1,
+      "reason": "CE 和 PE 是 L3VPN 必需的；P 路由器和 RR 在规模组网中常见但非必须。"
+    },
+    {
+      "id": 3168,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "关于OpenFlow协议，下列说法正确的是（ ）​。",
+      "options": [
+        "定义了控制器与交换机之间的通信规则",
+        "支持基于流表的匹配与转发",
+        "交换机可自主生成并维护流表项",
+        "控制器通过OpenFlow下发流表项"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "score": 1,
+      "reason": "OpenFlow 定义控制器与交换机通信规则，支持流表匹配转发，由控制器下发流表；交换机不能自主生成流表项，C 错。"
+    },
+    {
+      "id": 3169,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列描述中，符合SDN基本特征的是（ ）。",
+      "options": [
+        "控制平面与数据平面解耦",
+        "逻辑上集中控制，物理上可多控制器部署",
+        "网络具备开放可编程能力",
+        "网络设备之间仍需运行复杂分布式路由协议"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "控制数据解耦、集中控制、开放可编程是 SDN 基本特征；D 中“仍需运行复杂分布式路由协议”与 SDN 相悖。"
+    },
+    {
+      "id": 3170,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "SDN的典型应用场景包括（ ）。",
+      "options": [
+        "数据中心网络",
+        "广域网流量工程",
+        "企业园区网",
+        "5G核心网切片编排"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "数据中心网络、广域流量工程、园区网和 5G 核心网切片编排都是 SDN 典型应用场景。"
+    },
+    {
+      "id": 3171,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "关于SDN与NFV的关系，说法正确的是（ ）。",
+      "options": [
+        "SDN实现控转分离，NFV实现网络功能虚拟化",
+        "SDN为NFV提供灵活流量调度与组网",
+        "NFV实现必须依赖SDN",
+        "在5G核心网：SDN管控切片流量，NFV虚拟化部署网元"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "score": 1,
+      "reason": "SDN 控转分离、NFV 功能虚拟化，SDN 为 NFV 提供流量调度，5G 核心网中两者配合；NFV 不必须依赖 SDN，C 错。"
+    },
+    {
+      "id": 3172,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "SDN架构中接口与平面对应关系，正确的是（ ）。",
+      "options": [
+        "北向接口连接控制平面与应用平面",
+        "南向接口连接控制平面与数据平面",
+        "东西向接口用于多控制器之间的通信",
+        "ONF架构中管理平面为独立第四平面"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "北向接口连接控制平面与应用平面，南向接口连接控制平面与数据平面，东西向接口用于多控制器通信；ONF 中管理平面不是独立第四平面，D 错。"
+    },
+    {
+      "id": 3173,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "关于SDN描述正确的是（ ）。",
+      "options": [
+        "流表项包含匹配字段、计数器、动作三部分",
+        "流表匹配字段可包含L2/L3/L4层信息",
+        "流表仅能依靠Table ID跳转关联",
+        "控制器故障后交换机马上停止转发"
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "score": 1,
+      "reason": "流表项由匹配字段、计数器和动作组成，匹配字段可含 L2/L3/L4 信息；流表通过流水线多表关联而非仅 Table ID，C 错；控制器故障后交换机仍可依据已有流表转发，D 错。"
+    },
+    {
+      "id": 3174,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "光纤接入的主要特点包括（ ）​。",
+      "options": [
+        "带宽大",
+        "抗电磁干扰能力强",
+        "传输距离远",
+        "初期造价高，日常维护简便"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "光纤接入带宽大、抗电磁干扰、传输距离远，且初期造价高、日常维护简便，全选。"
+    },
+    {
+      "id": 3175,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "光纤接入网的优势有（ ）。​",
+      "options": [
+        "频带宽",
+        "保密性好",
+        "体积小重量轻",
+        "供电方便"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "光纤接入频带宽、保密性好、体积小重量轻；光纤本身不供电，D 错。"
+    },
+    {
+      "id": 3176,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "影响PON系统分光比的因素包括（ ）。​",
+      "options": [
+        "光功率预算",
+        "带宽需求",
+        "传输距离",
+        "光纤类型"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "光功率预算、带宽需求、传输距离和光纤类型都会影响 PON 分光比。"
+    },
+    {
+      "id": 3177,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "与光纤接入相关的标准组织包括（ ）​。",
+      "options": [
+        "ITU-T",
+        "IEEE",
+        "IETF",
+        "ISO"
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "score": 1,
+      "reason": "光纤接入标准主要来自 ITU-T（G.98x）和 IEEE（802.3ah 等）；IETF 与 ISO 不直接制定光纤接入标准。"
+    },
+    {
+      "id": 3178,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "光纤接入网中ONU的功能包括（ ）​。",
+      "options": [
+        "光电转换",
+        "突发发送",
+        "业务接口适配",
+        "路由转发"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "score": 1,
+      "reason": "ONU 完成光电转换、突发发送和业务接口适配；路由转发由上层网络设备完成，D 错。"
+    },
+    {
+      "id": 3179,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "影响无线接入网性能的主要因素包括（ ）。",
+      "options": [
+        "多径效应",
+        "同频干扰",
+        "发射功率",
+        "用户移动速度"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "多径效应、同频干扰、发射功率和用户移动速度都会影响无线接入性能。"
+    },
+    {
+      "id": 3180,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "IEEE802.11WLAN中，关于CSMA/CA的说法正确的有（ ）​。",
+      "options": [
+        "采用冲突检测机制",
+        "发送前先进行信道监听",
+        "通过ACK帧确认数据正确接收",
+        "可使用RTS/CTS机制减少隐藏节点问题"
+      ],
+      "answer": [
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "CSMA/CA 发送前监听信道，用 ACK 确认，可用 RTS/CTS 缓解隐藏节点问题；无线环境难以冲突检测，A 错。"
+    },
+    {
+      "id": 3181,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "下列关于WLAN安全机制的说法正确的有（ ）​。",
+      "options": [
+        "WEP安全性较弱，已被淘汰",
+        "WPA使用TKIP协议",
+        "WPA2采用AES-CCMP加密",
+        "802.1X可用于企业级认证"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "WEP 安全性弱且已淘汰，WPA 用 TKIP，WPA2 用 AES-CCMP，802.1X 支持企业级认证，全选。"
+    },
+    {
+      "id": 3182,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "ZigBee技术适用的应用场景有（ ）。",
+      "options": [
+        "工业传感器网络",
+        "智能家居控制",
+        "高清视频监控",
+        "环境监测"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "score": 1,
+      "reason": "ZigBee 适合工业传感器、智能家居和环境监测等低速率场景；高清视频监控需要高带宽，不适合。"
+    },
+    {
+      "id": 3183,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "ZigBee的省电机制主要体现在（ ）​。",
+      "options": [
+        "设备可进入睡眠模式",
+        "采用低占空比通信",
+        "使用高发射功率",
+        "支持路由节点休眠"
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "score": 1,
+      "reason": "ZigBee 通过睡眠和低占空比通信省电；高发射功率与省电相反，路由节点通常常供电不休眠，C、D 错。"
+    },
+    {
+      "id": 3184,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "WiMAX中QoS机制支持的调度服务类型包括（ ）​。",
+      "options": [
+        "主动授权服务（UGS）",
+        "实时轮询服务（rtPS）",
+        "非实时轮询服务（nrtPS）",
+        "尽力而为服务（BE）"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "WiMAX 的 QoS 调度服务包括 UGS、rtPS、nrtPS 和 BE。"
+    },
+    {
+      "id": 3185,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "WiMAX支持的双工方式有（ ）​。",
+      "options": [
+        "FDD（频分双工）",
+        "TDD（时分双工）",
+        "CDD（码分双工）",
+        "SDD（空分双工）"
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "score": 1,
+      "reason": "WiMAX 支持 FDD 和 TDD 双工方式。"
+    },
+    {
+      "id": 3186,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "在APON中，下行方向通常采用的技术有（ ）。",
+      "options": [
+        "广播方式发送数据",
+        "每个ONU只接收目的地址为自己的信元",
+        "WDM波分复用",
+        "基于VC/VP的ATM复用"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "score": 1,
+      "reason": "APON 下行以广播方式发送，ONU 只接收目的地址为自己的信元，并基于 VC/VP 的 ATM 复用；下行不是 WDM，C 错。"
+    },
+    {
+      "id": 3187,
+      "category": "jiaohuan",
+      "section": "专业多选",
+      "type": "multiple",
+      "stem": "蓝牙技术的特点包括（ ）。",
+      "options": [
+        "时分双工（TDD）方式",
+        "跳频扩频（FHSS）技术",
+        "电路交换与分组交换相结合",
+        "点对多点组网"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 1,
+      "reason": "蓝牙采用 TDD、FHSS 跳频，可承载电路与分组业务，支持点对多点组网，全选。"
+    },
+    {
+      "id": 3188,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "X.25建议是各种终端与DCE之间的接口。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "X.25 是 DTE 与 DCE 之间的接口建议，主要针对分组终端与交换机的接口，题目“各种终端与 DCE 之间”表述不准确，故错误。"
+    },
+    {
+      "id": 3189,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "X.25分组携带完整目的地址转发。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "X.25 分组经虚电路转发，分组中携带逻辑信道号而非完整目的地址，故错误。"
+    },
+    {
+      "id": 3190,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "在SDN架构中，数据平面设备必须依赖本地路由协议进行转发表计算。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "SDN 中数据平面转发表由控制器集中下发，不必须依赖本地路由协议计算，故错误。"
+    },
+    {
+      "id": 3191,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "ATM属于分组交换体系，但其交换本质不属于传统分组存储转发。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "ATM 属于分组交换体系，但采用固定信元和面向连接交换，不是传统分组存储转发，表述正确。"
+    },
+    {
+      "id": 3192,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "MPLS支持LSP层次化，允许在一个LSP之上再建立另一个LSP。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "MPLS 支持 LSP 层次化，可在一条 LSP 之上嵌套建立另一条 LSP，表述正确。"
+    },
+    {
+      "id": 3193,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "电路交换中，信令与业务信道始终复用在同一物理通道上。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "电路交换中信令可随路也可共路，并非始终与业务信道复用在同一物理通道，故错误。"
+    },
+    {
+      "id": 3194,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "MPLS支持同一条LSP承载多个不同FEC的流量。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "一条 LSP 对应同一转发等价类 FEC，不同 FEC 需不同 LSP，故错误。"
+    },
+    {
+      "id": 3195,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "帧中继DLCI在全网范围内全局唯一。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "帧中继 DLCI 只在本地链路有效，不同链路可复用，全网并非唯一，故错误。"
+    },
+    {
+      "id": 3196,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "ATM的AAL5可提供面向连接、可变比特率的数据适配服务（ ）。",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "AAL5 可提供面向连接的可变比特率数据适配服务（如 ATM 承载以太网、帧中继），表述正确。"
+    },
+    {
+      "id": 3197,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "APON有对称和不对称两种帧结构。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "APON 帧结构分为对称与不对称两种，表述正确。"
+    },
+    {
+      "id": 3198,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "忙时试呼次数（BHCA）越大，系统的忙时话务量一定越大。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "BHCA 反映呼叫处理能力，话务量还取决于平均占用时长，BHCA 大话务量不一定大，故错误。"
+    },
+    {
+      "id": 3199,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "无线接入是一种自由的接入方式。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "无线接入同样受频率资源、覆盖、干扰等限制，不是完全自由，故错误。"
+    },
+    {
+      "id": 3200,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "EPON的下行帧是个复合帧，包含多个不变长数据包和同步标签。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "EPON 下行帧中以太网帧为变长，并非“不变长数据包”，故错误。"
+    },
+    {
+      "id": 3201,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "GPON支持T-CONT​作为上行带宽分配单位。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "GPON 以 T-CONT 为上行带宽分配单位，由 OLT 统一调度，表述正确。"
+    },
+    {
+      "id": 3202,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "GPON的下行速率一定高于EPON。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "10G EPON 下行速率高于 GPON，GPON 下行不一定高于 EPON，故错误。"
+    },
+    {
+      "id": 3203,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "GPON的OMCI协议用于管理ONU。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "GPON 的 OMCI 协议用于 ONU 管理（配置、告警、性能等），表述正确。"
+    },
+    {
+      "id": 3204,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "CSMA/CA是在冲突发生前进行冲突处理，CSMA/CD是在冲突发生后进行冲突处理。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "CSMA/CA 在发送前尽量避免冲突，CSMA/CD 在冲突发生后检测并处理，表述正确。"
+    },
+    {
+      "id": 3205,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "ZigBee只工作在2.4GHz频段。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "ZigBee 除 2.4GHz 外还工作于 868/915MHz 频段，故错误。"
+    },
+    {
+      "id": 3206,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "ZigBee采用CSMA/CA载波侦听机制，传输前先检测信道是否空闲。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "ZigBee 采用 CSMA/CA，发送前先检测信道是否空闲，表述正确。"
+    },
+    {
+      "id": 3207,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "IEEE在制定802系列标准时，必须严格遵守ITU已分配的无线电频谱划分方案。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "IEEE 802 系列为技术标准，频谱划分由各国无线电管理部门确定，并非必须严格遵守 ITU 频谱方案，故错误。"
+    },
+    {
+      "id": 3208,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "IETF制定的RFC若被ITU-T的推荐标准直接引用，则该RFC在ITU成员国内自动具有强制执行力。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "RFC 被 ITU-T 引用并不自动具有强制执行力，故错误。"
+    },
+    {
+      "id": 3209,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "家用无线路由器的天线越多，无线速率一定成倍提高。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "无线速率受标准、信道带宽、编码和干扰限制，天线数量多不等于速率成倍提高，故错误。"
+    },
+    {
+      "id": 3210,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "蓝牙设备可以直接接入Wi‑Fi路由器并进行网络通信。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "蓝牙与 Wi-Fi 是不同无线技术，蓝牙设备不能直接接入 Wi-Fi 路由器，故错误。"
+    },
+    {
+      "id": 3211,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "ATM异步转移模式中，“异步”指用户信元占用时隙不固定，按需分配带宽。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "A",
+      "score": 0.5,
+      "reason": "ATM 的“异步”指信元占用时隙不固定、按需分配带宽，表述正确。"
+    },
+    {
+      "id": 3212,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "ATM发生网络拥塞时优先丢弃CLP=0的信元。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "ATM 拥塞时优先丢弃低优先级 CLP=1 的信元，而非 CLP=0，故错误。"
+    },
+    {
+      "id": 3213,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "同一台OpenFlow交换机只能连接一台SDN控制器，不支持多控制器部署。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "OpenFlow 交换机可连接多台控制器（主备或多控制器部署），故错误。"
+    },
+    {
+      "id": 3214,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "程控数字交换机中，“数字”是指用户接口一定是数字接口，不支持模拟用户接入。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "程控数字交换机的“数字”指内部采用数字交换，用户接口可经用户电路支持模拟用户接入，故错误。"
+    },
+    {
+      "id": 3215,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "BORSCHT功能全部由数字交换网络完成。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "BORSCHT（馈电、过压保护、振铃、监视、编译码、混合、测试）由用户电路完成，不由数字交换网络完成，故错误。"
+    },
+    {
+      "id": 3216,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "在SDN架构中，交换机与控制器之间必须使用OpenFlow协议进行通信。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "SDN 南向接口可使用 OpenFlow，也可使用 NETCONF、OVSDB 等协议，并非必须 OpenFlow，故错误。"
+    },
+    {
+      "id": 3217,
+      "category": "jiaohuan",
+      "section": "专业判断",
+      "type": "judge",
+      "stem": "多条流表存在时，交换机会按照流表优先级从低到高依次匹配。（ ）",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": "B",
+      "score": 0.5,
+      "reason": "多条流表按优先级从高到低依次匹配，题目“从低到高”错误。"
     }
   ]
 };

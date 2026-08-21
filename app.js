@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.2.7';
+  var APP_VERSION = '1.3.0';
   var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
   var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
@@ -80,6 +80,7 @@
     doneMap: {},
     masterDirty: false,
     masterStamp: 0,
+    savedAt: 0,
     accountUser: null,
     accountPass: null
   };
@@ -89,6 +90,7 @@
   var masterSaveTimer = null;
   var masterSavePending = null;
   var poolIndex = null;
+  var accountSaveInFlight = false;
 
   function cloneBank(bank) {
     try { return JSON.parse(JSON.stringify(bank)); } catch (e) { return bank; }
@@ -277,7 +279,8 @@
       wrongOnly: state.wrongOnly,
       submitted: state.submitted,
       bankVersion: state.bankVersion || EMBEDDED_BANK_VERSION,
-      doneMap: state.doneMap || {}
+      doneMap: state.doneMap || {},
+      savedAt: Date.now()
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) { /* ignore */ }
     if (state.masterDirty) scheduleMasterSave();
@@ -310,6 +313,7 @@
       state.wrongOnly = !!p.wrongOnly;
       state.submitted = !!p.submitted;
       state.bankVersion = p.bankVersion || 0;
+      state.savedAt = Number(p.savedAt) || 0;
       state.draft = new Set();
       state.editorDirty = false;
       state.editorSelected = new Set();
@@ -1242,15 +1246,26 @@
 
   async function saveAccountNow() {
     if (!state.accountUser || !state.accountPass) return;
-    var r = await accountApi('/api/save', { user: state.accountUser, pass: state.accountPass, data: buildCompactData() });
-    if (r.ok) {
-      var btn = $('#accountSaveBtn');
-      if (btn) { btn.classList.add('saved'); btn.textContent = '已保存'; }
-      setAccountStatus('已保存到云端');
-      setTimeout(function () {
-        if (btn) { btn.classList.remove('saved'); btn.textContent = '立即保存'; }
-        renderAccountPanel();
-      }, 1500);
+    if (accountSaveInFlight) return;
+    accountSaveInFlight = true;
+    try {
+      var cloud = {};
+      var load = await accountApi('/api/load', { user: state.accountUser, pass: state.accountPass });
+      if (load.ok && load.data && load.data.data) cloud = load.data.data;
+      var merged = mergeCompactData(buildCompactData(), cloud);
+      var r = await accountApi('/api/save', { user: state.accountUser, pass: state.accountPass, data: merged });
+      if (r.ok) {
+        state.savedAt = merged.updatedAt || Date.now();
+        var btn = $('#accountSaveBtn');
+        if (btn) { btn.classList.add('saved'); btn.textContent = '已保存'; }
+        setAccountStatus('已保存到云端');
+        setTimeout(function () {
+          if (btn) { btn.classList.remove('saved'); btn.textContent = '立即保存'; }
+          renderAccountPanel();
+        }, 1500);
+      }
+    } finally {
+      accountSaveInFlight = false;
     }
   }
 
@@ -1337,13 +1352,59 @@
     if (el) el.textContent = msg;
   }
 
+  function mergeDoneSets(a, b) {
+    var m = {};
+    (a || []).forEach(function (id) { m[String(id)] = true; });
+    (b || []).forEach(function (id) { m[String(id)] = true; });
+    return Object.keys(m);
+  }
+
+  function mergeWrongLists(a, b) {
+    var byId = {};
+    (a || []).forEach(function (r) { if (r && r.id != null) byId[String(r.id)] = r; });
+    (b || []).forEach(function (r) {
+      if (!r || r.id == null) return;
+      var k = String(r.id);
+      var old = byId[k];
+      if (!old) { byId[k] = r; return; }
+      if ((Number(r.time) || 0) >= (Number(old.time) || 0)) byId[k] = r;
+    });
+    return Object.keys(byId).map(function (k) { return byId[k]; });
+  }
+
+  function mergeProgress(local, cloud) {
+    var lt = Number(local && local.updatedAt) || 0;
+    var ct = Number(cloud && cloud.updatedAt) || 0;
+    var cloudHas = !!(cloud && cloud.progress && cloud.progress.bank && Array.isArray(cloud.progress.bank.questions));
+    var localHas = !!(local && local.progress && local.progress.bank && Array.isArray(local.progress.bank.questions));
+    if (cloudHas && !localHas) return cloud.progress;
+    if (localHas && !cloudHas) return local.progress;
+    if (cloudHas && localHas) return ct >= lt ? cloud.progress : local.progress;
+    return null;
+  }
+
+  function mergeCompactData(local, cloud) {
+    local = local || {};
+    cloud = cloud || {};
+    var out = {
+      version: APP_VERSION,
+      doneIds: mergeDoneSets(local.doneIds, cloud.doneIds),
+      wrong: mergeWrongLists(local.wrong, cloud.wrong),
+      updatedAt: Math.max(Number(local.updatedAt) || 0, Number(cloud.updatedAt) || 0, Date.now())
+    };
+    var progress = mergeProgress(local, cloud);
+    if (progress) out.progress = progress;
+    return out;
+  }
+
   function buildCompactData() {
     var doneIds = [];
     if (state.master) state.master.questions.forEach(function (q) { if (isDone(q)) doneIds.push(q.id); });
     return {
       version: APP_VERSION,
       doneIds: doneIds,
-      wrong: loadStoredWrong(),
+      wrong: loadStoredWrong().map(toCompactWrong),
+      updatedAt: Date.now(),
       progress: { bank: state.bank, answers: state.answers, current: state.current, mode: state.mode, modeName: state.modeName, submitted: state.submitted }
     };
   }
@@ -1352,9 +1413,17 @@
     if (!data || !state.master) return;
     var doneSet = {};
     (data.doneIds || []).forEach(function (id) { doneSet[String(id)] = true; });
+    Object.keys(state.doneMap || {}).forEach(function (k) { if (state.doneMap[k]) doneSet[k] = true; });
     state.doneMap = doneSet;
-    if (Array.isArray(data.wrong)) saveStoredWrong(data.wrong);
-    if (data.progress && data.progress.bank && Array.isArray(data.progress.bank.questions)) {
+    if (Array.isArray(data.wrong)) {
+      saveStoredWrong(mergeWrongLists(loadStoredWrong(), data.wrong));
+    }
+    var cloudHas = data.progress && data.progress.bank && Array.isArray(data.progress.bank.questions);
+    var localHas = !!(state.bank && state.answers && state.answers.length);
+    var ct = Number(data.updatedAt) || 0;
+    var lt = Number(state.savedAt) || 0;
+    var applyProgress = cloudHas && (!localHas || ct >= lt);
+    if (applyProgress && data.progress) {
       state.bank = data.progress.bank;
       state.answers = Array.isArray(data.progress.answers) ? data.progress.answers : [];
       if (state.answers.length !== state.bank.questions.length) state.answers = new Array(state.bank.questions.length).fill(null);
@@ -1362,6 +1431,7 @@
       state.mode = data.progress.mode || state.mode;
       state.modeName = data.progress.modeName || state.modeName;
       state.submitted = !!data.progress.submitted;
+      state.savedAt = ct || lt;
     }
     saveState();
   }
@@ -1372,9 +1442,17 @@
     try {
       var path = 'user-data.json';
       var sha = null;
+      var cloud = {};
       var get = await fetch('https://api.github.com/repos/' + encodeURIComponent(s.owner) + '/' + encodeURIComponent(s.repo) + '/contents/' + path, { headers: syncHeaders(s.token) });
-      if (get.ok) { var meta = await get.json(); sha = meta.sha; }
-      var body = { message: 'Auto sync user data', content: b64EncodeUtf8(JSON.stringify(buildCompactData())), branch: 'main' };
+      if (get.ok) {
+        var meta = await get.json();
+        sha = meta.sha;
+        try {
+          var rawTxt = decodeURIComponent(escape(atob(meta.content)));
+          cloud = JSON.parse(rawTxt);
+        } catch (e) { /* 云端格式异常时按空处理 */ }
+      }
+      var body = { message: 'Auto sync user data', content: b64EncodeUtf8(JSON.stringify(mergeCompactData(buildCompactData(), cloud))), branch: 'main' };
       if (sha) body.sha = sha;
       var put = await fetch('https://api.github.com/repos/' + encodeURIComponent(s.owner) + '/' + encodeURIComponent(s.repo) + '/contents/' + path, { method: 'PUT', headers: Object.assign(syncHeaders(s.token), { 'Content-Type': 'application/json' }), body: JSON.stringify(body) });
       if (put.ok && !silent) ghStatus('已上传到 GitHub');
