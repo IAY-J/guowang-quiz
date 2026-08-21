@@ -18105,7 +18105,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1038,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "关于最简单电信系统与交换式通信网的构成，下列说法最准确的是：",
@@ -18122,7 +18122,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1039,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "交换机最基本的作用是：",
@@ -18139,7 +18139,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1040,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "下列设备中，通常不直接与用户终端相连的是：",
@@ -18156,7 +18156,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1041,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "树型拓扑在材料中最典型地对应：",
@@ -18173,7 +18173,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1042,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "按照材料中的口径，宽带传输速率通常指：",
@@ -18190,7 +18190,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1043,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "下列业务与技术对应正确的是：",
@@ -18207,7 +18207,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1044,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "3G与4G核心交换方式的主要区别是：",
@@ -18224,7 +18224,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1045,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "区分面向连接与无连接的关键是：",
@@ -18241,7 +18241,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1046,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "同步时分复用STDM的典型特征是：",
@@ -18258,7 +18258,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1047,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ATM所采用的复用方式可归类为：",
@@ -18275,7 +18275,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1048,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "集中型、扩散型、分配型属于交换单元的：",
@@ -18292,7 +18292,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1049,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "评价交换单元时通常不直接考虑：",
@@ -18309,7 +18309,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1050,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "多级交换网络相对于单级网络的典型特点是：",
@@ -18326,7 +18326,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1051,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "三段Clos网络严格无阻塞的条件是：",
@@ -18343,7 +18343,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1052,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "电路交换最适合的传统业务是：",
@@ -18360,7 +18360,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1053,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "下列哪项最符合电路交换的呼损特点？",
@@ -18377,7 +18377,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1054,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "数据报方式的典型代表是：",
@@ -18394,7 +18394,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1055,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "下列技术中，典型采用永久虚电路PVC的是：",
@@ -18411,7 +18411,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1056,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ATM交换在连接性质上属于：",
@@ -18428,7 +18428,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1057,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "模拟用户接口BORSCHT中，B表示：",
@@ -18445,7 +18445,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1058,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "模拟用户接口BORSCHT中，H表示：",
@@ -18462,7 +18462,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1059,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "数字用户基本速率接口BRI的信道组合是：",
@@ -18479,7 +18479,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1060,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "数字用户基群速率接口PRI在2.048Mb/s体系中通常为：",
@@ -18496,7 +18496,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1061,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "集中控制方式的特点是：",
@@ -18513,7 +18513,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1062,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "数字交换网络中，T型交换单元主要改变：",
@@ -18530,7 +18530,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1063,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "S型交换单元主要实现：",
@@ -18547,7 +18547,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1064,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "T型交换单元中，用于存放话音样值的是：",
@@ -18564,7 +18564,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1065,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "在T型交换单元的输入控制方式下，CM通常写入：",
@@ -18581,7 +18581,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1066,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "S型交换单元在空间交换过程中通常保持不变的是：",
@@ -18598,7 +18598,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1067,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "某复用线由8条HW线组成，HW2上的TS5按“5×8+2”编号，对应：",
@@ -18615,7 +18615,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1068,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "双向数字交换内部时隙常采用相差半帧的安排，这种方法称为：",
@@ -18632,7 +18632,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1069,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "交换机软件中，系统数据、局数据和用户数据共同属于：",
@@ -18649,7 +18649,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1070,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "用于评价控制系统忙时处理能力的指标是：",
@@ -18666,7 +18666,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1071,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "交换式通信网的基本组成包括：",
@@ -18687,7 +18687,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1072,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "下列关于面向连接通信的描述正确的有：",
@@ -18708,7 +18708,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1073,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "下列属于统计复用特征的有：",
@@ -18729,7 +18729,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1074,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "评价交换单元通常考虑：",
@@ -18751,7 +18751,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1075,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于多级交换网络和Clos网络，下列说法正确的有：",
@@ -18772,7 +18772,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1076,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "下列属于分组交换典型特点的有：",
@@ -18793,7 +18793,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1077,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "下列属于模拟用户接口BORSCHT功能的有：",
@@ -18815,7 +18815,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1078,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于BRI和PRI，下列说法正确的有：",
@@ -18837,7 +18837,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1079,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "集中控制与分散控制相比，集中控制的特点包括：",
@@ -18858,7 +18858,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1080,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "数字交换网络可采用的组合结构有：",
@@ -18879,7 +18879,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1081,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于T型交换单元，下列说法正确的有：",
@@ -18900,7 +18900,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1082,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于S型交换单元，下列说法正确的有：",
@@ -18921,7 +18921,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1083,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "交换机软件数据可包括：",
@@ -18942,7 +18942,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1084,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "话务强度A的计算可涉及：",
@@ -18963,7 +18963,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1085,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于话务量与BHCA，下列说法正确的有：",
@@ -18984,7 +18984,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1086,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "最简单的点到点电信系统不一定需要交换设备。",
@@ -18999,7 +18999,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1087,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "汇接局通常不直接连接用户终端。",
@@ -19014,7 +19014,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1088,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "同步时分复用中，用户时隙按需动态分配，不周期出现。",
@@ -19029,7 +19029,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1089,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "ATM可视为统计时分复用的一种应用。",
@@ -19044,7 +19044,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1090,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "多级交换网络一定严格无阻塞。",
@@ -19059,7 +19059,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1091,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "Clos网络满足m≥2n−1时可实现严格无阻塞。",
@@ -19074,7 +19074,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1092,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "电路交换在资源不足时可能直接拒绝呼叫。",
@@ -19089,7 +19089,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1093,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "数据报方式在发送数据前必须建立虚电路。",
@@ -19104,7 +19104,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1094,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "模拟用户接口的振铃功能通常属于BORSCHT中的R。",
@@ -19119,7 +19119,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1095,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "BRI由30个B信道和1个D信道构成。",
@@ -19134,7 +19134,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1096,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "T型交换单元用于时隙交换，S型交换单元用于空间交换。",
@@ -19149,7 +19149,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1097,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "S型交换时可以改变线路位置而保持时隙号不变。",
@@ -19164,7 +19164,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1098,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "系统数据、局数据和用户数据都属于交换机软件数据。",
@@ -19179,7 +19179,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1099,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "话务量主要评价控制系统，BHCA主要评价话路系统。",
@@ -19194,7 +19194,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1100,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "平均话务强度可理解为观察期间平均同时占用的话路数。 第二部分",
@@ -19209,7 +19209,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1101,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "忙时呼叫尝试次数BHCA表示：",
@@ -19226,7 +19226,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1102,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "在N=(t−a)/b中，b表示：",
@@ -19243,7 +19243,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1103,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "分组交换的四种典型时延不包括：",
@@ -19260,7 +19260,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1104,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "逻辑信道号在分组交换虚电路中通常具有：",
@@ -19277,7 +19277,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1105,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "数据报与虚电路的主要区别是：",
@@ -19294,7 +19294,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1106,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "X.25三层结构中，最高的一层是：",
@@ -19311,7 +19311,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1107,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "X.25数据链路层协议LAPB属于：",
@@ -19328,7 +19328,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1108,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "X.25中LCGN和LCN的主要作用是：",
@@ -19345,7 +19345,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1109,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "帧中继相对于X.25的主要简化是：",
@@ -19362,7 +19362,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1110,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "帧中继中用于标识逻辑连接的是：",
@@ -19379,7 +19379,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1111,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ATM信元总长度是：",
@@ -19396,7 +19396,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1112,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ATM UNI信头中VPI字段长度为：",
@@ -19413,7 +19413,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1113,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ATM NNI信头中VPI字段长度为：",
@@ -19430,7 +19430,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1114,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ATM中表示净荷类型的字段是：",
@@ -19447,7 +19447,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1115,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ATM中CLP=1通常表示：",
@@ -19464,7 +19464,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1116,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ATM采用硬件高速交换的重要原因是：",
@@ -19481,7 +19481,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1117,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "在ATM VP交换中：",
@@ -19498,7 +19498,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1118,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ATM交换机的基本功能不包括：",
@@ -19515,7 +19515,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1119,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "AAL中负责分段与重组的是：",
@@ -19532,7 +19532,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1120,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ATM物理层TC子层不负责：",
@@ -19549,7 +19549,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1121,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "MPLS被称为2.5层技术，主要因为标签位于：",
@@ -19566,7 +19566,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1122,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "MPLS标签条目中用于QoS、排队和丢弃的是：",
@@ -19583,7 +19583,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1123,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "MPLS标签分发方向通常是：",
@@ -19600,7 +19600,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1124,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "下游自主DU的含义是：",
@@ -19617,7 +19617,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1125,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "有序标签分配的条件是：",
@@ -19634,7 +19634,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1126,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "MPLS中保存普通IP转发信息的是：",
@@ -19651,7 +19651,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1127,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "在MPLS VPN中，分发VPN路由和内层VPN标签的协议是：",
@@ -19668,7 +19668,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1128,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "MPLS TE中可建立显式路由并预留带宽的协议是：",
@@ -19685,7 +19685,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1129,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "SDN中向应用提供网络抽象和编程能力的是：",
@@ -19702,7 +19702,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1130,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "SDN中控制器与交换机之间常用的南向协议是：",
@@ -19719,7 +19719,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1131,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "SDN的核心特征不包括：",
@@ -19736,7 +19736,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1132,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "OpenFlow 1.0交换机的核心组成不包括：",
@@ -19753,7 +19753,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1133,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "OpenFlow协议通过安全通道实现：",
@@ -19770,7 +19770,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1134,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于分组交换，下列说法正确的有：",
@@ -19791,7 +19791,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1135,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于数据报与虚电路，下列说法正确的有：",
@@ -19812,7 +19812,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1136,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于X.25，下列说法正确的有：",
@@ -19834,7 +19834,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1137,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于帧中继，下列说法正确的有：",
@@ -19855,7 +19855,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1138,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于ATM信元，下列说法正确的有：",
@@ -19877,7 +19877,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1139,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于ATM字段，下列说法正确的有：",
@@ -19898,7 +19898,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1140,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于ATM交换结构，下列说法正确的有：",
@@ -19920,7 +19920,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1141,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于ATM参考模型，下列说法正确的有：",
@@ -19942,7 +19942,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1142,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "下列可用于确定MPLS FEC的因素有：",
@@ -19964,7 +19964,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1143,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于MPLS标签字段，下列说法正确的有：",
@@ -19986,7 +19986,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1144,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于MPLS标签分发，下列说法正确的有：",
@@ -20007,7 +20007,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1145,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于MPLS标签保持方式，下列说法正确的有：",
@@ -20028,7 +20028,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1146,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于MPLS VPN角色，下列说法正确的有：",
@@ -20050,7 +20050,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1147,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于SDN接口，下列说法正确的有：",
@@ -20072,7 +20072,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1148,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于SDN与传统网络，下列说法正确的有：",
@@ -20093,7 +20093,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1149,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "BHCA表示忙时一小时内的呼叫尝试次数。",
@@ -20108,7 +20108,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1150,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "分组交换中的逻辑信道号具有端到端全球唯一意义。",
@@ -20123,7 +20123,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1151,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "数据报方式不需要连接建立和拆除过程。",
@@ -20138,7 +20138,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1152,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "X.25支持SVC和PVC。",
@@ -20153,7 +20153,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1153,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "帧中继完全取消了检错和拥塞控制。",
@@ -20168,7 +20168,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1154,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "ATM不对用户信息进行逐段纠错重传，但仍可进行流量与拥塞控制。",
@@ -20183,7 +20183,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1155,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "ATM的GFC字段在NNI中被扩展为VPI字段。",
@@ -20198,7 +20198,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1156,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "ATM采用固定长度信元后就不再需要排队。",
@@ -20213,7 +20213,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1157,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "VP交换时通常改变VPI而保持VCI不变。",
@@ -20228,7 +20228,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1158,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "AAL中的SAR负责分段与重组。",
@@ -20243,7 +20243,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1159,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "MPLS标签是全网唯一、端到端不变的标识。",
@@ -20258,7 +20258,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1160,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "标签映射通常由下游向上游发布。",
@@ -20273,7 +20273,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1161,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "典型MPLS VPN中P路由器需要维护每个VPN的VRF。",
@@ -20288,7 +20288,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1162,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "SDN中的控制集中可以是逻辑集中。",
@@ -20303,7 +20303,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1163,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "OpenFlow是SDN常用南向协议，但不等同于SDN全部。 第二部分",
@@ -20318,7 +20318,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1164,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "SDN的三个核心特征是：",
@@ -20335,7 +20335,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1165,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "传统网络与SDN的核心区别之一是：",
@@ -20352,7 +20352,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1166,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "OpenFlow最典型地属于：",
@@ -20369,7 +20369,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1167,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "控制器之间进行协同通常采用：",
@@ -20386,7 +20386,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1168,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "OpenFlow 1.0流表项的组成是：",
@@ -20406,7 +20406,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1169,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "OpenFlow 1.0安全通道通常建立在：",
@@ -20423,7 +20423,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1170,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "由交换机主动发送Packet-In属于：",
@@ -20440,7 +20440,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1171,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "OpenFlow 1.1新增的关键能力是：",
@@ -20457,7 +20457,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1172,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "OpenFlow 1.3的代表性增强是：",
@@ -20474,7 +20474,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1173,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "接入网标准G.902由哪一组织制定？",
@@ -20491,7 +20491,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1174,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "Y.1231主要描述：",
@@ -20508,7 +20508,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1175,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "G.902接入网五大功能中，负责业务端口的是：",
@@ -20525,7 +20525,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1176,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "G.902的接口包括：",
@@ -20543,7 +20543,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1177,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "Y.1231中用户可选择运营商的参考点是：",
@@ -20560,7 +20560,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1178,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "光纤三个低损耗窗口中，典型最低损耗位于：",
@@ -20577,7 +20577,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1179,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "OLT的主要功能不包括：",
@@ -20594,7 +20594,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1180,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ODN的本质是：",
@@ -20611,7 +20611,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1181,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "PON中，下行和上行典型采用：",
@@ -20629,7 +20629,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1182,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "PON测距的主要目的是：",
@@ -20646,7 +20646,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1183,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "PON动态带宽分配通常由：",
@@ -20663,7 +20663,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1184,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "APON标准是：",
@@ -20680,7 +20680,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1185,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "APON对称方式的速率是：",
@@ -20697,7 +20697,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1186,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "APON对称下行帧包含：",
@@ -20714,7 +20714,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1187,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "EPON的标准是：",
@@ -20731,7 +20731,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1188,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "1G EPON采用的线路编码是：",
@@ -20748,7 +20748,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1189,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "EPON下行ONU用于过滤帧的标志是：",
@@ -20765,7 +20765,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1190,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "GPON常见的上下行速率组合是：",
@@ -20782,7 +20782,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1191,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "GPON下行帧周期通常是：",
@@ -20799,7 +20799,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1192,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "GPON GEM头部中表示净荷长度的是：",
@@ -20816,7 +20816,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1193,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "GPON下行业务数据通常依据：",
@@ -20833,7 +20833,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1194,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "GPON中PLOAM控制消息通常使用：",
@@ -20850,7 +20850,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1195,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "GPON上行带宽分配主要关联：",
@@ -20867,7 +20867,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1196,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "在OMCI、PLOAM、MPCP中，用于EPON多点上行控制的是：",
@@ -20884,7 +20884,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1197,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于SDN，下列说法正确的有：",
@@ -20905,7 +20905,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1198,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于OpenFlow接口与消息，下列说法正确的有：",
@@ -20926,7 +20926,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1199,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于OpenFlow版本演进，下列说法正确的有：",
@@ -20948,7 +20948,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1200,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于G.902接入网，下列说法正确的有：",
@@ -20969,7 +20969,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1201,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于Y.1231，下列说法正确的有：",
@@ -20992,7 +20992,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1202,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于OAN网元，下列说法正确的有：",
@@ -21014,7 +21014,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1203,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于PON关键技术，下列说法正确的有：",
@@ -21036,7 +21036,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1204,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于APON，下列说法正确的有：",
@@ -21057,7 +21057,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1205,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于EPON，下列说法正确的有：",
@@ -21079,7 +21079,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1206,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于10G EPON，下列说法正确的有：",
@@ -21101,7 +21101,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1207,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于GPON GEM头部，下列说法正确的有：",
@@ -21123,7 +21123,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1208,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于GPON中的T-CONT和DBA，下列说法正确的有：",
@@ -21144,7 +21144,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1209,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于PON下行识别，下列说法正确的有：",
@@ -21166,7 +21166,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1210,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于OMCI和PLOAM，下列说法正确的有：",
@@ -21187,7 +21187,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1211,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于PON分光比，下列说法正确的有：",
@@ -21208,7 +21208,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1212,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "SDN的控制集中一定要求只有一台物理控制器。",
@@ -21223,7 +21223,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1213,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "OpenFlow常用作SDN南向协议。",
@@ -21238,7 +21238,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1214,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "OpenFlow 1.1引入了多流表流水线和组表。",
@@ -21253,7 +21253,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1215,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "G.902中用户可通过RP接口自由选择业务节点。",
@@ -21268,7 +21268,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1216,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "Y.1231的接入功能可涉及AAA、QoS和安全管理。",
@@ -21283,7 +21283,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1217,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "ODN属于无源网络，但OLT和ONU属于有源设备。",
@@ -21298,7 +21298,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1218,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "PON下行采用广播，上行采用TDMA。",
@@ -21313,7 +21313,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1219,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "PON测距用于补偿不同ONU到OLT的传播时延。",
@@ -21328,7 +21328,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1220,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "APON以可变长以太网帧为基本承载单位。",
@@ -21343,7 +21343,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1221,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "1G EPON采用8B/10B编码。",
@@ -21358,7 +21358,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1222,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "EPON下行使用LLID过滤帧。",
@@ -21373,7 +21373,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1223,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "GPON业务数据主要依据GEM Port-ID识别。",
@@ -21388,7 +21388,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1224,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "GPON的ONU-ID主要用于PLOAM控制寻址。",
@@ -21403,7 +21403,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1225,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "Alloc-ID主要用于GPON上行带宽分配。",
@@ -21418,7 +21418,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1226,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "OMCI、PLOAM和MPCP三者功能完全相同。 第二部分",
@@ -21433,7 +21433,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1227,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "XG-PON1的典型速率是：",
@@ -21450,7 +21450,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1228,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "XG-PON1下行波长范围通常为：",
@@ -21467,7 +21467,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1229,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "APON、GPON、EPON的帧格式依次为：",
@@ -21484,7 +21484,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1230,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "无线局域网WLAN对应的标准系列是：",
@@ -21501,7 +21501,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1231,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "无线个域网WPAN对应的标准系列是：",
@@ -21518,7 +21518,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1232,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "无线城域网WMAN对应的标准系列是：",
@@ -21535,7 +21535,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1233,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "下列技术既可用于固定接入，也可用于移动接入的是：",
@@ -21552,7 +21552,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1234,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "WLAN Ad-hoc网络的特点是：",
@@ -21569,7 +21569,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1235,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "在基础设施型WLAN中，SSID表示：",
@@ -21586,7 +21586,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1236,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "BSSID通常表示：",
@@ -21603,7 +21603,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1237,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ESS的形成通常依赖：",
@@ -21620,7 +21620,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1238,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "802.11中主要解决隐藏站问题的是：",
@@ -21637,7 +21637,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1239,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "接收RTS后发送CTS通常等待：",
@@ -21654,7 +21654,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1240,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "DCF的基本信道访问机制是：",
@@ -21671,7 +21671,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1241,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "PCF的基本方式是：",
@@ -21688,7 +21688,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1242,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "802.11b的典型参数是：",
@@ -21705,7 +21705,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1243,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "802.11a的典型参数是：",
@@ -21722,7 +21722,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1244,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "802.11n的关键技术是：",
@@ -21739,7 +21739,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1245,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "下列协议中属于WLAN安全机制的是：",
@@ -21756,7 +21756,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1246,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "LMDS相对于MMDS的典型特点是：",
@@ -21773,7 +21773,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1247,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "MMDS的典型覆盖范围约为：",
@@ -21790,7 +21790,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1248,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "WiMAX对应的标准是：",
@@ -21807,7 +21807,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1249,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "WiMAX典型拓扑包括：",
@@ -21824,7 +21824,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1250,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "WiMAX中用于恒定速率、周期性实时业务的类别是：",
@@ -21841,7 +21841,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1251,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "WiMAX中用于实时可变速率业务的类别是：",
@@ -21858,7 +21858,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1252,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "WiMAX中用于非实时但需要一定吞吐保障业务的是：",
@@ -21875,7 +21875,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1253,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "WiMAX中优先级最低、按剩余资源发送的业务是：",
@@ -21892,7 +21892,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1254,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "蓝牙对应的标准是：",
@@ -21909,7 +21909,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1255,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "经典蓝牙采用：",
@@ -21926,7 +21926,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1256,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "经典蓝牙典型使用的频点数是：",
@@ -21943,7 +21943,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1257,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ZigBee对应的标准是：",
@@ -21960,7 +21960,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1258,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ZigBee采用的技术组合是：",
@@ -21977,7 +21977,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1259,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业单选",
       "type": "single",
       "stem": "ZigBee低功耗最核心的机制是：",
@@ -21994,7 +21994,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1260,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于XG-PON1，下列说法正确的有：",
@@ -22016,7 +22016,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1261,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于APON、GPON、EPON，下列说法正确的有：",
@@ -22038,7 +22038,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1262,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "固定无线接入技术可包括：",
@@ -22060,7 +22060,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1263,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于WLAN结构，下列说法正确的有：",
@@ -22081,7 +22081,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1264,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于SSI",
@@ -22104,7 +22104,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1265,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于CSMA/CA，下列说法正确的有：",
@@ -22125,7 +22125,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1266,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于DIFS和SIFS，下列说法正确的有：",
@@ -22146,7 +22146,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1267,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于802.11版本，下列说法正确的有：",
@@ -22168,7 +22168,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1268,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于WLAN附加功能，下列说法正确的有：",
@@ -22189,7 +22189,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1269,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于LMDS和MMDS，下列说法正确的有：",
@@ -22211,7 +22211,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1270,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于WiMAX，下列说法正确的有：",
@@ -22233,7 +22233,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1271,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于WiMAX业务类型，下列说法正确的有：",
@@ -22255,7 +22255,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1272,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于经典蓝牙，下列说法正确的有：",
@@ -22277,7 +22277,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1273,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于ZigBee，下列说法正确的有：",
@@ -22299,7 +22299,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1274,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业多选",
       "type": "multiple",
       "stem": "关于蓝牙与ZigBee的比较，下列说法正确的有：",
@@ -22321,7 +22321,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1275,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "XG-PON1典型下行10Gb/s、上行2.5Gb/s。",
@@ -22336,7 +22336,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1276,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "EPON使用以太网帧，GPON支持GEM封装。",
@@ -22351,7 +22351,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1277,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "WLAN、WPAN和WMAN分别对应802.11、802.15和802.16。",
@@ -22366,7 +22366,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1278,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "WiMAX只能用于固定接入，不能用于移动接入。",
@@ -22381,7 +22381,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1279,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "Ad-hoc WLAN没有中心AP。",
@@ -22396,7 +22396,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1280,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "ESSID本质上是MAC地址。",
@@ -22411,7 +22411,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1281,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "一个物理AP可以配置多个SSID。",
@@ -22426,7 +22426,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1282,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "RTS/CTS是每次802.11数据发送都必须执行的步骤。",
@@ -22441,7 +22441,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1283,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "SIFS通常短于DIFS。",
@@ -22456,7 +22456,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1284,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "802.11b采用DSSS，802.11a采用OFDM。",
@@ -22471,7 +22471,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1285,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "LMDS覆盖范围通常大于MMDS。",
@@ -22486,7 +22486,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1286,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "WiMAX支持PMP和Mesh拓扑。",
@@ -22501,7 +22501,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1287,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "经典蓝牙采用TDD和FHSS。",
@@ -22516,7 +22516,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1288,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "ZigBee的省电主要依靠终端休眠和低占空比。",
@@ -22531,7 +22531,7 @@ window.BUNDLED_BANK = {
     },
     {
       "id": 1289,
-      "category": "tongxin",
+      "category": "jiaohuan",
       "section": "专业判断",
       "type": "judge",
       "stem": "蓝牙和ZigBee都属于IEEE 802.15系列WPAN技术。 第二部分",

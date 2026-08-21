@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.2.6';
+  var APP_VERSION = '1.2.7';
   var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
   var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
@@ -1017,7 +1017,7 @@
       current: state.current,
       mode: state.mode,
       modeName: state.modeName,
-      wrong: loadStoredWrong(),
+      wrong: loadStoredWrong().map(toCompactWrong),
       submitted: state.submitted
     };
   }
@@ -1150,11 +1150,24 @@
     var opts = { method: method, headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' } };
     if (method === 'POST') opts.headers['Prefer'] = 'resolution=merge-duplicates';
     if (payload !== undefined) opts.body = JSON.stringify(payload);
-    var res = await fetch(url, opts);
-    var text = await res.text();
-    var data = null;
-    try { data = text ? JSON.parse(text) : null; } catch (e) { data = null; }
-    return { ok: res.ok, status: res.status, data: data };
+    var ctrl = null;
+    var timer = null;
+    if (window.AbortController) {
+      ctrl = new AbortController();
+      opts.signal = ctrl.signal;
+      timer = setTimeout(function () { ctrl.abort(); }, 10000);
+    }
+    try {
+      var res = await fetch(url, opts);
+      var text = await res.text();
+      var data = null;
+      try { data = text ? JSON.parse(text) : null; } catch (e) { data = null; }
+      return { ok: res.ok, status: res.status, data: data };
+    } catch (e) {
+      return { ok: false, status: 0, data: { error: '网络连接超时或不可用，请检查网络后重试' } };
+    } finally {
+      if (timer) clearTimeout(timer);
+    }
   }
 
   async function accountApi(path, body) {
@@ -1164,7 +1177,7 @@
     }
     if (path === '/api/login' || path === '/api/load') {
       var r = await sbRequest('GET', '?username=eq.' + encodeURIComponent(body.user) + '&select=pass_hash,data');
-      if (!r.ok) return { ok: false, status: r.status, data: {} };
+      if (!r.ok) return { ok: false, status: r.status, data: r.data || {} };
       var row = (r.data || [])[0];
       if (!row || row.pass_hash !== sbHash(body.pass)) return { ok: false, status: 401, data: { error: '用户名或密码错误' } };
       return { ok: true, status: 200, data: { data: row.data || {} } };
@@ -2280,7 +2293,7 @@
   function syncEmbeddedQuestions() {
     if (!state.master || !window.BUNDLED_BANK || !Array.isArray(window.BUNDLED_BANK.questions)) return;
     var existing = {};
-    state.master.questions.forEach(function (q) { existing[questionFingerprint(q)] = true; });
+    state.master.questions.forEach(function (q) { existing[questionFingerprint(q)] = q; });
     var maxId = state.master.questions.reduce(function (m, q) { return Math.max(m, Number(q.id) || 0); }, 0);
     var changed = false;
     window.BUNDLED_BANK.questions.forEach(function (q) {
@@ -2289,8 +2302,17 @@
         norm = normalizeBank({ title: 'sync', categories: [], composite: {}, questions: [q] }).questions[0];
       } catch (e) { return; }
       var fp = questionFingerprint(norm);
-      if (existing[fp]) return;
-      existing[fp] = true;
+      var mq = existing[fp];
+      if (mq) {
+        if (mq.category !== norm.category || mq.section !== norm.section || (norm.group != null && Number(mq.group || 0) !== Number(norm.group))) {
+          mq.category = norm.category;
+          mq.section = norm.section;
+          if (norm.group != null) mq.group = norm.group;
+          changed = true;
+        }
+        return;
+      }
+      existing[fp] = norm;
       maxId += 1;
       norm.id = maxId;
       state.master.questions.push(norm);
