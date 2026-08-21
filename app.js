@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.3.0';
+  var APP_VERSION = '1.3.1';
   var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
   var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
@@ -81,6 +81,8 @@
     masterDirty: false,
     masterStamp: 0,
     savedAt: 0,
+    cloudUpdatedAt: 0,
+    accountDirty: false,
     accountUser: null,
     accountPass: null
   };
@@ -280,9 +282,11 @@
       submitted: state.submitted,
       bankVersion: state.bankVersion || EMBEDDED_BANK_VERSION,
       doneMap: state.doneMap || {},
-      savedAt: Date.now()
+      savedAt: Date.now(),
+      cloudUpdatedAt: state.cloudUpdatedAt || 0
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) { /* ignore */ }
+    if (state.accountUser) state.accountDirty = true;
     if (state.masterDirty) scheduleMasterSave();
     scheduleAccountSave();
   }
@@ -314,6 +318,7 @@
       state.submitted = !!p.submitted;
       state.bankVersion = p.bankVersion || 0;
       state.savedAt = Number(p.savedAt) || 0;
+      state.cloudUpdatedAt = Number(p.cloudUpdatedAt) || 0;
       state.draft = new Set();
       state.editorDirty = false;
       state.editorSelected = new Set();
@@ -1186,6 +1191,13 @@
       if (!row || row.pass_hash !== sbHash(body.pass)) return { ok: false, status: 401, data: { error: '用户名或密码错误' } };
       return { ok: true, status: 200, data: { data: row.data || {} } };
     }
+    if (path === '/api/updatedAt') {
+      var r = await sbRequest('GET', '?username=eq.' + encodeURIComponent(body.user) + '&select=data->updatedAt');
+      if (!r.ok) return { ok: false, status: r.status, data: {} };
+      var row = (r.data || [])[0];
+      var val = row ? (row.updatedAt != null ? row.updatedAt : (row.data && row.data.updatedAt)) : 0;
+      return { ok: true, status: 200, data: { updatedAt: Number(val) || 0 } };
+    }
     if (path === '/api/save') {
       var r = await sbRequest('POST', '?on_conflict=username', { username: body.user, pass_hash: sbHash(body.pass), data: body.data });
       return { ok: r.ok, status: r.status, data: r.data || {} };
@@ -1249,13 +1261,23 @@
     if (accountSaveInFlight) return;
     accountSaveInFlight = true;
     try {
+      var cloudChanged = null;
+      try {
+        var chk = await accountApi('/api/updatedAt', { user: state.accountUser, pass: state.accountPass });
+        if (chk.ok) cloudChanged = Number(chk.data.updatedAt) > Number(state.cloudUpdatedAt || 0);
+      } catch (e) { cloudChanged = null; }
+      if (!state.accountDirty && cloudChanged === false) return;
       var cloud = {};
-      var load = await accountApi('/api/load', { user: state.accountUser, pass: state.accountPass });
-      if (load.ok && load.data && load.data.data) cloud = load.data.data;
+      if (cloudChanged !== false) {
+        var load = await accountApi('/api/load', { user: state.accountUser, pass: state.accountPass });
+        if (load.ok && load.data && load.data.data) cloud = load.data.data;
+      }
       var merged = mergeCompactData(buildCompactData(), cloud);
       var r = await accountApi('/api/save', { user: state.accountUser, pass: state.accountPass, data: merged });
       if (r.ok) {
+        state.accountDirty = false;
         state.savedAt = merged.updatedAt || Date.now();
+        state.cloudUpdatedAt = merged.updatedAt || state.cloudUpdatedAt;
         var btn = $('#accountSaveBtn');
         if (btn) { btn.classList.add('saved'); btn.textContent = '已保存'; }
         setAccountStatus('已保存到云端');
