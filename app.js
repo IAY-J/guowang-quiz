@@ -5,7 +5,7 @@
   var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
   var STORAGE_KEY = 'smart-quiz-app-v3';
   var EMBEDDED_BANK_VERSION = 6;
-  var APP_VERSION = '1.3.2';
+  var APP_VERSION = '1.3.3';
   var SB_URL = 'https://kjijvpfhmkrbqnsangub.supabase.co';
   var SB_KEY = 'sb_publishable_y1p34NJyqHePb5b3y0Xv7A_JsZxTx4t';
   var WRONG_KEY = 'smart-quiz-wrong-v2';
@@ -84,6 +84,7 @@
     cloudUpdatedAt: 0,
     accountDirty: false,
     removedWrong: [],
+    removedDone: [],
     accountUser: null,
     accountPass: null
   };
@@ -150,8 +151,15 @@
   function isDone(q) { return !!state.doneMap[String(q.id)]; }
 
   function setDone(q, val) {
-    if (val) state.doneMap[String(q.id)] = true;
-    else { try { delete state.doneMap[String(q.id)]; } catch (e) { state.doneMap[String(q.id)] = false; } }
+    var k = String(q.id);
+    if (val) {
+      state.doneMap[k] = true;
+      var di = state.removedDone.indexOf(k);
+      if (di >= 0) state.removedDone.splice(di, 1);
+    } else {
+      try { delete state.doneMap[k]; } catch (e) { state.doneMap[k] = false; }
+      if (state.removedDone.indexOf(k) < 0) state.removedDone.push(k);
+    }
   }
 
   function rebuildPoolIndex() {
@@ -285,7 +293,8 @@
       doneMap: state.doneMap || {},
       savedAt: Date.now(),
       cloudUpdatedAt: state.cloudUpdatedAt || 0,
-      removedWrong: state.removedWrong || []
+      removedWrong: state.removedWrong || [],
+      removedDone: state.removedDone || []
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) { /* ignore */ }
     if (state.accountUser) state.accountDirty = true;
@@ -322,6 +331,7 @@
       state.savedAt = Number(p.savedAt) || 0;
       state.cloudUpdatedAt = Number(p.cloudUpdatedAt) || 0;
       state.removedWrong = Array.isArray(p.removedWrong) ? p.removedWrong : [];
+      state.removedDone = Array.isArray(p.removedDone) ? p.removedDone : [];
       state.draft = new Set();
       state.editorDirty = false;
       state.editorSelected = new Set();
@@ -1031,6 +1041,8 @@
       version: APP_VERSION,
       master: master,
       doneIds: doneIds,
+      removedDone: state.removedDone || [],
+      removedWrong: state.removedWrong || [],
       bank: state.bank,
       answers: state.answers,
       current: state.current,
@@ -1044,11 +1056,17 @@
   function applyCloudData(data) {
     if (!data || !data.master) throw new Error('云端数据缺少题库');
     state.master = stripDoneFlags(normalizeBank(data.master));
-    state.doneMap = {};
-    (data.doneIds || []).forEach(function (id) { state.doneMap[String(id)] = true; });
+    state.removedDone = mergeRemovedIds([], data.removedDone);
+    state.removedWrong = mergeRemovedIds([], data.removedWrong);
+    var doneSet = {};
+    (data.doneIds || []).forEach(function (id) { doneSet[String(id)] = true; });
     if (data.master && Array.isArray(data.master.questions)) {
-      data.master.questions.forEach(function (q) { if (q && q.done) state.doneMap[String(q.id)] = true; });
+      data.master.questions.forEach(function (q) { if (q && q.done) doneSet[String(q.id)] = true; });
     }
+    var removedD = wrongRemovedSet(state.removedDone);
+    state.doneMap = {};
+    Object.keys(doneSet).forEach(function (k) { if (!removedD[k]) state.doneMap[k] = true; });
+    if (Array.isArray(data.wrong)) saveStoredWrong(filterWrongByRemoved(data.wrong, state.removedWrong));
     markMasterDirty();
     state.bank = data.bank && Array.isArray(data.bank.questions) && data.bank.questions.length ? data.bank : null;
     state.answers = Array.isArray(data.answers) ? data.answers : [];
@@ -1384,11 +1402,12 @@
     if (el) el.textContent = msg;
   }
 
-  function mergeDoneSets(a, b) {
+  function mergeDoneSets(a, b, removed) {
     var m = {};
     (a || []).forEach(function (id) { m[String(id)] = true; });
     (b || []).forEach(function (id) { m[String(id)] = true; });
-    return Object.keys(m);
+    var rm = wrongRemovedSet(removed);
+    return Object.keys(m).filter(function (id) { return !rm[id]; });
   }
 
   function mergeWrongLists(a, b) {
@@ -1447,9 +1466,11 @@
     local = local || {};
     cloud = cloud || {};
     var removed = mergeRemovedIds(local.removedWrong, cloud.removedWrong);
+    var removedD = mergeRemovedIds(local.removedDone, cloud.removedDone);
     var out = {
       version: APP_VERSION,
-      doneIds: mergeDoneSets(local.doneIds, cloud.doneIds),
+      doneIds: mergeDoneSets(local.doneIds, cloud.doneIds, removedD),
+      removedDone: removedD,
       wrong: filterWrongByRemoved(mergeWrongLists(local.wrong, cloud.wrong), removed),
       removedWrong: removed,
       updatedAt: Math.max(Number(local.updatedAt) || 0, Number(cloud.updatedAt) || 0, Date.now())
@@ -1467,6 +1488,7 @@
       doneIds: doneIds,
       wrong: loadStoredWrong().map(toCompactWrong),
       removedWrong: state.removedWrong || [],
+      removedDone: state.removedDone || [],
       updatedAt: Date.now(),
       progress: { bank: state.bank, answers: state.answers, current: state.current, mode: state.mode, modeName: state.modeName, submitted: state.submitted }
     };
@@ -1477,7 +1499,10 @@
     var doneSet = {};
     (data.doneIds || []).forEach(function (id) { doneSet[String(id)] = true; });
     Object.keys(state.doneMap || {}).forEach(function (k) { if (state.doneMap[k]) doneSet[k] = true; });
-    state.doneMap = doneSet;
+    state.removedDone = mergeRemovedIds(state.removedDone, data.removedDone);
+    var removedD = wrongRemovedSet(state.removedDone);
+    state.doneMap = {};
+    Object.keys(doneSet).forEach(function (k) { if (!removedD[k]) state.doneMap[k] = true; });
     state.removedWrong = mergeRemovedIds(state.removedWrong, data.removedWrong);
     if (Array.isArray(data.wrong)) {
       var mergedWrong = filterWrongByRemoved(mergeWrongLists(loadStoredWrong(), data.wrong), state.removedWrong);
